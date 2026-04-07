@@ -6,7 +6,7 @@
 ## 📜 Descripción
 
 Este repositorio almacena las prácticas, ejercicios y materiales desarrollados para la asignatura de Sistemas Operativos. El proyecto está estructurado en unidades y seminarios prácticos.
-
+Ahora pa windows
 ## 🗂️ Estructura del Repitorio
 
 El contenido está organizado de la siguiente manera para facilitar el acceso a los materiales del curso:
