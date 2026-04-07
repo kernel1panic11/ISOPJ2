@@ -20,4 +20,4 @@ El contenido está organizado de la siguiente manera para facilitar el acceso a 
 
 * **kernel1panic11**
 
-<img src="https://raw.githubusercontent.com/kernel1panic11/ISOPJ1/main/assetscss/SSvid.net--Chainsaw-Man-Kobeni-Higashiyama-Wallpaper-Engine_1080p.gif" alt="Chainsaw Man Kobeni GIF" width="100%">
+<img src="./assetscss/win.gif" alt="Chainsaw Man Kobeni GIF" width="100%">
