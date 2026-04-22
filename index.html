@@ -40,8 +40,22 @@ title: Implantación de Sistemas Operativos
   <!-- CONTENIDO DEL CURSO -->
   <div class="content-section">
     <h2 class="sub">Contenido del curso</h2>
+    <div class="search-box">
+      <label class="search-label" for="temarioSearch">Buscar por temario</label>
+      <div class="search-input-wrap">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input
+          id="temarioSearch"
+          type="search"
+          placeholder="Escribe Windows, seguridad, virtualización, usuarios..."
+          autocomplete="off"
+        >
+      </div>
+      <p class="search-help">Filtra por nombre del sprint o por temática y se mostrarán solo las coincidencias.</p>
+      <p id="searchEmptyState" class="search-empty" hidden>No se ha encontrado ningún temario con ese texto.</p>
+    </div>
     <ul class="projects-list">
-      <li>
+      <li data-search="sprint 1 instalacion configuracion inicial windows maquina virtual implantacion sistema operativo">
         <a href="{{ '/SP1/SP1.html' | relative_url }}">
           <span class="unit-badge">U1</span>
           <i class="fa-solid fa-computer"></i>
@@ -49,7 +63,7 @@ title: Implantación de Sistemas Operativos
           <i class="fa-solid fa-chevron-right arrow"></i>
         </a>
       </li>
-      <li>
+      <li data-search="sprint 2 usuarios almacenamiento administracion windows cuotas discos procesos grupos permisos acls copias seguridad">
         <a href="{{ '/SP2/SP2.html' | relative_url }}">
           <span class="unit-badge">U2</span>
           <i class="fa-solid fa-users-gear"></i>
@@ -57,7 +71,7 @@ title: Implantación de Sistemas Operativos
           <i class="fa-solid fa-chevron-right arrow"></i>
         </a>
       </li>
-      <li>
+      <li data-search="sprint 3 administracion configuracion sistemas windows">
         <a href="{{ '/SP3/SP3.html' | relative_url }}">
           <span class="unit-badge">U3</span>
           <i class="fa-brands fa-windows"></i>
@@ -65,7 +79,7 @@ title: Implantación de Sistemas Operativos
           <i class="fa-solid fa-chevron-right arrow"></i>
         </a>
       </li>
-      <li>
+      <li data-search="sprint 4 administracion avanzada seguridad hardening proteccion">
         <a href="{{ '/SP4/SP4.html' | relative_url }}">
           <span class="unit-badge">U4</span>
           <i class="fa-solid fa-shield-halved"></i>
@@ -73,7 +87,7 @@ title: Implantación de Sistemas Operativos
           <i class="fa-solid fa-chevron-right arrow"></i>
         </a>
       </li>
-      <li>
+      <li data-search="sprint 5 virtualizacion contenedores docker maquinas virtuales">
         <a href="{{ '/SP5/SP5.html' | relative_url }}">
           <span class="unit-badge">U5</span>
           <i class="fa-solid fa-server"></i>
@@ -111,3 +125,34 @@ title: Implantación de Sistemas Operativos
   </footer>
 
 </main>
+
+<script>
+  const temarioSearch = document.getElementById('temarioSearch');
+  const temarioItems = Array.from(document.querySelectorAll('.projects-list li'));
+  const searchEmptyState = document.getElementById('searchEmptyState');
+
+  if (temarioSearch && temarioItems.length) {
+    const normalizeText = (value) =>
+      value
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .trim();
+
+    const filterTemarios = () => {
+      const query = normalizeText(temarioSearch.value);
+      let visibleCount = 0;
+
+      temarioItems.forEach((item) => {
+        const haystack = normalizeText(item.dataset.search || item.textContent || '');
+        const matches = !query || haystack.includes(query);
+        item.hidden = !matches;
+        if (matches) visibleCount += 1;
+      });
+
+      searchEmptyState.hidden = visibleCount !== 0;
+    };
+
+    temarioSearch.addEventListener('input', filterTemarios);
+  }
+</script>
