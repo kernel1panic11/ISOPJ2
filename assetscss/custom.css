@@ -224,6 +224,74 @@ a:hover { color: var(--accent-2); }
   gap: .85rem;
 }
 
+.search-box {
+  margin-bottom: 1.15rem;
+  padding: 1rem;
+  background: rgba(0, 229, 255, 0.05);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.search-label {
+  display: block;
+  margin-bottom: .55rem;
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.search-input-wrap {
+  position: relative;
+}
+
+.search-input-wrap i {
+  position: absolute;
+  left: .95rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.search-input-wrap input {
+  width: 100%;
+  border: 1px solid rgba(0, 229, 255, 0.24);
+  border-radius: 999px;
+  background: rgba(5, 12, 24, 0.88);
+  color: var(--text);
+  padding: .85rem 1rem .85rem 2.7rem;
+  font: inherit;
+  transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+}
+
+.search-input-wrap input::placeholder {
+  color: var(--text-muted);
+}
+
+.search-input-wrap input:focus {
+  outline: none;
+  border-color: var(--border-hover);
+  box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.12);
+  background: rgba(7, 16, 30, 0.96);
+}
+
+.search-help {
+  margin-top: .65rem;
+  font-size: .84rem;
+  color: var(--text-muted);
+}
+
+.search-empty {
+  margin-top: .7rem;
+  padding: .75rem .9rem;
+  border-radius: 12px;
+  border: 1px dashed rgba(0, 229, 255, 0.22);
+  color: var(--text-soft);
+  background: rgba(255, 255, 255, 0.03);
+}
+
 .projects-list li {
   animation: fadeInUp .5s ease both;
 }
