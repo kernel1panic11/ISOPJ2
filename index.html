@@ -1,55 +1,113 @@
 ---
 layout: default
+title: Implantación de Sistemas Operativos
 ---
 
 <main class="contenedor-principal">
-  <h1 class="titulo">Implantación de Sistemas Operativos</h1>
-  <div class="loading-bar">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-eyebrow">
+      <i class="fa-solid fa-terminal"></i>
+      ISOPJ2 · 2025
+    </div>
+    <h1 class="titulo">Implantación de Sistemas Operativos</h1>
+    <p class="hero-sub">
+      Repositorio de actividades y prácticas organizadas por unidades. Índice principal del proyecto.
+    </p>
+  </section>
+
+  <!-- KITT BAR -->
+  <div class="loading-bar" aria-hidden="true">
     <div class="loading-progress"></div>
   </div>
 
+  <!-- PRESENTACIÓN -->
   <div class="content-section">
     <h2 class="sub">Presentación</h2>
     <p>
-      Este repositorio reúne las actividades desarrolladas en la asignatura. El contenido está organizado por unidades y sirve como índice principal del proyecto.
+      Este repositorio reúne las actividades desarrolladas en la asignatura. El contenido está
+      organizado por unidades y sirve como índice principal del proyecto.
     </p>
     <p>
       Elaborado por
-      <strong><a href="https://github.com/kernel1panic11/" target="_blank">kernel1panic11</a></strong>
+      <strong><a href="https://github.com/kernel1panic11/" target="_blank" rel="noopener">kernel1panic11</a></strong>
       y
-      <strong><a href="https://github.com/gv3sys" target="_blank">gv3sys</a></strong>.
+      <strong><a href="https://github.com/gv3sys" target="_blank" rel="noopener">gv3sys</a></strong>.
     </p>
   </div>
 
+  <!-- CONTENIDO DEL CURSO -->
   <div class="content-section">
     <h2 class="sub">Contenido del curso</h2>
     <ul class="projects-list">
-      <li><a href="{{ '/SP1/SP1.html' | relative_url }}"><i class="fa-solid fa-book"></i><span>Unidad 1. Introducción a los Sistemas Operativos y Planificación</span></a></li>
-      <li><a href="{{ '/SP2/SP2.html' | relative_url }}"><i class="fa-brands fa-windows"></i><span>Unidad 2. Implantación y Configuración de Sistemas Windows</span></a></li>
-      <li><a href="{{ '/SP3/SP3.html' | relative_url }}"><i class="fa-brands fa-windows"></i><span>Unidad 3. Administración y Configuración de Sistemas Windows</span></a></li>
-      <li><a href="{{ '/SP4/SP4.html' | relative_url }}"><i class="fa-solid fa-shield-halved"></i><span>Unidad 4. Administración Avanzada y Seguridad</span></a></li>
-      <li><a href="{{ '/SP5/SP5.html' | relative_url }}"><i class="fa-solid fa-server"></i><span>Unidad 5. Virtualización y Contenedores</span></a></li>
+      <li>
+        <a href="{{ '/SP1/SP1.html' | relative_url }}">
+          <span class="unit-badge">U1</span>
+          <i class="fa-solid fa-book"></i>
+          <span>Introducción a los Sistemas Operativos y Planificación</span>
+          <i class="fa-solid fa-chevron-right arrow"></i>
+        </a>
+      </li>
+      <li>
+        <a href="{{ '/SP2/SP2.html' | relative_url }}">
+          <span class="unit-badge">U2</span>
+          <i class="fa-brands fa-windows"></i>
+          <span>Implantación y Configuración de Sistemas Windows</span>
+          <i class="fa-solid fa-chevron-right arrow"></i>
+        </a>
+      </li>
+      <li>
+        <a href="{{ '/SP3/SP3.html' | relative_url }}">
+          <span class="unit-badge">U3</span>
+          <i class="fa-brands fa-windows"></i>
+          <span>Administración y Configuración de Sistemas Windows</span>
+          <i class="fa-solid fa-chevron-right arrow"></i>
+        </a>
+      </li>
+      <li>
+        <a href="{{ '/SP4/SP4.html' | relative_url }}">
+          <span class="unit-badge">U4</span>
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>Administración Avanzada y Seguridad</span>
+          <i class="fa-solid fa-chevron-right arrow"></i>
+        </a>
+      </li>
+      <li>
+        <a href="{{ '/SP5/SP5.html' | relative_url }}">
+          <span class="unit-badge">U5</span>
+          <i class="fa-solid fa-server"></i>
+          <span>Virtualización y Contenedores</span>
+          <i class="fa-solid fa-chevron-right arrow"></i>
+        </a>
+      </li>
     </ul>
   </div>
 
+  <!-- VÍDEO -->
   <div class="content-section">
-    <video autoplay loop muted class="course-image">
-      <source src="{{ '/assetscss/Scrolling.webm' | relative_url }}" type="video/webm">
-      <source src="{{ '/assetscss/Scrolling.mp4' | relative_url }}" type="video/mp4">
-      Tu navegador no soporta la etiqueta de video.
-    </video>
+    <h2 class="sub">Vista previa</h2>
+    <div class="video-wrapper">
+      <video autoplay loop muted playsinline class="course-image">
+        <source src="{{ '/assetscss/Scrolling.webm' | relative_url }}" type="video/webm">
+        <source src="{{ '/assetscss/Scrolling.mp4' | relative_url }}" type="video/mp4">
+        Tu navegador no soporta la etiqueta de video.
+      </video>
+    </div>
   </div>
 
-  <div class="footer-text">
+  <!-- FOOTER -->
+  <footer class="footer-text">
     <p>&copy; 2025 kernel1panic11</p>
     <p>
-      Este curso se distribuye bajo la licencia
-      <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+      Distribuido bajo la licencia
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">
         Creative Commons BY-NC-SA 4.0 Internacional
       </a>.
     </p>
-    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">
       <img alt="Licencia Creative Commons" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
     </a>
-  </div>
+  </footer>
+
 </main>
