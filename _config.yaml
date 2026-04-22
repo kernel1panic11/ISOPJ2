@@ -1,0 +1,10 @@
+# Archivo _config.yml actualizado
+
+# Plugins de Jekyll
+plugins:
+  - jekyll-seo-tag
+
+# Excluir archivos que no necesita procesar
+exclude:
+  - Gemfile
+  - Gemfile.lock
