@@ -46,7 +46,6 @@ title: "Sprint 1. Instalación y configuración inicial de Windows en máquina v
             Justo debajo de esta explicación debe colocarse una captura de pantalla donde se vea claramente la máquina virtual creada en VMware. La imagen debe mostrar, al menos, el nombre asignado y la selección del sistema operativo, ya que esa captura actúa como evidencia del inicio correcto del proceso.
         </p>
         <div class="capture-placeholder">
-            <p><strong>[Insertar aquí la captura del paso 1: creación de la máquina virtual en VMware]</strong></p>
         </div>
 
         <h3>Paso 2. Asignar recursos de hardware virtual</h3>
@@ -57,7 +56,7 @@ title: "Sprint 1. Instalación y configuración inicial de Windows en máquina v
             Debajo de este apartado debe añadirse una captura de la configuración de la máquina virtual en VMware donde se vean la memoria asignada, el disco virtual y, si procede, otros parámetros como procesadores o red. Esta imagen sirve para justificar que la configuración elegida es coherente con el uso previsto del sistema.
         </p>
         <div class="capture-placeholder">
-            <p><strong>[Insertar aquí la captura del paso 2: RAM, disco y recursos asignados en VMware]</strong></p>
+            
         </div>
 
         <h3>Paso 3. Cargar la ISO de Windows 11</h3>
