@@ -1,246 +1,149 @@
----
-layout: default
-title: "Sprint 1. Instalación y configuración inicial de Windows en máquina virtual"
----
+<div class="content-section">
+    <h2 class="sub">Sprint 1. Instalación y configuración inicial de Windows 11 en máquina virtual</h2>
+    <p>
+        En este sprint se ha realizado la implantación inicial de <strong>Windows 11</strong> sobre una máquina virtual en <strong>VMware</strong>, partiendo desde la creación del entorno virtual hasta la validación operativa del sistema ya instalado. El trabajo llevado a cabo incluye la preparación de la máquina virtual, la instalación del sistema operativo, la configuración inicial del entorno, la instalación de VMware Tools, la creación y comprobación de puntos de restauración, la verificación del estado de activación, el análisis del arranque, la configuración de red, la ejecución de comandos administrativos y la instalación y desinstalación de aplicaciones.
+    </p>
 
-<main class="contenedor-principal">
-    <h1 class="titulo">Sprint 1. Instalación y configuración inicial de Windows en máquina virtual</h1>
-    <div class="loading-bar"><div class="loading-progress"></div></div>
-
-    <div class="navigation-links">
-        <a href="{{ '/' | relative_url }}"><i class="fa-solid fa-house"></i> Volver al inicio</a>
-        <a href="{{ '/SP2/SP2.html' | relative_url }}">Siguiente práctica <i class="fa-solid fa-arrow-right"></i></a>
+    <h3>Fase 1. Instalación del sistema operativo</h3>
+    <p>
+        El primer bloque del sprint consistió en crear una nueva máquina virtual en VMware y asociarle la imagen ISO de Windows 11. Durante este proceso se definieron la ubicación de almacenamiento de la máquina virtual y la configuración básica de hardware, incluyendo memoria, procesador y disco virtual. Esta fase permitió disponer de un entorno aislado sobre el que trabajar sin afectar al sistema anfitrión.
+    </p>
+    <div class="capture-placeholder">
+        <img width="778" height="479" alt="Creación de la máquina virtual en VMware, selección de ISO" src="https://github.com/user-attachments/assets/0b82925d-74d4-47c3-8622-e07fcc8f4eab" />
+        <img width="765" height="281" alt="Selección de la ubicación donde se guardará la máquina virtual" src="https://github.com/user-attachments/assets/81b6c8f7-7939-406e-8d6f-db317fd86cf4" />
+        <img width="820" height="420" alt="Configuración de hardware virtual: memoria, disco y procesadores en VMware" src="https://github.com/user-attachments/assets/84cd15fe-92f5-44ca-a90d-78b2cbf78c58" />
+        <img width="843" height="388" alt="Resumen de configuración de la máquina virtual en VMware con ISO cargada" src="https://github.com/user-attachments/assets/9f0247ef-c47d-42cf-9d0e-f115228fd3e0" />
     </div>
 
-    <div class="content-section">
-        <h2 class="sub">Enfoque del sprint</h2>
-        <p>
-            Este sprint se centra en la instalación y configuración inicial de <strong>Windows 11</strong> dentro de una máquina virtual, siguiendo un proceso ordenado que permita dejar el sistema operativo correctamente implantado, configurado y listo para su uso. No se trata solo de completar la instalación, sino de entender qué se está haciendo en cada fase y justificar técnicamente las decisiones tomadas.
-        </p>
-        <p>
-            Además de instalar el sistema, es necesario documentar el proceso con capturas de pantalla colocadas en el punto exacto donde se explica cada acción. De este modo, la práctica no solo muestra el resultado final, sino también la evidencia visual de cada paso importante: creación de la máquina virtual, instalación del sistema, restauración, activación, red, comandos, software base y comprobaciones de arranque.
-        </p>
+    <p>
+        Durante la instalación se seleccionó la edición <strong>Windows 11 Pro N</strong>. A continuación se completó el asistente de instalación y se configuraron los parámetros iniciales del sistema, como idioma, región, distribución de teclado, tipo de uso y cuenta de usuario local. Una vez terminado el proceso, se comprobó que el sistema iniciaba correctamente y que el escritorio era accesible con normalidad.
+    </p>
+    <div class="capture-placeholder">
+        <img width="753" height="534" alt="Selección de Windows 11 Pro N durante la instalación" src="https://github.com/user-attachments/assets/8be2cae2-d728-435f-801f-270cf27333cf" />
+        <img width="747" height="556" alt="Inicio del asistente de instalación de Windows 11 en la máquina virtual" src="https://github.com/user-attachments/assets/8cf26ab2-a500-43d8-bfc2-0808f1837973" />
+        <img width="800" height="580" alt="Progreso de la instalación de Windows 11" src="https://github.com/user-attachments/assets/2f4af1f5-c35a-478c-aaf3-ff5be11be98f" />
+        <img width="1056" height="802" alt="Configuración de país e idioma durante la instalación de Windows 11" src="https://github.com/user-attachments/assets/1969b279-d096-4278-8fbc-96c9ec7a4ae2" />
+        <img width="1103" height="802" alt="Configuración de distribución de teclado durante la instalación" src="https://github.com/user-attachments/assets/6efa31f9-c312-475c-909b-fc6d96d070bc" />
+        <img width="1096" height="816" alt="Selección del tipo de uso del sistema durante la configuración inicial" src="https://github.com/user-attachments/assets/425ac880-8bdd-437f-9495-1e49f8d6d9ae" />
+        <img width="1041" height="788" alt="Pantalla de creación de cuenta de usuario local en Windows 11" src="https://github.com/user-attachments/assets/279d0a6b-fbac-4727-a49c-05588dcd8f6f" />
+        <img width="896" height="481" alt="Introducción del nombre de usuario durante la configuración inicial" src="https://github.com/user-attachments/assets/9cce9aae-a085-4fe6-9194-69eb964c0fc1" />
+        <img width="1096" height="775" alt="Pantalla de contraseña en blanco para el entorno de prácticas" src="https://github.com/user-attachments/assets/ef799a2d-6cb1-4f17-8e47-8938bedca4bd" />
+        <img width="1589" height="913" alt="Primer inicio correcto de Windows 11 en la máquina virtual, escritorio visible" src="https://github.com/user-attachments/assets/71daabba-a7ef-43a9-8622-1bd3e70ed3c0" />
     </div>
 
-    <div class="content-section">
-        <h2 class="sub">Objetivos del Sprint 1</h2>
-        <ul>
-            <li>Instalar Windows 11 en una máquina virtual correctamente configurada.</li>
-            <li>Realizar la configuración inicial del sistema para dejarlo operativo.</li>
-            <li>Crear y comprobar puntos de restauración del sistema.</li>
-            <li>Verificar el estado de activación y justificar el tipo de licencia más adecuado.</li>
-            <li>Analizar el gestor de arranque de Windows y sus parámetros principales.</li>
-            <li>Comprobar la conectividad de red y la configuración IP del entorno virtual.</li>
-            <li>Practicar comandos básicos y de administración en PowerShell y CMD.</li>
-            <li>Instalar y desinstalar aplicaciones verificando su funcionamiento.</li>
-            <li>Documentar todo el procedimiento con explicaciones breves y capturas relevantes.</li>
-        </ul>
+    <p>
+        Una vez finalizada la instalación base, se instalaron las <strong>VMware Tools</strong>. Esta operación mejoró la integración del sistema invitado con VMware, optimizando la resolución, los controladores y la interacción general con el entorno virtualizado. Tras ello se verificó nuevamente el estado del escritorio y el correcto funcionamiento del sistema.
+    </p>
+    <div class="capture-placeholder">
+        <img width="1076" height="777" alt="Inicio de la instalación de VMware Tools desde el menú de VMware" src="https://github.com/user-attachments/assets/bfc7128c-b392-43c9-84a8-7184fe05a4a3" />
+        <img width="607" height="471" alt="Asistente de instalación de VMware Tools en ejecución" src="https://github.com/user-attachments/assets/77cfef29-de20-43ab-8a16-ccd0ed863a95" />
+        <img width="641" height="311" alt="Confirmación de instalación correcta de VMware Tools" src="https://github.com/user-attachments/assets/759d47ff-0a9a-4272-9b03-344478925bb4" />
+        <img width="1564" height="904" alt="Estado final del sistema: escritorio de Windows 11 con VMware Tools instaladas" src="https://github.com/user-attachments/assets/c03c0c68-ca71-4d4c-8412-a949ddd39cb1" />
+        <img width="1600" height="904" alt="Verificación adicional del sistema operativo instalado y en funcionamiento" src="https://github.com/user-attachments/assets/cd9552d8-cc18-4f7c-8e23-888a727e5974" />
     </div>
 
-    <div class="content-section">
-        <h2 class="sub">Fase 1. Instalación del sistema operativo</h2>
-
-        <h3>Paso 1. Crear la máquina virtual</h3>
-        <p>
-            Se crea una máquina virtual en <strong>VMware</strong> destinada a alojar <strong>Windows 11</strong>. En este paso se define un entorno aislado que permite realizar toda la práctica sin afectar al sistema anfitrión. Durante el asistente de creación se selecciona la imagen ISO del sistema y se establece la ubicación donde se almacenará la máquina virtual.
-        </p>
-        <div class="capture-placeholder">
-            <img width="778" height="479" alt="Creación de la máquina virtual en VMware, selección de ISO" src="https://github.com/user-attachments/assets/0b82925d-74d4-47c3-8622-e07fcc8f4eab" />
-        </div>
-        <div class="capture-placeholder">
-            <img width="765" height="281" alt="Selección de la ubicación donde se guardará la máquina virtual" src="https://github.com/user-attachments/assets/81b6c8f7-7939-406e-8d6f-db317fd86cf4" />
-        </div>
-
-        <h3>Paso 2. Asignar recursos</h3>
-        <p>
-            A continuación se configura el hardware virtual de la máquina. Se asigna una cantidad suficiente de memoria RAM, procesador y almacenamiento para garantizar que Windows 11 pueda instalarse y ejecutarse con normalidad. Esta decisión condiciona tanto el rendimiento de la máquina virtual como el equilibrio con los recursos disponibles en el equipo anfitrión.
-        </p>
-        <div class="capture-placeholder">
-            <img width="820" height="420" alt="Configuración de hardware virtual: memoria, disco y procesadores en VMware" src="https://github.com/user-attachments/assets/84cd15fe-92f5-44ca-a90d-78b2cbf78c58" />
-        </div>
-
-        <h3>Paso 3. Cargar la ISO de Windows 11</h3>
-        <p>
-            Una vez creada la máquina virtual, se asocia la imagen ISO de Windows 11 a la unidad virtual correspondiente para que el sistema pueda arrancar desde ella e iniciar el asistente de instalación. La ISO seleccionada corresponde a <strong>Windows 11 Pro N</strong>, edición que prescinde de determinados componentes multimedia preinstalados, en línea con la normativa europea de competencia.
-        </p>
-        <div class="capture-placeholder">
-            <img width="843" height="388" alt="Resumen de configuración de la máquina virtual en VMware con ISO cargada" src="https://github.com/user-attachments/assets/9f0247ef-c47d-42cf-9d0e-f115228fd3e0" />
-        </div>
-
-        <h3>Paso 4. Instalar el sistema</h3>
-        <p>
-            Durante la instalación se selecciona la edición concreta del sistema, en este caso Windows 11 Pro N, y se configura el entorno básico de implantación. Esta elección se justifica por su adecuación al contexto académico europeo y por permitir trabajar con el sistema operativo sin determinados componentes propietarios preinstalados.
-        </p>
-        <div class="capture-placeholder">
-            <img width="753" height="534" alt="Selección de Windows 11 Pro N durante la instalación" src="https://github.com/user-attachments/assets/8be2cae2-d728-435f-801f-270cf27333cf" />
-        </div>
-
-        <h3>Paso 5. Comprobar que arranca correctamente</h3>
-        <p>
-            Antes de continuar con el resto de la práctica, se verifica que la máquina virtual está correctamente preparada y que arranca desde la ISO sin incidencias. Una vez completado el proceso, se comprueba que Windows 11 inicia correctamente y alcanza el escritorio con normalidad.
-        </p>
-        <div class="capture-placeholder">
-            <img width="747" height="556" alt="Inicio del asistente de instalación de Windows 11 en la máquina virtual" src="https://github.com/user-attachments/assets/8cf26ab2-a500-43d8-bfc2-0808f1837973" />
-        </div>
-        <div class="capture-placeholder">
-            <img width="800" height="580" alt="Progreso de la instalación de Windows 11" src="https://github.com/user-attachments/assets/2f4af1f5-c35a-478c-aaf3-ff5be11be98f" />
-        </div>
-
-        <h3>Configuración inicial tras la instalación</h3>
-        <p>
-            Una vez arranca el asistente de configuración inicial, se seleccionan la región, el idioma y la distribución de teclado. Después se elige el tipo de uso previsto para el sistema y se crea una cuenta de usuario local. En este caso, al tratarse de un entorno de prácticas en una máquina virtual aislada, la cuenta se configura sin contraseña. Finalmente, se verifica el primer inicio del sistema y la correcta carga del escritorio de Windows 11.
-        </p>
-        <div class="capture-placeholder">
-            <img width="1056" height="802" alt="Configuración de país e idioma durante la instalación de Windows 11" src="https://github.com/user-attachments/assets/1969b279-d096-4278-8fbc-96c9ec7a4ae2" />
-        </div>
-        <div class="capture-placeholder">
-            <img width="1103" height="802" alt="Configuración de distribución de teclado durante la instalación" src="https://github.com/user-attachments/assets/6efa31f9-c312-475c-909b-fc6d96d070bc" />
-        </div>
-        <div class="capture-placeholder">
-            <img width="1096" height="816" alt="Selección del tipo de uso del sistema durante la configuración inicial" src="https://github.com/user-attachments/assets/425ac880-8bdd-437f-9495-1e49f8d6d9ae" />
-        </div>
-        <div class="capture-placeholder">
-            <img width="1041" height="788" alt="Pantalla de creación de cuenta de usuario local en Windows 11" src="https://github.com/user-attachments/assets/279d0a6b-fbac-4727-a49c-05588dcd8f6f" />
-        </div>
-        <div class="capture-placeholder">
-            <img width="896" height="481" alt="Introducción del nombre de usuario durante la configuración inicial" src="https://github.com/user-attachments/assets/9cce9aae-a085-4fe6-9194-69eb964c0fc1" />
-        </div>
-        <div class="capture-placeholder">
-            <img width="1096" height="775" alt="Pantalla de contraseña en blanco para el entorno de prácticas" src="https://github.com/user-attachments/assets/ef799a2d-6cb1-4f17-8e47-8938bedca4bd" />
-        </div>
-        <div class="capture-placeholder">
-            <img width="1589" height="913" alt="Primer inicio correcto de Windows 11 en la máquina virtual, escritorio visible" src="https://github.com/user-attachments/assets/71daabba-a7ef-43a9-8622-1bd3e70ed3c0" />
-        </div>
-
-        <h3>Instalación de VMware Tools</h3>
-        <p>
-            Para mejorar la integración entre el sistema huésped y VMware, se instalan las <strong>VMware Tools</strong>. Estas herramientas permiten ajustar automáticamente la resolución, mejorar el rendimiento gráfico, habilitar funcionalidades de integración y optimizar la experiencia de uso general de la máquina virtual.
-        </p>
-        <div class="capture-placeholder">
-            <img width="1076" height="777" alt="Inicio de la instalación de VMware Tools desde el menú de VMware" src="https://github.com/user-attachments/assets/bfc7128c-b392-43c9-84a8-7184fe05a4a3" />
-        </div>
-        <div class="capture-placeholder">
-            <img width="607" height="471" alt="Asistente de instalación de VMware Tools en ejecución" src="https://github.com/user-attachments/assets/77cfef29-de20-43ab-8a16-ccd0ed863a95" />
-        </div>
-        <div class="capture-placeholder">
-            <img width="641" height="311" alt="Confirmación de instalación correcta de VMware Tools" src="https://github.com/user-attachments/assets/759d47ff-0a9a-4272-9b03-344478925bb4" />
-        </div>
-        <div class="capture-placeholder">
-            <img width="1564" height="904" alt="Estado final del sistema: escritorio de Windows 11 con VMware Tools instaladas" src="https://github.com/user-attachments/assets/c03c0c68-ca71-4d4c-8412-a949ddd39cb1" />
-        </div>
-        <div class="capture-placeholder">
-            <img width="1600" height="904" alt="Verificación adicional del sistema operativo instalado y en funcionamiento" src="https://github.com/user-attachments/assets/cd9552d8-cc18-4f7c-8e23-888a727e5974" />
-        </div>
+    <h3>Fase 2. Puntos de restauración</h3>
+    <p>
+        Después de la instalación se accedió a la herramienta de protección del sistema para habilitar los puntos de restauración. Primero se localizó la utilidad desde el buscador, después se activó la protección sobre la unidad principal y, a continuación, se creó manualmente un punto de restauración. Esta operación permitió fijar un estado del sistema al que volver posteriormente.
+    </p>
+    <div class="capture-placeholder">
+        <img width="928" height="907" alt="Búsqueda de la herramienta crear punto de restauración en Windows 11" src="https://github.com/user-attachments/assets/ff147259-e7eb-4a63-80e0-ed664a0bd112" />
+        <img width="984" height="616" alt="Activación de la protección del sistema en el disco C" src="https://github.com/user-attachments/assets/6af9c6dd-5e91-44b4-9ac0-54955606588b" />
+        <img width="960" height="562" alt="Creación manual de un punto de restauración" src="https://github.com/user-attachments/assets/efcffa38-a397-40ec-ac2b-35a5d4343c45" />
+        <img width="479" height="508" alt="Proceso de creación del punto de restauración" src="https://github.com/user-attachments/assets/dfedf0fa-2573-4ac0-8a3f-918a9e087bd3" />
     </div>
 
-    <div class="content-section">
-        <h2 class="sub">Fase 2. Puntos de restauración</h2>
-
-        <h3>Paso 6. Buscar “Crear un punto de restauración”</h3>
-        <p>
-            Se localiza la herramienta de restauración desde el buscador del sistema. Este paso permite acceder a la función de protección del sistema, imprescindible para generar puntos de restauración que permitan revertir cambios posteriores.
-        </p>
-        <div class="capture-placeholder">
-            <img width="928" height="907" alt="Búsqueda de la herramienta crear punto de restauración en Windows 11" src="https://github.com/user-attachments/assets/ff147259-e7eb-4a63-80e0-ed664a0bd112" />
-        </div>
-
-        <h3>Paso 7. Activar la protección del sistema en el disco C:</h3>
-        <p>
-            Una vez abierta la ventana de propiedades del sistema, se activa la protección sobre la unidad principal. Esta configuración permite que Windows almacene estados previos del sistema que puedan recuperarse si una instalación o cambio provoca incidencias.
-        </p>
-        <div class="capture-placeholder">
-            <img width="984" height="616" alt="Activación de la protección del sistema en el disco C" src="https://github.com/user-attachments/assets/6af9c6dd-5e91-44b4-9ac0-54955606588b" />
-        </div>
-
-        <h3>Paso 8. Crear un punto de restauración manual</h3>
-        <p>
-            Tras activar la protección, se genera manualmente un punto de restauración. Esta acción crea una referencia a la que podrá volver el sistema más adelante, lo que resulta especialmente útil antes de realizar instalaciones masivas o modificaciones de configuración.
-        </p>
-        <div class="capture-placeholder">
-            <img width="960" height="562" alt="Creación manual de un punto de restauración" src="https://github.com/user-attachments/assets/efcffa38-a397-40ec-ac2b-35a5d4343c45" />
-        </div>
-        <div class="capture-placeholder">
-            <img width="479" height="508" alt="Proceso de creación del punto de restauración" src="https://github.com/user-attachments/assets/dfedf0fa-2573-4ac0-8a3f-918a9e087bd3" />
-        </div>
-
-        <h3>Paso 9. Hacer un cambio en el sistema</h3>
-        <p>
-            Para comprobar el funcionamiento real del punto de restauración, se realiza un cambio significativo en el sistema mediante la instalación masiva de aplicaciones con Ninite. Entre el software instalado se incluyen navegadores, herramientas de comunicación, utilidades de compresión, bibliotecas de ejecución, herramientas de acceso remoto, almacenamiento en la nube y otros programas de uso habitual. Esto permite generar un estado claramente diferente que después podrá revertirse.
-        </p>
-        <div class="capture-placeholder">
-            <img width="664" height="470" alt="Instalación masiva de aplicaciones con Ninite para preparar la prueba de restauración" src="https://github.com/user-attachments/assets/76b2d9f0-7e38-4234-92b2-f4d13bd27951" />
-        </div>
-        <div class="capture-placeholder">
-            <img width="676" height="912" alt="Listado de programas instalados tras la ejecución de Ninite" src="https://github.com/user-attachments/assets/419ded94-0ec8-4944-8b01-eb319f99d334" />
-        </div>
-
-        <h3>Paso 10. Restaurar y comprobar</h3>
-        <p>
-            Una vez introducidos los cambios, se inicia el proceso de restauración para volver al punto previamente creado. El asistente de restauración permite seleccionar el punto disponible, revisar los cambios afectados y ejecutar la reversión. Finalmente, se comprueba que el sistema vuelve al estado anterior y que los programas añadidos desaparecen o dejan de estar presentes como consecuencia de la restauración.
-        </p>
-        <div class="capture-placeholder">
-            <img width="559" height="460" alt="Inicio del asistente de restauración del sistema" src="https://github.com/user-attachments/assets/963ae332-0dcb-4e34-aefc-95067e906bd5" />
-        </div>
-        <div class="capture-placeholder">
-            <img width="547" height="243" alt="Selección del punto de restauración para iniciar el rollback" src="https://github.com/user-attachments/assets/ffe089e1-81a3-47ba-80b6-eee72f15bc3f" />
-        </div>
-        <div class="capture-placeholder">
-            <img width="1544" height="774" alt="Proceso de restauración del sistema en ejecución" src="https://github.com/user-attachments/assets/b0aa08b8-6cf2-4668-8b20-5a2dfeeec899" />
-        </div>
-        <div class="capture-placeholder">
-            <img width="1138" height="733" alt="Comprobación final de la restauración del sistema" src="https://github.com/user-attachments/assets/1fba42e4-f648-42c1-b2f5-7e2afe88ddf4" />
-        </div>
+    <p>
+        Para comprobar el funcionamiento de la restauración del sistema, se introdujo un cambio significativo mediante la instalación masiva de software con Ninite. Se instalaron navegadores, herramientas de comunicación, bibliotecas de ejecución, utilidades de compresión, almacenamiento en la nube y otros programas de uso común. Una vez generado este nuevo estado, se inició el proceso de restauración para volver al punto anterior y se comprobó que el sistema revertía correctamente los cambios realizados.
+    </p>
+    <div class="capture-placeholder">
+        <img width="664" height="470" alt="Instalación masiva de aplicaciones con Ninite para preparar la prueba de restauración" src="https://github.com/user-attachments/assets/76b2d9f0-7e38-4234-92b2-f4d13bd27951" />
+        <img width="676" height="912" alt="Listado de programas instalados tras la ejecución de Ninite" src="https://github.com/user-attachments/assets/419ded94-0ec8-4944-8b01-eb319f99d334" />
+        <img width="559" height="460" alt="Inicio del asistente de restauración del sistema" src="https://github.com/user-attachments/assets/963ae332-0dcb-4e34-aefc-95067e906bd5" />
+        <img width="547" height="243" alt="Selección del punto de restauración para iniciar el rollback" src="https://github.com/user-attachments/assets/ffe089e1-81a3-47ba-80b6-eee72f15bc3f" />
+        <img width="1544" height="774" alt="Proceso de restauración del sistema en ejecución" src="https://github.com/user-attachments/assets/b0aa08b8-6cf2-4668-8b20-5a2dfeeec899" />
+        <img width="1138" height="733" alt="Comprobación final de la restauración del sistema" src="https://github.com/user-attachments/assets/1fba42e4-f648-42c1-b2f5-7e2afe88ddf4" />
     </div>
 
-    <div class="content-section">
-        <h2 class="sub">Fase 3. Licencias de Windows</h2>
-
-        <h3>Paso 11. Abrir Configuración → Sistema → Activación</h3>
-        <p>
-            Se accede al apartado de activación de Windows para comprobar el estado de la licencia del sistema. Esta pantalla constituye la referencia principal para verificar si el sistema está activado o no desde la interfaz gráfica.
-        </p>
-        <div class="capture-placeholder">
-            <img width="1007" height="804" alt="Pantalla de activación de Windows 11 donde se observa que el sistema no está activado" src="https://github.com/user-attachments/assets/06e203d9-b09e-488e-be3e-c47bf6c60873" />
-        </div>
-
-        <h3>Paso 12. Ver si Windows está activado</h3>
-        <p>
-            La comprobación confirma que Windows no está activado en esta instalación. Esto implica que el sistema puede utilizarse para prácticas, pero no dispone de una licencia validada de forma completa, lo que limita determinados aspectos de personalización y regularidad de uso.
-        </p>
-
-        <h3>Paso 13. Ejecutar en CMD <code>slmgr /xpr</code></h3>
-        <p>
-            Para complementar la verificación visual, se realiza una comprobación técnica mediante línea de comandos. El comando <code>slmgr /xpr</code> permite comprobar si la activación del sistema es permanente o si no existe una licencia válida asociada a la instalación actual.
-        </p>
-        <div class="capture-placeholder">
-            <img width="951" height="499" alt="Comprobación del estado de activación mediante slmgr /xpr" src="https://github.com/user-attachments/assets/86fdff02-d187-4fca-a12d-4185dcf4d8c8" />
-        </div>
-
-        <h3>Paso 14. Analizar el licenciamiento de Windows y explicarlo brevemente</h3>
-        <p>
-            En este apartado se analiza el modelo de licenciamiento de Windows con el objetivo de determinar qué modalidad resulta más adecuada en un entorno de virtualización. Windows dispone de distintos tipos de licencia. La licencia OEM queda vinculada al hardware físico del equipo y no puede transferirse libremente. La licencia Retail ofrece mayor flexibilidad y permite reutilización en otros equipos, aunque está orientada a escenarios individuales. En entornos corporativos o institucionales se emplean licencias por volumen, mientras que las licencias educativas se adaptan a contextos académicos.
-        </p>
-        <p>
-            En una máquina virtual no existe una vinculación directa y estable con un hardware físico concreto. Por ello, una licencia OEM no resulta la opción más adecuada. La licencia Retail sería funcional, pero poco eficiente si se pretende reutilizar o replicar el entorno. En la práctica, las opciones más coherentes para este caso serían licencias por volumen o educativas, ya que permiten mayor flexibilidad, reutilización y adaptación a laboratorios o entornos docentes.
-        </p>
-
-        <h3>Paso 15. Consultar el precio aproximado de una licencia de Windows</h3>
-        <p>
-            Además del análisis técnico del licenciamiento, se realiza una aproximación al coste económico del sistema operativo. De forma orientativa, una licencia Windows 11 Home suele situarse aproximadamente entre 120 y 150 euros, mientras que Windows 11 Pro suele situarse entre 200 y 260 euros. Estos valores corresponden habitualmente a licencias Retail. Las licencias OEM suelen ser más económicas, pero quedan vinculadas al hardware. Por su parte, las licencias por volumen o educativas no suelen disponer de un precio unitario público, ya que dependen de acuerdos concretos con organizaciones o instituciones.
-        </p>
-        <p>
-            Esto permite contextualizar que la implantación de un sistema operativo no solo tiene una dimensión técnica, sino también económica, especialmente cuando se plantea en múltiples equipos o en infraestructuras virtualizadas.
-        </p>
+    <h3>Fase 3. Licencias de Windows</h3>
+    <p>
+        En la fase de licenciamiento se revisó el estado de activación del sistema desde la configuración de Windows. La comprobación mostró que el sistema no estaba activado. Después se realizó una verificación adicional mediante línea de comandos con <code>slmgr /xpr</code>, lo que permitió comprobar desde una vía técnica el estado real de la licencia.
+    </p>
+    <div class="capture-placeholder">
+        <img width="1007" height="804" alt="Pantalla de activación de Windows 11 donde se observa que el sistema no está activado" src="https://github.com/user-attachments/assets/06e203d9-b09e-488e-be3e-c47bf6c60873" />
+        <img width="951" height="499" alt="Comprobación del estado de activación mediante slmgr /xpr" src="https://github.com/user-attachments/assets/86fdff02-d187-4fca-a12d-4185dcf4d8c8" />
     </div>
 
-    <div class="content-section">
-        <h2 class="sub">Fase 4. Gestor de arranque</h2>
+    <p>
+        A partir de esta comprobación se analizó el modelo de licenciamiento de Windows. Se distinguieron las licencias OEM, Retail, por volumen y educativas. En el contexto de una máquina virtual, la opción más coherente es una licencia por volumen o una licencia educativa, ya que la OEM queda vinculada al hardware físico y la Retail, aunque es funcional, resulta menos eficiente si el entorno se reutiliza o replica. También se realizó una valoración económica aproximada del sistema operativo, situando Windows 11 Home en un rango aproximado de 120 a 150 euros y Windows 11 Pro entre 200 y 260 euros en formato Retail.
+    </p>
 
-        <h3>Paso 16. Abrir Command Prompt como administrador</h3>
-        <p>
-            Para analizar la configuración del arranque se abre el símbolo del sistema con privilegios de administrador. Este nivel de permisos es necesario para consultar información sensible del proceso de inicio del sistema.
-        </p>
-        <div class="capture-placeholder">
-            <img width="804" height="497" alt="Apertura del símbolo del sistema como administrador" src="https://github.com/user-attachments/assets/71956bc2-81dc-432a-b6ce-4a9da79fd13e" />
-        </div>
-  
+    <h3>Fase 4. Gestor de arranque</h3>
+    <p>
+        En este bloque se abrió el símbolo del sistema con privilegios de administrador y se ejecutó el comando <code>bcdedit</code> para analizar la configuración del arranque de Windows. La salida permitió identificar claramente los bloques correspondientes al <strong>Administrador de arranque de Windows</strong> y al <strong>Cargador de arranque de Windows</strong>. A partir de estos datos se interpretaron parámetros como el sistema por defecto, el tiempo de espera antes del arranque automático, la partición del sistema operativo y el archivo responsable de su carga.
+    </p>
+    <div class="capture-placeholder">
+        <img width="804" height="497" alt="Apertura del símbolo del sistema como administrador" src="https://github.com/user-attachments/assets/71956bc2-81dc-432a-b6ce-4a9da79fd13e" />
+        <img width="982" height="163" alt="Confirmación del inicio de CMD con permisos administrativos" src="https://github.com/user-attachments/assets/8a9d46be-d164-4986-afef-331b765190d5" />
+        <img width="781" height="623" alt="Salida del comando bcdedit en CMD" src="https://github.com/user-attachments/assets/aa4f3b1f-0d42-405e-9ae7-eab0457200be" />
+    </div>
+
+    <p>
+        Del análisis se concluyó que el sistema arrancaba con la entrada actual, que el tiempo de espera estaba fijado en 30 segundos, que Windows se encontraba instalado en la partición C: y que el archivo encargado de iniciar la carga era <code>\Windows\system32\winload.efi</code>. Con ello se documentó la secuencia básica de arranque de Windows y la función diferenciada del Boot Manager y del Boot Loader.
+    </p>
+
+    <h3>Fase 5. Red básica</h3>
+    <p>
+        La fase de red se centró en la revisión y modificación de la configuración IP del sistema. Se accedió a la configuración del adaptador desde el Panel de control, se comprobó el direccionamiento actual mediante <code>ipconfig</code> y se probaron tanto la configuración automática mediante DHCP como la configuración manual de IP y DNS. Para validar la conectividad se ejecutó un <code>ping</code> a un dominio externo.
+    </p>
+    <div class="capture-placeholder">
+        <img width="1021" height="637" alt="Configuración de red desde el panel de control" src="https://github.com/user-attachments/assets/83f22aaa-91db-4061-a178-185212940cff" />
+        <img width="604" height="274" alt="Ejecución de ipconfig para consultar la configuración IP" src="https://github.com/user-attachments/assets/92ce8e30-a736-48d2-84f1-28eaacd553b8" />
+        <img width="643" height="454" alt="Configuración automática de IP y DNS mediante DHCP" src="https://github.com/user-attachments/assets/0da22fe3-58cd-4e75-8dba-a0f9c3e073a7" />
+        <img width="1012" height="768" alt="Configuración manual de IP y DNS en Windows 11" src="https://github.com/user-attachments/assets/28bd9d6f-0959-42a6-8359-7f6a52cdfebc" />
+        <img width="593" height="117" alt="Comprobación de conectividad mediante ping" src="https://github.com/user-attachments/assets/6e01e783-dbdb-489e-8d56-1ba5d1464be0" />
+    </div>
+
+    <h3>Fase 6. Comandos generales</h3>
+    <p>
+        En esta fase se utilizaron PowerShell y la línea de comandos para ejecutar tareas básicas y administrativas. Se abrieron consolas, se listó contenido con <code>dir</code>, se creó una carpeta con <code>mkdir</code>, se generó un archivo de texto mediante <code>echo</code> y posteriormente se eliminó con <code>del</code>. También se probaron comandos del sistema como <code>taskkill</code>, <code>systeminfo</code>, <code>hostname</code> y <code>whoami</code>, así como comandos de red como <code>ipconfig</code>, <code>ping</code> y <code>netstat -an</code>. Por último, se ejecutaron utilidades complementarias como <code>tree</code>, <code>cls</code>, <code>help</code> y <code>shutdown /s /t 0</code>.
+    </p>
+    <div class="capture-placeholder">
+        <img width="1142" height="638" alt="Apertura de PowerShell en Windows 11" src="https://github.com/user-attachments/assets/8ddf333b-22ad-473a-b61f-e6fa226cf040" />
+        <img width="706" height="444" alt="Ejecución de dir en PowerShell" src="https://github.com/user-attachments/assets/0a53b17f-4eb5-4290-b994-de87ad58cbda" />
+        <img width="949" height="207" alt="Creación de la carpeta hola con mkdir" src="https://github.com/user-attachments/assets/b05ab8da-3575-4778-b8d7-89848ebc9575" />
+        <img width="864" height="495" alt="Comprobación mediante dir de que la carpeta se ha creado" src="https://github.com/user-attachments/assets/7fd0bde1-5c9e-4d55-9579-5db7d1327c9e" />
+        <img width="691" height="487" alt="Creación del archivo fitxer.txt y visualización" src="https://github.com/user-attachments/assets/f90e196f-d411-4532-9159-8b777eacdebf" />
+        <img width="394" height="92" alt="Visualización del contenido del archivo fitxer.txt" src="https://github.com/user-attachments/assets/f4c36a46-d3a5-48c8-b7be-febbc51f3042" />
+        <img width="783" height="453" alt="Eliminación del archivo fitxer.txt y comprobación posterior" src="https://github.com/user-attachments/assets/2d7f1d0e-3101-4ca4-8189-10853ec15fff" />
+        <img width="652" height="74" alt="Finalización del proceso notepad.exe con taskkill" src="https://github.com/user-attachments/assets/a352f267-a2ad-4bae-937b-6dfa2afd0adc" />
+        <img width="1355" height="769" alt="Información completa del sistema mediante systeminfo" src="https://github.com/user-attachments/assets/9895c594-7d76-4ba5-9bd1-3116480d8f88" />
+        <img width="355" height="105" alt="Visualización del nombre del equipo con hostname" src="https://github.com/user-attachments/assets/f99eef1d-e1e9-481f-ab06-1a32cd24e054" />
+        <img width="304" height="85" alt="Visualización del usuario actual con whoami" src="https://github.com/user-attachments/assets/bb1624d3-7459-4dd8-bc18-87a1d7fe04db" />
+        <img width="677" height="226" alt="Configuración IP mostrada con ipconfig" src="https://github.com/user-attachments/assets/2a1b2067-5aae-4364-9aab-a3f591fbd166" />
+        <img width="699" height="216" alt="Comprobación de conectividad con ping google.es" src="https://github.com/user-attachments/assets/a9afe735-1b63-459a-aa19-304eb8268c87" />
+        <img width="1467" height="771" alt="Conexiones abiertas del sistema mostradas con netstat -an" src="https://github.com/user-attachments/assets/2940b578-adab-4344-9e0e-aeef1db42580" />
+        <img width="591" height="352" alt="Visualización de la estructura de carpetas con tree" src="https://github.com/user-attachments/assets/9e9aa226-a071-42ab-a77e-eeeed1d603b4" />
+        <img width="1603" height="338" alt="Limpieza de pantalla con cls" src="https://github.com/user-attachments/assets/fb9a346b-4d44-4753-ac8b-9bbd29f3fad4" />
+        <img width="1575" height="752" alt="Ayuda general de comandos con help" src="https://github.com/user-attachments/assets/1c73977e-9ccd-43dd-a4a8-637c07365461" />
+        <img width="750" height="205" alt="Orden de apagado inmediato con shutdown /s /t 0" src="https://github.com/user-attachments/assets/e6d64e86-b07d-4838-9c91-c46cf41c960a" />
+        <img width="1543" height="902" alt="Resultado del apagado del sistema" src="https://github.com/user-attachments/assets/c341d57a-5d2b-4e27-9dff-88ed9a4e15ce" />
+    </div>
+
+    <h3>Fase 7. Instalación de aplicaciones</h3>
+    <p>
+        El sprint se cerró con la instalación y comprobación de software. Se descargó e instaló Google Chrome desde su fuente oficial, se verificó su funcionamiento y, posteriormente, se instaló una aplicación desde Microsoft Store. Después de comprobar que la aplicación de la Store se ejecutaba correctamente, se procedió a su desinstalación y se verificó que desaparecía del sistema.
+    </p>
+    <div class="capture-placeholder">
+        <img width="1615" height="843" alt="Descarga de Google Chrome desde el navegador" src="https://github.com/user-attachments/assets/eb77f4eb-6b06-4115-a917-a9684af38835" />
+        <img width="924" height="385" alt="Instalación de Google Chrome" src="https://github.com/user-attachments/assets/94063166-cc9a-4676-9678-233fbcb028a6" />
+        <img width="846" height="539" alt="Apertura de Google Chrome y comprobación básica de funcionamiento" src="https://github.com/user-attachments/assets/7b64aa7d-6794-4b6b-bf73-5f06e90be446" />
+        <img width="1017" height="790" alt="Verificación adicional del funcionamiento de Chrome" src="https://github.com/user-attachments/assets/7453c2e3-f722-4ae8-941d-d03fcf6bfa3c" />
+        <img width="943" height="767" alt="Instalación de una aplicación desde Microsoft Store" src="https://github.com/user-attachments/assets/f7e667ea-513a-43ce-aeaf-073dad63c3f2" />
+        <img width="454" height="576" alt="Comprobación del funcionamiento de la aplicación instalada desde Microsoft Store" src="https://github.com/user-attachments/assets/56127d87-cc85-4035-91be-0003bd333694" />
+        <img width="474" height="211" alt="Inicio del proceso de desinstalación de la aplicación" src="https://github.com/user-attachments/assets/b1bf53a7-2916-47d7-a453-7569693ba2b8" />
+        <img width="709" height="362" alt="Confirmación del proceso de desinstalación" src="https://github.com/user-attachments/assets/e4750237-8c1c-4f5d-8f53-3cc26fd08e50" />
+        <img width="847" height="354" alt="Comprobación de que la aplicación ya no aparece tras la desinstalación" src="https://github.com/user-attachments/assets/14b0082b-21ff-4676-b905-8134d4353a5b" />
+        <img width="817" height="559" alt="Verificación adicional de la desinstalación completada" src="https://github.com/user-attachments/assets/7efb0935-6a44-4394-b96d-062af05571e7" />
+    </div>
+</div>
