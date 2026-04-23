@@ -15,221 +15,82 @@ title: "Sprint 1. Instalación y configuración inicial de Windows en máquina v
     <div class="content-section">
         <h2 class="sub">Enfoque del sprint</h2>
         <p>
-            Este sprint queda orientado a la implantación de un sistema Windows dentro de una máquina virtual, documentando tanto la instalación como la configuración inicial necesaria para dejar el entorno operativo, conectado y preparado para trabajar.
+            Este sprint se centra en la instalación y configuración inicial de <strong>Windows 11</strong> dentro de una máquina virtual, siguiendo un proceso ordenado que permita dejar el sistema operativo correctamente implantado, configurado y listo para su uso. No se trata solo de completar la instalación, sino de entender qué se está haciendo en cada fase y justificar técnicamente las decisiones tomadas.
         </p>
         <p>
-            El trabajo no se limita a instalar Windows: también hay que justificar la licencia elegida, configurar red, instalar software base, comprobar el arranque y dejar evidencia clara de todo el proceso mediante capturas y explicaciones breves.
+            Además de instalar el sistema, será necesario documentar el proceso con capturas de pantalla colocadas en el punto exacto donde se explica cada acción. De este modo, la práctica no solo muestra el resultado final, sino también la evidencia visual de cada paso importante: creación de la máquina virtual, instalación del sistema, activación, red, software base y comprobaciones de arranque. :contentReference[oaicite:0]{index=0}
         </p>
     </div>
 
     <div class="content-section">
         <h2 class="sub">Objetivos del Sprint 1</h2>
         <ul>
-            <li>Identificar los elementos funcionales principales de un sistema operativo Windows.</li>
-            <li>Realizar la instalación y configuración inicial del sistema en una máquina virtual.</li>
-            <li>Configurar y verificar los servicios y protocolos básicos de red.</li>
-            <li>Instalar el software base necesario para el uso y mantenimiento del sistema.</li>
-            <li>Aplicar técnicas de recuperación o reparación ante una incidencia de arranque.</li>
-            <li>Documentar el procedimiento completo con evidencias visuales y conclusiones.</li>
+            <li>Instalar Windows 11 en una máquina virtual correctamente configurada.</li>
+            <li>Realizar la configuración inicial del sistema para dejarlo operativo.</li>
+            <li>Comprobar la conectividad de red y la configuración IP del entorno virtual.</li>
+            <li>Verificar el estado de activación y justificar el tipo de licencia más adecuado.</li>
+            <li>Instalar software base y validar su funcionamiento.</li>
+            <li>Analizar aspectos básicos del arranque y de la recuperación del sistema.</li>
+            <li>Documentar todo el procedimiento con explicaciones breves y capturas relevantes.</li>
         </ul>
     </div>
 
     <div class="content-section">
         <h2 class="sub">Fase 1. Preparación de la máquina virtual</h2>
-        <ol>
-            <li>Crear una máquina virtual destinada a alojar Windows.</li>
-            <li>Definir la configuración de hardware virtual: memoria RAM, procesador, disco y adaptador de red.</li>
-            <li>Cargar la ISO de instalación de Windows.</li>
-            <li>Justificar por qué esa configuración es válida para un entorno de ofimática o trabajo colaborativo.</li>
-            <li>Registrar capturas de la creación de la VM, recursos asignados y disco virtual generado.</li>
-        </ol>
-        <p><strong>Qué conviene explicar:</strong> tipo de máquina virtual, recursos elegidos, tamaño del disco y motivo de la configuración.</p>
-    </div>
 
-    <div class="content-section">
-        <h2 class="sub">Fase 2. Instalación de Windows e identificación de elementos funcionales</h2>
-        <ol start="6">
-            <li>Ejecutar la instalación completa del sistema operativo.</li>
-            <li>Configurar idioma, región, usuario, contraseña y opciones iniciales.</li>
-            <li>Comprobar que el sistema inicia correctamente tras la instalación.</li>
-            <li>Identificar durante el proceso o después del primer arranque los elementos funcionales del sistema.</li>
-            <li>Describir brevemente el gestor de archivos, el gestor de procesos, el sistema de permisos, el registro de Windows y las opciones de configuración inicial.</li>
-        </ol>
-        <p><strong>Capturas recomendadas:</strong> asistente de instalación, primer inicio de sesión, Explorador de archivos, Administrador de tareas, registro o paneles de configuración relevantes.</p>
-    </div>
+        <h3>Paso 1. Crear la máquina virtual</h3>
+        <p>
+            Se crea una máquina virtual en <strong>VMware</strong> destinada a alojar <strong>Windows 11</strong>. En este paso debe indicarse el nombre de la máquina, el tipo de sistema operativo seleccionado y el hecho de que se está preparando un entorno aislado para realizar toda la práctica sin afectar al equipo anfitrión.
+        </p>
+        <p>
+            Justo debajo de esta explicación debe colocarse una captura de pantalla donde se vea claramente la máquina virtual creada en VMware. La imagen debe mostrar, al menos, el nombre asignado y la selección del sistema operativo, ya que esa captura actúa como evidencia del inicio correcto del proceso.
+        </p>
+        <div class="capture-placeholder">
+            <p><strong>[Insertar aquí la captura del paso 1: creación de la máquina virtual en VMware]</strong></p>
+        </div>
 
-    <div class="content-section">
-        <h2 class="sub">Fase 3. Licenciamiento de Windows</h2>
-        <ol start="11">
-            <li>Revisar el estado de activación del sistema.</li>
-            <li>Consultar el tipo de licencia que se está utilizando o la que se simularía en el proyecto.</li>
-            <li>Explicar las diferencias básicas entre licencias OEM, Retail, Volumen y Educacional.</li>
-            <li>Indicar cuál encaja mejor en este entorno virtual y justificar la elección.</li>
-            <li>Añadir una comprobación del sistema como <code>slmgr /xpr</code> o la pantalla de activación de Windows.</li>
-        </ol>
-        <p><strong>Importante:</strong> aquí no solo interesa comprobar si está activado, sino argumentar qué modalidad de licencia tendría sentido en una implantación educativa o profesional.</p>
-    </div>
+        <h3>Paso 2. Asignar recursos de hardware virtual</h3>
+        <p>
+            A continuación se configura el hardware virtual de la máquina. Se recomienda asignar como mínimo <strong>4 GB de memoria RAM</strong> y un disco virtual de <strong>40 GB</strong>, ya que estos valores permiten instalar Windows 11 con un margen razonable para tareas básicas de ofimática, navegación y trabajo colaborativo.
+        </p>
+        <p>
+            Debajo de este apartado debe añadirse una captura de la configuración de la máquina virtual en VMware donde se vean la memoria asignada, el disco virtual y, si procede, otros parámetros como procesadores o red. Esta imagen sirve para justificar que la configuración elegida es coherente con el uso previsto del sistema.
+        </p>
+        <div class="capture-placeholder">
+            <p><strong>[Insertar aquí la captura del paso 2: RAM, disco y recursos asignados en VMware]</strong></p>
+        </div>
 
-    <div class="content-section">
-        <h2 class="sub">Fase 4. Configuración de red y conectividad</h2>
-        <ol start="16">
-            <li>Configurar la conectividad de la máquina virtual.</li>
-            <li>Comprobar la configuración IP con herramientas como <code>ipconfig</code>.</li>
-            <li>Verificar el funcionamiento de DHCP o configurar una IP estática si se pide en la práctica.</li>
-            <li>Revisar parámetros como puerta de enlace, DNS y grupo de trabajo.</li>
-            <li>Realizar pruebas de conectividad con <code>ping</code> y otras utilidades básicas.</li>
-        </ol>
-        <p><strong>Capturas recomendadas:</strong> configuración del adaptador de red, salida de <code>ipconfig</code>, pruebas de <code>ping</code> y resultado final de la conexión.</p>
-    </div>
+        <h3>Paso 3. Cargar la ISO de Windows 11</h3>
+        <p>
+            Una vez creada la máquina virtual, se asocia la imagen ISO de Windows 11 a la unidad virtual correspondiente para que el sistema pueda arrancar desde ella e iniciar el asistente de instalación.
+        </p>
+        <p>
+            Debajo de este texto debe colocarse una captura donde se vea la ISO configurada en VMware, normalmente dentro de la configuración del dispositivo CD/DVD virtual. La imagen debe servir como prueba de que el medio de instalación ha sido cargado correctamente antes del arranque.
+        </p>
+        <div class="capture-placeholder">
+            <p><strong>[Insertar aquí la captura del paso 3: ISO de Windows 11 cargada en VMware]</strong></p>
+        </div>
 
-    <div class="content-section">
-        <h2 class="sub">Fase 5. Instalación de software base y seguridad</h2>
-        <ol start="21">
-            <li>Instalar las actualizaciones necesarias del sistema.</li>
-            <li>Revisar el antivirus y el firewall de Windows o añadir software equivalente si la práctica lo requiere.</li>
-            <li>Instalar herramientas básicas: compresión, navegador alternativo y utilidades de administración.</li>
-            <li>Comprobar que las aplicaciones instaladas funcionan correctamente.</li>
-            <li>Dejar constancia del software añadido y de su utilidad dentro del sistema.</li>
-        </ol>
-        <p><strong>Ejemplos de software base:</strong> navegador alternativo, compresor, utilidades de mantenimiento, herramientas de actualización o diagnóstico.</p>
-    </div>
+        <h3>Paso 4. Justificar la configuración elegida</h3>
+        <p>
+            En este punto se debe explicar por qué la configuración seleccionada resulta adecuada para el entorno de trabajo planteado. Asignar una cantidad razonable de memoria, un disco suficiente y una red funcional permite instalar y usar Windows 11 con estabilidad, manteniendo además un equilibrio con los recursos disponibles en el equipo anfitrión.
+        </p>
+        <p>
+            Debajo de este apartado conviene colocar una captura adicional de la configuración general de la máquina virtual en VMware. Esta imagen refuerza la explicación y deja constancia visual de los parámetros adoptados antes de comenzar la instalación.
+        </p>
+        <div class="capture-placeholder">
+            <p><strong>[Insertar aquí la captura del paso 4: configuración general de la máquina virtual]</strong></p>
+        </div>
 
-    <div class="content-section">
-        <h2 class="sub">Fase 6. Incidencia de arranque y recuperación</h2>
-        <ol start="26">
-            <li>Simular o resolver una incidencia relacionada con el arranque del sistema.</li>
-            <li>Acceder a las opciones avanzadas de recuperación de Windows o al entorno WinRE.</li>
-            <li>Usar, si procede, herramientas como reparación de inicio, <code>bcdedit</code> o <code>bootrec</code>.</li>
-            <li>Explicar qué problema se provoca o detecta y qué pasos se siguen para solucionarlo.</li>
-            <li>Verificar que el sistema vuelve a arrancar con normalidad.</li>
-        </ol>
-        <p><strong>Lo importante en esta parte:</strong> demostrar criterio técnico. Aunque la incidencia sea sencilla, debe quedar claro qué herramienta se ha usado y por qué.</p>
-    </div>
-
-    <div class="content-section">
-        <h2 class="sub">Fase 7. Documentación final</h2>
-        <ol start="31">
-            <li>Ordenar todas las capturas siguiendo el proceso real del sprint.</li>
-            <li>Explicar de forma breve cada paso importante.</li>
-            <li>Indicar incidencias detectadas, decisiones tomadas y ajustes realizados.</li>
-            <li>Incluir una conclusión final sobre el resultado de la implantación.</li>
-            <li>Relacionar el trabajo con el uso de virtualización: hardware virtual, discos, snapshots o ajustes necesarios.</li>
-        </ol>
-        <p><strong>Recomendación:</strong> cada captura debe aportar una evidencia concreta. No hace falta llenar la práctica de imágenes repetidas; es mejor que cada una demuestre una acción o una comprobación real.</p>
-    </div>
-
-    <div class="content-section">
-        <h2 class="sub">Criterios de evaluación trabajados</h2>
-        <ul>
-            <li><strong>1.1</strong> Identificación de los elementos funcionales de un sistema informático.</li>
-            <li><strong>1.2</strong> Identificación de características, funciones y arquitectura del sistema operativo.</li>
-            <li><strong>1.3</strong> Comparación de versiones y tipos de licencias según requisitos y contexto de uso.</li>
-            <li><strong>1.5</strong> Aplicación de técnicas de actualización y rescate del sistema.</li>
-            <li><strong>1.6</strong> Resolución de incidencias del sistema y del proceso de inicio.</li>
-            <li><strong>1.7</strong> Uso de herramientas para conocer el software instalado y su procedencia.</li>
-            <li><strong>1.8</strong> Elaboración de documentación de soporte sobre instalación e incidencias.</li>
-            <li><strong>2.4</strong> Instalación, configuración y verificación de protocolos de red.</li>
-            <li><strong>2.7</strong> Uso de máquinas virtuales para realizar tareas de configuración y análisis.</li>
-        </ul>
-    </div>
-
-    <div class="content-section">
-        <h2 class="sub">Guía rápida de evidencias</h2>
-        <ul>
-            <li>Creación y configuración de la máquina virtual.</li>
-            <li>Instalación de Windows paso a paso.</li>
-            <li>Primer arranque y configuración inicial.</li>
-            <li>Comprobación de activación o tipo de licencia.</li>
-            <li>Configuración y pruebas de red.</li>
-            <li>Instalación del software base.</li>
-            <li>Proceso de reparación o análisis del arranque.</li>
-            <li>Resultado final del sistema operativo funcionando correctamente.</li>
-        </ul>
+        <h3>Paso 5. Verificar que la máquina está lista para arrancar</h3>
+        <p>
+            Antes de comenzar la instalación, se comprueba que la máquina virtual ha quedado correctamente preparada, con su hardware configurado, el disco virtual creado y la ISO asociada al arranque. Esta verificación cierra la fase de preparación.
+        </p>
+        <p>
+            Debajo de este texto debe colocarse una captura general de VMware donde se vea la máquina preparada para iniciarse. La imagen debe actuar como evidencia de que el entorno está listo para comenzar la instalación de Windows 11.
+        </p>
+        <div class="capture-placeholder">
+            <p><strong>[Insertar aquí la captura del paso 5: máquina virtual preparada para arrancar en VMware]</strong></p>
+        </div>
     </div>
 </main>
-
-<button id="scrollToTopBtn" class="scroll-btn" title="Ir arriba"><i class="fa-solid fa-arrow-up"></i></button>
-<button id="scrollToBottomBtn" class="scroll-btn" title="Ir abajo"><i class="fa-solid fa-arrow-down"></i></button>
-
-<script>
-document.getElementById('scrollToTopBtn').addEventListener('click', function() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
-
-document.getElementById('scrollToBottomBtn').addEventListener('click', function() {
-    window.scrollTo({
-        top: document.body.scrollHeight,
-        behavior: 'smooth'
-    });
-});
-
-window.addEventListener('scroll', function() {
-    const scrollTopBtn = document.getElementById('scrollToTopBtn');
-    const scrollBottomBtn = document.getElementById('scrollToBottomBtn');
-
-    if (window.pageYOffset > 300) {
-        scrollTopBtn.style.opacity = '1';
-        scrollTopBtn.style.pointerEvents = 'auto';
-    } else {
-        scrollTopBtn.style.opacity = '0.3';
-    }
-
-    if ((window.innerHeight + window.pageYOffset) < document.body.scrollHeight - 100) {
-        scrollBottomBtn.style.opacity = '1';
-        scrollBottomBtn.style.pointerEvents = 'auto';
-    } else {
-        scrollBottomBtn.style.opacity = '0.3';
-    }
-});
-</script>
-
-<style>
-:root {
-    --bg-image: url('../assetscss/pract22.gif');
-}
-
-body {
-    background-image: var(--bg-image);
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-code {
-    background-color: #282c34;
-    color: #abb2bf;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 0.9em;
-}
-
-.navigation-links {
-    position: sticky;
-    top: 1rem;
-    z-index: 100;
-    background: var(--overlay);
-    backdrop-filter: blur(8px);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-neon);
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-    padding: 1rem 1.2rem;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 1rem;
-}
-
-.navigation-links a {
-    text-decoration: none;
-    color: var(--accent);
-    transition: all 0.3s ease;
-}
-</style>
