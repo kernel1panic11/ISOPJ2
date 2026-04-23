@@ -1,0 +1,366 @@
+---
+layout: default
+title: "Sprint 1. Instalación y configuración inicial de Windows en máquina virtual"
+---
+
+<main class="contenedor-principal">
+    <h1 class="titulo">Sprint 1. Instalación y configuración inicial de Windows en máquina virtual</h1>
+    <div class="loading-bar"><div class="loading-progress"></div></div>
+
+    <div class="navigation-links">
+        <a href="{{ '/' | relative_url }}"><i class="fa-solid fa-house"></i> Volver al inicio</a>
+        <a href="{{ '/SP2/SP2.html' | relative_url }}">Siguiente práctica <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+    <div class="content-section">
+        <h2 class="sub">Enfoque del sprint</h2>
+        <p>
+            Este sprint se centra en la instalación y configuración inicial de <strong>Windows 11</strong> dentro de una máquina virtual, siguiendo un proceso ordenado que permita dejar el sistema operativo correctamente implantado, configurado y listo para su uso. No se trata solo de completar la instalación, sino de entender qué se está haciendo en cada fase y justificar técnicamente las decisiones tomadas.
+        </p>
+        <p>
+            Además de instalar el sistema, será necesario documentar el proceso con capturas de pantalla colocadas en el punto exacto donde se explica cada acción. De este modo, la práctica no solo muestra el resultado final, sino también la evidencia visual de cada paso importante: creación de la máquina virtual, instalación del sistema, activación, red, software base y comprobaciones de arranque.
+        </p>
+    </div>
+
+    <div class="content-section">
+        <h2 class="sub">Objetivos del Sprint 1</h2>
+        <ul>
+            <li>Instalar Windows 11 en una máquina virtual correctamente configurada.</li>
+            <li>Realizar la configuración inicial del sistema para dejarlo operativo.</li>
+            <li>Comprobar la conectividad de red y la configuración IP del entorno virtual.</li>
+            <li>Verificar el estado de activación y justificar el tipo de licencia más adecuado.</li>
+            <li>Instalar software base y validar su funcionamiento.</li>
+            <li>Analizar aspectos básicos del arranque y de la recuperación del sistema.</li>
+            <li>Documentar todo el procedimiento con explicaciones breves y capturas relevantes.</li>
+        </ul>
+    </div>
+
+    <div class="content-section">
+        <h2 class="sub">Fase 1. Preparación de la máquina virtual</h2>
+
+        <h3>Paso 1. Crear la máquina virtual</h3>
+        <p>
+            Se crea una máquina virtual en <strong>VMware</strong> destinada a alojar <strong>Windows 11</strong>. En este paso debe indicarse el nombre de la máquina, el tipo de sistema operativo seleccionado y el hecho de que se está preparando un entorno aislado para realizar toda la práctica sin afectar al equipo anfitrión.
+        </p>
+        <p>
+            A continuación se muestran las capturas del asistente de creación de la máquina virtual en VMware, donde se puede ver la selección de la ISO de Windows 11 y la ruta de almacenamiento elegida para el archivo de la máquina virtual.
+        </p>
+        <div class="capture-placeholder">
+            <img width="778" height="479" alt="Creación de la máquina virtual en VMware, selección de ISO" src="https://github.com/user-attachments/assets/0b82925d-74d4-47c3-8622-e07fcc8f4eab" />
+        </div>
+        <div class="capture-placeholder">
+            <img width="765" height="281" alt="Selección de la ubicación donde se guardará la máquina virtual" src="https://github.com/user-attachments/assets/81b6c8f7-7939-406e-8d6f-db317fd86cf4" />
+        </div>
+
+        <h3>Paso 2. Asignar recursos de hardware virtual</h3>
+        <p>
+            A continuación se configura el hardware virtual de la máquina. Se recomienda asignar como mínimo <strong>4 GB de memoria RAM</strong> y un disco virtual de <strong>40 GB</strong>, ya que estos valores permiten instalar Windows 11 con un margen razonable para tareas básicas de ofimática, navegación y trabajo colaborativo.
+        </p>
+        <p>
+            La siguiente captura muestra la pantalla de configuración de hardware de VMware, donde se pueden ver los parámetros asignados a la máquina virtual antes de iniciar la instalación.
+        </p>
+        <div class="capture-placeholder">
+            <img width="820" height="420" alt="Configuración de hardware virtual: memoria, disco y procesadores en VMware" src="https://github.com/user-attachments/assets/84cd15fe-92f5-44ca-a90d-78b2cbf78c58" />
+        </div>
+
+        <h3>Paso 3. Cargar la ISO de Windows 11</h3>
+        <p>
+            Una vez creada la máquina virtual, se asocia la imagen ISO de Windows 11 a la unidad virtual correspondiente para que el sistema pueda arrancar desde ella e iniciar el asistente de instalación. La ISO seleccionada corresponde a <strong>Windows 11 Pro N</strong>, la edición sin aplicaciones multimedia de Microsoft, cuya existencia responde a la normativa europea de competencia que obliga a ofrecer versiones del sistema sin software propietario preinstalado.
+        </p>
+        <p>
+            La captura siguiente muestra la configuración general de la máquina en VMware, confirmando que la ISO queda asociada al dispositivo CD/DVD virtual antes del primer arranque.
+        </p>
+        <div class="capture-placeholder">
+            <img width="843" height="388" alt="Resumen de configuración de la máquina virtual en VMware con ISO cargada" src="https://github.com/user-attachments/assets/9f0247ef-c47d-42cf-9d0e-f115228fd3e0" />
+        </div>
+
+        <h3>Paso 4. Justificar la configuración elegida</h3>
+        <p>
+            En este punto se debe explicar por qué la configuración seleccionada resulta adecuada para el entorno de trabajo planteado. Asignar una cantidad razonable de memoria, un disco suficiente y una red funcional permite instalar y usar Windows 11 con estabilidad, manteniendo además un equilibrio con los recursos disponibles en el equipo anfitrión. La elección de <strong>Windows 11 Pro N</strong> se justifica por el contexto académico europeo: esta edición cumple con la normativa de la UE y permite trabajar con el sistema operativo sin dependencias de software multimedia de terceros.
+        </p>
+        <p>
+            La siguiente captura muestra el asistente de instalación de Windows en el momento de seleccionar la edición del sistema, donde se confirma la elección de Pro N.
+        </p>
+        <div class="capture-placeholder">
+            <img width="753" height="534" alt="Selección de Windows 11 Pro N durante la instalación, con justificación de normativa europea" src="https://github.com/user-attachments/assets/8be2cae2-d728-435f-801f-270cf27333cf" />
+        </div>
+
+        <h3>Paso 5. Verificar que la máquina está lista para arrancar</h3>
+        <p>
+            Antes de comenzar la instalación, se comprueba que la máquina virtual ha quedado correctamente preparada, con su hardware configurado, el disco virtual creado y la ISO asociada al arranque. Esta verificación cierra la fase de preparación y da paso al proceso de instalación del sistema operativo.
+        </p>
+        <p>
+            Las capturas siguientes muestran el inicio del asistente de instalación de Windows 11, confirmando que la máquina arranca correctamente desde la ISO y que el entorno está listo.
+        </p>
+        <div class="capture-placeholder">
+            <img width="747" height="556" alt="Inicio del asistente de instalación de Windows 11 en la máquina virtual" src="https://github.com/user-attachments/assets/8cf26ab2-a500-43d8-bfc2-0808f1837973" />
+        </div>
+        <div class="capture-placeholder">
+            <img width="800" height="580" alt="Progreso de la instalación de Windows 11" src="https://github.com/user-attachments/assets/2f4af1f5-c35a-478c-aaf3-ff5be11be98f" />
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2 class="sub">Fase 2. Instalación y configuración inicial del sistema</h2>
+
+        <h3>Paso 6. Configurar región, idioma y teclado</h3>
+        <p>
+            Una vez arranca el asistente de instalación, se selecciona el idioma del sistema, la región y la distribución de teclado. Estas opciones determinan el comportamiento del sistema operativo en cuanto a formatos de fecha, moneda y entrada de texto, por lo que deben ajustarse al entorno de trabajo real.
+        </p>
+        <div class="capture-placeholder">
+            <img width="1056" height="802" alt="Configuración de país e idioma durante la instalación de Windows 11" src="https://github.com/user-attachments/assets/1969b279-d096-4278-8fbc-96c9ec7a4ae2" />
+        </div>
+        <div class="capture-placeholder">
+            <img width="1103" height="802" alt="Configuración de distribución de teclado durante la instalación" src="https://github.com/user-attachments/assets/6efa31f9-c312-475c-909b-fc6d96d070bc" />
+        </div>
+
+        <h3>Paso 7. Seleccionar el tipo de uso</h3>
+        <p>
+            El asistente ofrece distintos perfiles de configuración según el uso previsto del equipo. En este caso se selecciona la opción correspondiente a un entorno personal o de trabajo sin dominio, ya que la máquina virtual opera de forma aislada y no está integrada en ninguna infraestructura de directorio activo.
+        </p>
+        <div class="capture-placeholder">
+            <img width="1096" height="816" alt="Selección del tipo de uso del sistema durante la configuración inicial" src="https://github.com/user-attachments/assets/425ac880-8bdd-437f-9495-1e49f8d6d9ae" />
+        </div>
+
+        <h3>Paso 8. Crear usuario y contraseña local</h3>
+        <p>
+            Se crea una cuenta de usuario local asignándole un nombre de usuario. Opcionalmente puede configurarse una contraseña de acceso; en este caso se ha dejado sin contraseña, lo cual es aceptable en un entorno de máquina virtual aislada destinada a prácticas.
+        </p>
+        <div class="capture-placeholder">
+            <img width="1041" height="788" alt="Pantalla de creación de cuenta de usuario local en Windows 11" src="https://github.com/user-attachments/assets/279d0a6b-fbac-4727-a49c-05588dcd8f6f" />
+        </div>
+        <div class="capture-placeholder">
+            <img width="896" height="481" alt="Introducción del nombre de usuario durante la configuración inicial" src="https://github.com/user-attachments/assets/9cce9aae-a085-4fe6-9194-69eb964c0fc1" />
+        </div>
+        <div class="capture-placeholder">
+            <img width="1096" height="775" alt="Pantalla de contraseña, dejada en blanco para el entorno de prácticas" src="https://github.com/user-attachments/assets/ef799a2d-6cb1-4f17-8e47-8938bedca4bd" />
+        </div>
+
+        <h3>Paso 9. Primer inicio de Windows 11</h3>
+        <p>
+            Una vez completada la configuración inicial, el sistema arranca por primera vez y muestra el escritorio de Windows 11. Este momento confirma que la instalación ha concluido correctamente y que el sistema operativo está operativo dentro de la máquina virtual.
+        </p>
+        <div class="capture-placeholder">
+            <img width="1589" height="913" alt="Primer inicio correcto de Windows 11 en la máquina virtual, escritorio visible" src="https://github.com/user-attachments/assets/71daabba-a7ef-43a9-8622-1bd3e70ed3c0" />
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2 class="sub">Fase 3. Instalación de VMware Tools y verificación del sistema</h2>
+
+        <h3>Paso 10. Instalar VMware Tools</h3>
+        <p>
+            Las <strong>VMware Tools</strong> son un conjunto de controladores y utilidades que mejoran significativamente la integración entre el sistema huésped y el hipervisor. Su instalación permite, entre otras funcionalidades, redimensionar la resolución de pantalla automáticamente, habilitar el portapapeles compartido con el equipo anfitrión y mejorar el rendimiento general de la máquina virtual. Sin estas herramientas, la experiencia de uso resulta claramente degradada.
+        </p>
+        <div class="capture-placeholder">
+            <img width="1076" height="777" alt="Inicio de la instalación de VMware Tools desde el menú de VMware" src="https://github.com/user-attachments/assets/bfc7128c-b392-43c9-84a8-7184fe05a4a3" />
+        </div>
+        <div class="capture-placeholder">
+            <img width="607" height="471" alt="Asistente de instalación de VMware Tools en ejecución" src="https://github.com/user-attachments/assets/77cfef29-de20-43ab-8a16-ccd0ed863a95" />
+        </div>
+        <div class="capture-placeholder">
+            <img width="641" height="311" alt="Confirmación de instalación correcta de VMware Tools" src="https://github.com/user-attachments/assets/759d47ff-0a9a-4272-9b03-344478925bb4" />
+        </div>
+
+        <h3>Paso 11. Comprobación final del sistema</h3>
+        <p>
+            Para cerrar la práctica, se verifica que el sistema ha arrancado correctamente, que las VMware Tools están activas y que el entorno general del sistema operativo es estable y funcional. Las capturas siguientes muestran el estado del escritorio y del sistema tras la instalación completa, confirmando que todo ha quedado correctamente configurado.
+        </p>
+        <div class="capture-placeholder">
+            <img width="1564" height="904" alt="Estado final del sistema: escritorio de Windows 11 con VMware Tools instaladas" src="https://github.com/user-attachments/assets/c03c0c68-ca71-4d4c-8412-a949ddd39cb1" />
+        </div>
+        <div class="capture-placeholder">
+            <img width="1600" height="904" alt="Verificación adicional del sistema operativo instalado y en funcionamiento" src="https://github.com/user-attachments/assets/cd9552d8-cc18-4f7c-8e23-888a727e5974" />
+        </div>
+    </div>
+</main>
+Fase 2 
+buscando punto de restauracion 
+<img width="928" height="907" alt="image" src="https://github.com/user-attachments/assets/ff147259-e7eb-4a63-80e0-ed664a0bd112" />
+
+entrando a punto de restauracion y activando protecion de discos 
+<img width="984" height="616" alt="image" src="https://github.com/user-attachments/assets/6af9c6dd-5e91-44b4-9ac0-54955606588b" />
+
+Creando punto de particion manual:
+<img width="960" height="562" alt="image" src="https://github.com/user-attachments/assets/efcffa38-a397-40ec-ac2b-35a5d4343c45" />
+
+Proceso de creacion de punto 
+<img width="479" height="508" alt="image" src="https://github.com/user-attachments/assets/dfedf0fa-2573-4ac0-8a3f-918a9e087bd3" />
+
+Instalando Chrome, Opera, Firefox, Edge, Brave, Vivaldi, Zoom, Discord, Teams, Pidgin, Thunderbird, Trillian, iTunes, .NET 4.8.1, Java (AdoptOpenJDK) x64 8, Malwarebytes, Avast, AnyDesk, 7-Zip, PeaZip, Dropbox, Google Drive for Desktop, Python arm64 3, VC Redist x64 2015+, Evernote para hacer luego el rollback usando ninite.
+<img width="664" height="470" alt="image" src="https://github.com/user-attachments/assets/76b2d9f0-7e38-4234-92b2-f4d13bd27951" />
+
+Cap de los programas que se han instalado
+<img width="676" height="912" alt="image" src="https://github.com/user-attachments/assets/419ded94-0ec8-4944-8b01-eb319f99d334" />
+Ahora empezamos restaurar
+<img width="559" height="460" alt="image" src="https://github.com/user-attachments/assets/963ae332-0dcb-4e34-aefc-95067e906bd5" />
+<img width="547" height="243" alt="image" src="https://github.com/user-attachments/assets/ffe089e1-81a3-47ba-80b6-eee72f15bc3f" />
+
+Empezamos la restauracion
+<img width="1544" height="774" alt="image" src="https://github.com/user-attachments/assets/b0aa08b8-6cf2-4668-8b20-5a2dfeeec899" />
+
+Comprobacion de la restauracion 
+<img width="1138" height="733" alt="image" src="https://github.com/user-attachments/assets/1fba42e4-f648-42c1-b2f5-7e2afe88ddf4" />
+
+Fase 3 
+Comprobar si windows esta activado (no lo esta)
+<img width="1007" height="804" alt="image" src="https://github.com/user-attachments/assets/06e203d9-b09e-488e-be3e-c47bf6c60873" />
+
+Comprobacion de si esta activado por cmd 
+<img width="951" height="499" alt="image" src="https://github.com/user-attachments/assets/86fdff02-d187-4fca-a12d-4185dcf4d8c8" />
+
+Fase 3 – Paso 14. Análisis del licenciamiento de Windows
+
+En este apartado se analiza el modelo de licenciamiento de Windows con el objetivo de entender qué tipo de licencia resulta más adecuado en un entorno de virtualización.
+
+Windows dispone de distintos tipos de licencia, cada uno orientado a un contexto específico. La licencia OEM queda vinculada al hardware físico del equipo, lo que implica que no puede transferirse a otro dispositivo. Por otro lado, la licencia Retail permite su reutilización en distintos equipos, aunque está pensada para uso individual y no para despliegues repetidos. En entornos organizativos, se utilizan licencias por volumen, que permiten gestionar múltiples activaciones de forma centralizada. Finalmente, las licencias educacionales son una variante adaptada a instituciones formativas.
+
+En este caso, al trabajar sobre una máquina virtual, no existe una vinculación directa con hardware físico persistente. Esto implica que una licencia OEM no resulta adecuada. La licencia Retail sería funcional, pero poco eficiente si se pretende reutilizar el entorno o replicarlo. En la práctica, los modelos más coherentes son licencias por volumen o educacionales, ya que permiten flexibilidad, reutilización y adaptación a entornos de laboratorio o formación.
+
+Esto implica que, desde un punto de vista técnico y de implantación, el modelo de licenciamiento debe elegirse no solo por disponibilidad, sino por su adecuación al tipo de infraestructura utilizada.
+
+
+
+Fase 3 – Paso 15. Consulta del precio aproximado de una licencia de Windows
+
+En este paso se realiza una estimación del coste de una licencia de Windows con el fin de contextualizar el impacto económico del sistema operativo dentro de una implantación real.
+
+Tras consultar fuentes oficiales o tiendas especializadas, se observa que el precio de referencia se sitúa aproximadamente en:
+
+Windows 11 Home: entre 120 y 150 euros
+Windows 11 Pro: entre 200 y 260 euros
+
+Estos valores corresponden generalmente a licencias de tipo Retail, que ofrecen mayor flexibilidad de uso. Las licencias OEM suelen tener un coste inferior, pero están limitadas al hardware. Por su parte, las licencias por volumen o educacionales no suelen presentar un precio unitario público, ya que dependen de acuerdos específicos con organizaciones o instituciones.
+
+En la práctica, esto implica que el coste del sistema operativo es un factor relevante en cualquier despliegue, especialmente cuando se trata de múltiples equipos o entornos virtualizados. No se trata únicamente de instalar el sistema, sino de valorar su impacto económico dentro de la solución global.
+
+
+
+Fase 4 
+
+Abriendo cmd como admin 
+<img width="804" height="497" alt="image" src="https://github.com/user-attachments/assets/71956bc2-81dc-432a-b6ce-4a9da79fd13e" />
+<img width="982" height="163" alt="image" src="https://github.com/user-attachments/assets/8a9d46be-d164-4986-afef-331b765190d5" />
+
+Ejecutando bcedit
+<img width="781" height="623" alt="image" src="https://github.com/user-attachments/assets/aa4f3b1f-0d42-405e-9ae7-eab0457200be" />
+
+## **Fase 4 – Paso 17. Ejecución del comando `bcdedit`**
+
+En este paso se ejecuta el comando `bcdedit` desde el símbolo del sistema con privilegios de administrador, con el objetivo de visualizar la configuración del arranque de Windows. Este comando muestra cómo está estructurado el proceso de inicio del sistema, permitiendo identificar los componentes implicados y sus parámetros principales.
+
+El resultado obtenido presenta información detallada sobre el gestor de arranque, organizada en distintos bloques que reflejan las fases del proceso de inicio.
+
+---
+
+## **Fase 4 – Paso 18. Identificación de los bloques**
+
+A partir de la salida del comando, se identifican dos bloques principales. Por un lado, el **Administrador de arranque de Windows (Boot Manager)**, que se encarga de gestionar el proceso inicial de arranque y decidir qué sistema operativo se ejecuta. Por otro lado, el **Cargador de arranque de Windows (Boot Loader)**, que se encarga de cargar el sistema operativo seleccionado.
+
+Esta diferenciación permite entender que el arranque de Windows se realiza en dos fases: una primera fase de gestión y decisión, y una segunda fase de carga del sistema operativo.
+
+---
+
+## **Fase 4 – Paso 19. Interpretación de datos concretos**
+
+Analizando los valores obtenidos en cada bloque, se pueden extraer los siguientes datos relevantes:
+
+En el bloque correspondiente al **Boot Manager**, el valor `default {current}` indica que el sistema que se inicia por defecto es el actual. Por otro lado, el parámetro `timeout 30` establece un tiempo de espera de 30 segundos antes de que el sistema arranque automáticamente.
+
+En el bloque del **Boot Loader**, se observa que el sistema operativo está instalado en la partición `C:`, tal como indica el valor `device partition=C:`. El archivo encargado de iniciar el sistema es `\Windows\system32\winload.efi`, que actúa como cargador del sistema operativo. Además, el campo `description Windows 11` confirma que el sistema que se está ejecutando es Windows 11.
+
+En la práctica, estos valores permiten identificar tanto la ubicación del sistema como el mecanismo que utiliza Windows para iniciarse.
+
+---
+
+## **Fase 4 – Paso 20. Respuestas a preguntas concretas**
+
+A partir de la información anterior, se pueden responder las cuestiones planteadas:
+
+El sistema que se está arrancando es Windows 11. Este se encuentra instalado en la partición C:, que corresponde a la unidad principal del sistema. El tiempo de espera antes del arranque automático es de 30 segundos, configurado en el Boot Manager. Finalmente, el fichero encargado de iniciar Windows es `\Windows\system32\winload.efi`, que actúa como cargador del sistema operativo.
+
+---
+
+## **Fase 4 – Paso 21. Interpretación final**
+
+El proceso de arranque de Windows se basa en la interacción de dos componentes principales. El **Boot Manager** es el encargado de gestionar el arranque, decidir qué sistema se ejecuta y controlar el tiempo de espera. A continuación, el **Boot Loader** se encarga de cargar el sistema operativo desde la partición correspondiente utilizando el archivo `winload.efi`.
+
+Esto implica que el arranque de Windows es un proceso estructurado en fases, donde primero se toma una decisión sobre qué sistema iniciar y, posteriormente, se realiza la carga efectiva del sistema en memoria para su ejecución.
+
+Fase 5
+Configuracion de la red desde el panel de control
+<img width="1021" height="637" alt="image" src="https://github.com/user-attachments/assets/83f22aaa-91db-4061-a178-185212940cff" />
+Ejecutando ipconfig 
+<img width="604" height="274" alt="image" src="https://github.com/user-attachments/assets/92ce8e30-a736-48d2-84f1-28eaacd553b8" />
+Configurando ip y dns auto 
+<img width="643" height="454" alt="image" src="https://github.com/user-attachments/assets/0da22fe3-58cd-4e75-8dba-a0f9c3e073a7" />
+Configurando dns y ip manual 
+<img width="1012" height="768" alt="image" src="https://github.com/user-attachments/assets/28bd9d6f-0959-42a6-8359-7f6a52cdfebc" />
+Haciendo ping
+<img width="593" height="117" alt="image" src="https://github.com/user-attachments/assets/6e01e783-dbdb-489e-8d56-1ba5d1464be0" />
+
+fase 6
+Abriendo powershell
+<img width="1142" height="638" alt="image" src="https://github.com/user-attachments/assets/8ddf333b-22ad-473a-b61f-e6fa226cf040" />
+Ejecutando dir 
+<img width="706" height="444" alt="image" src="https://github.com/user-attachments/assets/0a53b17f-4eb5-4290-b994-de87ad58cbda" />
+Creando carpeta hola con mkdir 
+<img width="949" height="207" alt="image" src="https://github.com/user-attachments/assets/b05ab8da-3575-4778-b8d7-89848ebc9575" />
+Comprobando que la carpeta se ha creado con dir 
+<img width="864" height="495" alt="image" src="https://github.com/user-attachments/assets/7fd0bde1-5c9e-4d55-9579-5db7d1327c9e" />
+Creo el archivo de texto fitxer.txt y listo que se ha creado y como se ve su contenido 
+<img width="691" height="487" alt="image" src="https://github.com/user-attachments/assets/f90e196f-d411-4532-9159-8b777eacdebf" />
+<img width="394" height="92" alt="image" src="https://github.com/user-attachments/assets/f4c36a46-d3a5-48c8-b7be-febbc51f3042" />
+Y ahora borramos el archivo y lista como se ha borrado
+<img width="783" height="453" alt="image" src="https://github.com/user-attachments/assets/2d7f1d0e-3101-4ca4-8189-10853ec15fff" />
+Matando el proceso de notepad
+<img width="652" height="74" alt="image" src="https://github.com/user-attachments/assets/a352f267-a2ad-4bae-937b-6dfa2afd0adc" />
+Mostrando informacion del sistema con sysinfo
+<img width="1355" height="769" alt="image" src="https://github.com/user-attachments/assets/9895c594-7d76-4ba5-9bd1-3116480d8f88" />
+Mostrando el hostanme 
+<img width="355" height="105" alt="image" src="https://github.com/user-attachments/assets/f99eef1d-e1e9-481f-ab06-1a32cd24e054" />
+Ejecutando el whoami 
+<img width="304" height="85" alt="image" src="https://github.com/user-attachments/assets/bb1624d3-7459-4dd8-bc18-87a1d7fe04db" />
+Ejecutando ipconfig
+<img width="677" height="226" alt="image" src="https://github.com/user-attachments/assets/2a1b2067-5aae-4364-9aab-a3f591fbd166" />
+ping google.es 
+<img width="699" height="216" alt="image" src="https://github.com/user-attachments/assets/a9afe735-1b63-459a-aa19-304eb8268c87" />
+Comprobando conexiones activas 
+<img width="1467" height="771" alt="image" src="https://github.com/user-attachments/assets/2940b578-adab-4344-9e0e-aeef1db42580" />
+**tree → veure estructura de carpetes
+<img width="591" height="352" alt="image" src="https://github.com/user-attachments/assets/9e9aa226-a071-42ab-a77e-eeeed1d603b4" />
+
+cls → netejar pantalla
+<img width="1603" height="338" alt="image" src="https://github.com/user-attachments/assets/fb9a346b-4d44-4753-ac8b-9bbd29f3fad4" />
+
+help → veure ajuda
+<img width="1575" height="752" alt="image" src="https://github.com/user-attachments/assets/1c73977e-9ccd-43dd-a4a8-637c07365461" />
+
+shutdown /s /t 0 → apagar l’equip**
+<img width="750" height="205" alt="image" src="https://github.com/user-attachments/assets/e6d64e86-b07d-4838-9c91-c46cf41c960a" />
+<img width="1543" height="902" alt="image" src="https://github.com/user-attachments/assets/c341d57a-5d2b-4e27-9dff-88ed9a4e15ce" />
+
+Fase 7
+Descargar chrome 
+<img width="1615" height="843" alt="image" src="https://github.com/user-attachments/assets/eb77f4eb-6b06-4115-a917-a9684af38835" />
+Instalando chrome 
+<img width="924" height="385" alt="image" src="https://github.com/user-attachments/assets/94063166-cc9a-4676-9678-233fbcb028a6" />
+Abriendo chrome y comprobando funcionamiento 
+<img width="846" height="539" alt="image" src="https://github.com/user-attachments/assets/7b64aa7d-6794-4b6b-bf73-5f06e90be446" />
+<img width="1017" height="790" alt="image" src="https://github.com/user-attachments/assets/7453c2e3-f722-4ae8-941d-d03fcf6bfa3c" />
+
+Instalar app desde la ms store
+<img width="943" height="767" alt="image" src="https://github.com/user-attachments/assets/f7e667ea-513a-43ce-aeaf-073dad63c3f2" />
+
+Comprobando app de la ms store 
+<img width="454" height="576" alt="image" src="https://github.com/user-attachments/assets/56127d87-cc85-4035-91be-0003bd333694" />
+
+Desinstalarlo
+<img width="474" height="211" alt="image" src="https://github.com/user-attachments/assets/b1bf53a7-2916-47d7-a453-7569693ba2b8" />
+<img width="709" height="362" alt="image" src="https://github.com/user-attachments/assets/e4750237-8c1c-4f5d-8f53-3cc26fd08e50" />
+
+Comprobar la desinstalacion 
+<img width="847" height="354" alt="image" src="https://github.com/user-attachments/assets/14b0082b-21ff-4676-b905-8134d4353a5b" />
+<img width="817" height="559" alt="image" src="https://github.com/user-attachments/assets/7efb0935-6a44-4394-b96d-062af05571e7" />
+
+
