@@ -1,41 +1,105 @@
 <div class="content-section">
-    <h2 class="sub">Fase 3. Copias de seguridad y automatización</h2>
+    <h2 class="sub">Fase 1. Preparación del almacenamiento</h2>
 
-    <h3>Paso 12. Creación de un disco para copias</h3>
+    <h3>Paso 1. Añadir disco virtual</h3>
     <p>
-        Se añade un tercer disco virtual destinado exclusivamente a copias de seguridad. Este disco se configura y se formatea en <strong>NTFS</strong>, ya que este sistema de archivos permite trabajar con estructuras de carpetas complejas y mantener integridad en operaciones de copia.
+        Se añade un disco virtual de 20 GB tipo NVMe en VMware para trabajar almacenamiento de forma aislada respecto al sistema principal.
     </p>
+    <div class="capture-placeholder">
+        <img src="https://github.com/user-attachments/assets/e5364ba0-a1b5-48e7-80a4-41af81a8e87f" />
+        <img src="https://github.com/user-attachments/assets/273a64d7-f983-4ba2-b550-63cd0a911649" />
+        <img src="https://github.com/user-attachments/assets/5613317d-fed3-4a39-9fcf-77a2b18e0a1b" />
+        <img src="https://github.com/user-attachments/assets/97bb6d4a-fb89-43e6-b328-ac1dd7124667" />
+        <img src="https://github.com/user-attachments/assets/5961ae48-5ee6-4cf5-974e-214dd6961491" />
+        <img src="https://github.com/user-attachments/assets/1dfe022f-16ae-4884-85b8-b994db15599f" />
+    </div>
 
+    <h3>Paso 2. Inicialización del disco</h3>
+    <p>
+        Se inicializa el disco en formato GPT, adecuado para sistemas actuales y compatible con Windows 11.
+    </p>
+    <div class="capture-placeholder">
+        <img src="https://github.com/user-attachments/assets/98109882-e659-4e4e-bfa2-b50c53961428" />
+    </div>
+
+    <h3>Paso 3. Creación de particiones</h3>
+    <p>
+        Se crean dos particiones: Dades (NTFS, 15 GB) para almacenamiento controlado y Portable (FAT32, 5 GB) para compatibilidad externa.
+    </p>
+    <div class="capture-placeholder">
+        <img src="https://github.com/user-attachments/assets/8cc5d29a-33f5-48c1-94a8-37418d3b9712" />
+        <img src="https://github.com/user-attachments/assets/e74947a6-5b8a-4241-9191-443b8fc49b55" />
+        <img src="https://github.com/user-attachments/assets/e7259106-cbec-47b9-b5e7-bb339cc9693a" />
+        <img src="https://github.com/user-attachments/assets/31ef7011-45b2-45f6-b588-e698c5ed643c" />
+        <img src="https://github.com/user-attachments/assets/7945e69a-f986-4f97-aeab-e4b6cc99d1cc" />
+        <img src="https://github.com/user-attachments/assets/2e862e4c-db38-45bd-a465-33bb1fc6faaf" />
+        <img src="https://github.com/user-attachments/assets/9ec20b88-9262-42af-aaa4-8c968dcd0b71" />
+        <img src="https://github.com/user-attachments/assets/635fe4f3-6e32-4c7d-91d9-b95ae2a7f90f" />
+    </div>
+
+    <h3>Paso 4. Verificación con diskpart</h3>
+    <p>
+        Se verifica la configuración mediante diskpart, comprobando discos y volúmenes.
+    </p>
+    <div class="capture-placeholder">
+        <img src="https://github.com/user-attachments/assets/2bd6726f-944c-4cc8-9c00-0f35ccd580b9" />
+        <img src="https://github.com/user-attachments/assets/41beffb8-f7ad-41ef-8ca3-d695388fbf08" />
+    </div>
+</div>
+
+<div class="content-section">
+    <h2 class="sub">Fase 2. Usuarios, grupos y cuotas</h2>
+
+    <h3>Paso 5. Configuración de cuotas</h3>
+    <p>
+        Se habilitan cuotas en la unidad Dades (NTFS), estableciendo límite de 300 MB por usuario con advertencia.
+    </p>
+    <div class="capture-placeholder">
+        <img src="https://github.com/user-attachments/assets/d8eab161-deb0-432e-a4a1-66ad01d70186" />
+        <img src="https://github.com/user-attachments/assets/ff29146e-ea1e-4c82-9be5-7424e51e340e" />
+        <img src="https://github.com/user-attachments/assets/6c1b8f9a-ac75-4dc9-9d40-b2208bd4e845" />
+        <img src="https://github.com/user-attachments/assets/385e1764-50bd-46fb-9a48-1c18b8db671a" />
+    </div>
+
+    <h3>Paso 6. Creación de usuarios y grupo</h3>
+    <p>
+        Se crean los usuarios alumne1 y alumne2 y se agrupan en Limitados para control conjunto de permisos.
+    </p>
+    <div class="capture-placeholder">
+        <img src="https://github.com/user-attachments/assets/20294171-0b42-4fec-b002-7363c4bb0d58" />
+        <img src="https://github.com/user-attachments/assets/48eea201-3e5a-4743-acc0-fce5605b2b49" />
+        <img src="https://github.com/user-attachments/assets/ba111b7b-0e78-4c56-bf2a-29091ea1fcb0" />
+    </div>
+
+    <h3>Paso 7. Prueba de cuotas</h3>
+    <p>
+        Se prueba con alumne1, superando el límite y comprobando el bloqueo de escritura.
+    </p>
+    <div class="capture-placeholder">
+        <img src="https://github.com/user-attachments/assets/9e60857e-e601-4d68-8908-cf318523fd5b" />
+        <img src="https://github.com/user-attachments/assets/af211656-897c-46b9-b4a5-c8434f6a66b0" />
+    </div>
+</div>
+
+<div class="content-section">
+    <h2 class="sub">Fase 3. Copias de seguridad</h2>
+
+    <p>
+        Se añade un tercer disco, se formatea en NTFS como unidad de backup y se crea la carpeta CopiasUsuaris para almacenar perfiles.
+    </p>
     <div class="capture-placeholder">
         <img src="https://github.com/user-attachments/assets/067e00f9-1f5d-404c-8915-7fc4ee026a6f" />
         <img src="https://github.com/user-attachments/assets/422c3d4a-d06b-43b0-9c14-382fd376b93f" />
         <img src="https://github.com/user-attachments/assets/3a2a0cd9-0180-4c17-a194-645138b9db40" />
-    </div>
-
-    <h3>Paso 13. Preparación de la estructura de copias</h3>
-    <p>
-        Dentro del nuevo volumen se crea la carpeta <strong>CopiasUsuaris</strong>, que actuará como directorio raíz para almacenar las copias de los perfiles de usuario.
-    </p>
-
-    <div class="capture-placeholder">
         <img src="https://github.com/user-attachments/assets/4b137df3-2df8-4546-84ed-8f9d00105316" />
     </div>
 
-    <h3>Paso 14. Creación del script de copia</h3>
+    <h3>Script y automatización</h3>
     <p>
-        Se crea un script en formato <code>.bat</code> que copia el contenido de la carpeta del usuario activo (<code>C:\Users\%USERNAME%</code>) a su correspondiente carpeta dentro de <code>E:\CopiasUsuaris</code>. Esto permite automatizar una copia básica del perfil de usuario.
+        Se crea un script .bat que copia C:\Users\%USERNAME% a E:\CopiasUsuaris y se configura mediante gpedit para ejecutarse al inicio de sesión.
     </p>
-
     <div class="capture-placeholder">
         <img src="https://github.com/user-attachments/assets/cf16bda6-e283-4181-bc25-bdfb48d40b43" />
-    </div>
-
-    <h3>Paso 15. Automatización con gpedit</h3>
-    <p>
-        El script se configura para ejecutarse automáticamente al iniciar sesión mediante el editor de directivas locales (<code>gpedit.msc</code>). De este modo, cada usuario genera su copia de forma automática al acceder al sistema.
-    </p>
-
-    <div class="capture-placeholder">
         <img src="https://github.com/user-attachments/assets/ca9e2b85-78a1-4721-abfe-b147550a68a4" />
         <img src="https://github.com/user-attachments/assets/7ff2c20b-02a6-4591-90e2-6254579a72b5" />
         <img src="https://github.com/user-attachments/assets/106b705e-2a62-4b23-9c5e-51f91558df11" />
@@ -45,21 +109,11 @@
 <div class="content-section">
     <h2 class="sub">Fase 4. Verificación de copias</h2>
 
-    <h3>Paso 16. Prueba con usuario</h3>
     <p>
-        Se inicia sesión con el usuario <strong>alumne1</strong> para comprobar que el script se ejecuta correctamente en el arranque de sesión.
+        Se inicia sesión con alumne1 y se comprueba que la copia del perfil se genera correctamente en CopiasUsuaris.
     </p>
-
     <div class="capture-placeholder">
         <img src="https://github.com/user-attachments/assets/f32b8a56-d056-4385-9627-91348b073f49" />
-    </div>
-
-    <h3>Paso 17. Comprobación de resultados</h3>
-    <p>
-        Se verifica que la carpeta correspondiente al usuario se ha creado dentro de <strong>CopiasUsuaris</strong> y contiene los datos copiados. Esto confirma que la automatización funciona correctamente.
-    </p>
-
-    <div class="capture-placeholder">
         <img src="https://github.com/user-attachments/assets/fe681ef2-d701-41b9-83d0-80e034c2d428" />
     </div>
 </div>
@@ -67,61 +121,46 @@
 <div class="content-section">
     <h2 class="sub">Fase 5. Gestión de procesos</h2>
 
-    <h3>Paso 18. Listado de procesos</h3>
     <p>
-        Se utiliza el comando <code>tasklist</code> para obtener un listado completo de los procesos en ejecución en el sistema.
+        Se listan procesos con tasklist, se guarda la salida y se identifican procesos prescindibles para optimizar el sistema.
     </p>
-
     <div class="capture-placeholder">
         <img src="https://github.com/user-attachments/assets/0eced897-a4aa-4066-a81d-786f5629188c" />
-    </div>
-
-    <h3>Paso 19. Guardado de evidencia</h3>
-    <p>
-        La salida del comando se guarda en un archivo para su posterior análisis y documentación, permitiendo revisar los procesos activos fuera del entorno de ejecución.
-    </p>
-
-    <div class="capture-placeholder">
         <img src="https://github.com/user-attachments/assets/56c67097-9d32-4590-8f52-b68be2122a5b" />
         <img src="https://github.com/user-attachments/assets/b70dee83-99dc-4e68-aa07-deccef6e5eea" />
     </div>
 
-    <h3>Paso 20. Identificación de procesos prescindibles</h3>
     <p>
-        A partir del listado, se identifican procesos no esenciales que pueden eliminarse para optimizar el rendimiento del sistema en un entorno virtual.
+        Se eliminan procesos como OneDrive o Teams mediante taskkill y se verifica que no se ejecutan en nuevas sesiones.
     </p>
-
-    <table>
-        <tr><th>Proceso</th><th>Memoria usada</th><th>Justificación</th></tr>
-        <tr><td>OneDrive.exe</td><td>139.180 KB</td><td>Sin sincronización activa en VM.</td></tr>
-        <tr><td>msedgewebview2.exe</td><td>~125.000 KB</td><td>Motor de widgets no esencial.</td></tr>
-        <tr><td>WidgetBoard.exe</td><td>105.664 KB</td><td>Widgets innecesarios.</td></tr>
-        <tr><td>SearchHost.exe</td><td>129.488 KB</td><td>Indexado prescindible.</td></tr>
-        <tr><td>RuntimeBroker.exe</td><td>~60.000 KB</td><td>Consumo acumulado.</td></tr>
-    </table>
-
-    <h3>Paso 21. Finalización de procesos</h3>
-    <p>
-        Se eliminan procesos no esenciales mediante <code>taskkill</code>, liberando recursos del sistema.
-    </p>
-
     <div class="capture-placeholder">
         <img src="https://github.com/user-attachments/assets/cea0577b-eadf-4b3f-a8da-8baa509325e2" />
         <img src="https://github.com/user-attachments/assets/ba01c5d7-f976-474f-b76e-f460a68da850" />
         <img src="https://github.com/user-attachments/assets/2392018d-01cb-412e-9154-5ff071d0e1dc" />
-    </div>
-
-    <h3>Paso 22. Verificación con otro usuario</h3>
-    <p>
-        Se inicia sesión con <strong>alumne2</strong> para comprobar que los procesos eliminados no se ejecutan automáticamente, verificando así la persistencia de la optimización realizada.
-    </p>
-
-    <div class="capture-placeholder">
         <img src="https://github.com/user-attachments/assets/57a29a74-961f-4755-85e6-ef147c86db17" />
         <img src="https://github.com/user-attachments/assets/a7cdfcde-8583-481a-8993-f24697742474" />
     </div>
+</div>
+
+<div class="content-section">
+    <h2 class="sub">Fase 6. Permisos avanzados y ACLs</h2>
 
     <p>
-        Esta gestión permite reducir el consumo de recursos en máquinas virtuales, mejorando la eficiencia del sistema y evitando la ejecución de servicios innecesarios.
+        Se crea la carpeta E:\Projectes, se eliminan permisos heredados, se asigna control total al grupo Limitados y se limita alumne2 a solo lectura. Se verifica comportamiento con ambos usuarios.
+    </p>
+    <div class="capture-placeholder">
+        <img src="https://github.com/user-attachments/assets/64872fcb-9a44-4c4c-833b-3a2cce60374e" />
+        <img src="https://github.com/user-attachments/assets/a848c6ee-abf6-4e0e-8d22-1d0e2a273e1b" />
+        <img src="https://github.com/user-attachments/assets/88e9bba8-a8c9-40f9-80e6-6466fbd7caeb" />
+        <img src="https://github.com/user-attachments/assets/f7e680ac-7f57-46d2-986f-c7ec21d93d35" />
+        <img src="https://github.com/user-attachments/assets/d2bf4bea-9ed7-40c6-8b12-a3ecad781251" />
+        <img src="https://github.com/user-attachments/assets/d95af0c4-f04b-4fcc-bacb-e28144cb0da2" />
+        <img src="https://github.com/user-attachments/assets/2ee60270-1083-473f-b073-9cd376fad276" />
+        <img src="https://github.com/user-attachments/assets/032eef44-58ed-4492-90cb-989b4062fe9c" />
+        <img src="https://github.com/user-attachments/assets/86f54cce-772a-4e1c-89ec-b96e409ed523" />
+    </div>
+
+    <p>
+        Se demuestra el uso de ACLs para aplicar control granular, donde las reglas específicas de usuario prevalecen sobre las de grupo.
     </p>
 </div>
