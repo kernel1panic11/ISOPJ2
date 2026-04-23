@@ -1,149 +1,74 @@
 <div class="content-section">
-    <h2 class="sub">Sprint 1. Instalación y configuración inicial de Windows 11 en máquina virtual</h2>
+    <h2 class="sub">Sprint 2. Administración de almacenamiento, cuotas y gestión básica de usuarios en Windows 11</h2>
     <p>
-        En este sprint se ha realizado la implantación inicial de <strong>Windows 11</strong> sobre una máquina virtual en <strong>VMware</strong>, partiendo desde la creación del entorno virtual hasta la validación operativa del sistema ya instalado. El trabajo llevado a cabo incluye la preparación de la máquina virtual, la instalación del sistema operativo, la configuración inicial del entorno, la instalación de VMware Tools, la creación y comprobación de puntos de restauración, la verificación del estado de activación, el análisis del arranque, la configuración de red, la ejecución de comandos administrativos y la instalación y desinstalación de aplicaciones.
+        En este segundo sprint se ha comenzado a trabajar sobre un sistema Windows 11 ya instalado y operativo, orientando la práctica a la administración del almacenamiento, la gestión de usuarios y grupos y el control del uso de espacio mediante cuotas de disco. Hasta este punto se ha completado la preparación del disco adicional, la creación de particiones con distintos sistemas de archivos, la verificación de la estructura de volúmenes, la activación de cuotas sobre NTFS y la comprobación práctica de su funcionamiento con un usuario real. Esta secuencia encaja con la propuesta del sprint, que plantea primero la preparación del sistema, después la creación de cuotas y usuarios, y más adelante la automatización, verificación y permisos avanzados. :contentReference[oaicite:0]{index=0}
     </p>
 
-    <h3>Fase 1. Instalación del sistema operativo</h3>
+    <h3>Fase 1. Preparación del almacenamiento</h3>
     <p>
-        El primer bloque del sprint consistió en crear una nueva máquina virtual en VMware y asociarle la imagen ISO de Windows 11. Durante este proceso se definieron la ubicación de almacenamiento de la máquina virtual y la configuración básica de hardware, incluyendo memoria, procesador y disco virtual. Esta fase permitió disponer de un entorno aislado sobre el que trabajar sin afectar al sistema anfitrión.
+        El primer paso consistió en añadir a la máquina virtual un nuevo disco de <strong>20 GB</strong> en formato <strong>NVMe</strong>. Este disco se incorporó como almacenamiento independiente del disco principal del sistema, de modo que todas las pruebas de particionado y gestión de volúmenes se realizaran sobre un entorno separado del disco del sistema operativo. Una vez detectado por Windows, se abrió el administrador de discos y se inicializó el nuevo dispositivo utilizando el esquema de partición <strong>GPT</strong>. Esta elección es coherente con un sistema actual como Windows 11, ya que GPT es el esquema moderno recomendado para entornos UEFI y ofrece una estructura de particionado más robusta que MBR.
     </p>
     <div class="capture-placeholder">
-        <img width="778" height="479" alt="Creación de la máquina virtual en VMware, selección de ISO" src="https://github.com/user-attachments/assets/0b82925d-74d4-47c3-8622-e07fcc8f4eab" />
-        <img width="765" height="281" alt="Selección de la ubicación donde se guardará la máquina virtual" src="https://github.com/user-attachments/assets/81b6c8f7-7939-406e-8d6f-db317fd86cf4" />
-        <img width="820" height="420" alt="Configuración de hardware virtual: memoria, disco y procesadores en VMware" src="https://github.com/user-attachments/assets/84cd15fe-92f5-44ca-a90d-78b2cbf78c58" />
-        <img width="843" height="388" alt="Resumen de configuración de la máquina virtual en VMware con ISO cargada" src="https://github.com/user-attachments/assets/9f0247ef-c47d-42cf-9d0e-f115228fd3e0" />
+        <img width="1197" height="778" alt="Adición del nuevo disco NVMe de 20 GB en VMware" src="https://github.com/user-attachments/assets/e5364ba0-a1b5-48e7-80a4-41af81a8e87f" />
+        <img width="653" height="387" alt="Asistente de configuración del nuevo disco virtual en VMware" src="https://github.com/user-attachments/assets/273a64d7-f983-4ba2-b550-63cd0a911649" />
+        <img width="644" height="604" alt="Selección del tipo de almacenamiento del nuevo disco" src="https://github.com/user-attachments/assets/5613317d-fed3-4a39-9fcf-77a2b18e0a1b" />
+        <img width="653" height="550" alt="Configuración del tamaño del disco adicional" src="https://github.com/user-attachments/assets/97bb6d4a-fb89-43e6-b328-ac1dd7124667" />
+        <img width="649" height="336" alt="Resumen de la configuración del nuevo disco virtual" src="https://github.com/user-attachments/assets/5961ae48-5ee6-4cf5-974e-214dd6961491" />
+        <img width="935" height="786" alt="Verificación del nuevo disco añadido a la máquina virtual" src="https://github.com/user-attachments/assets/1dfe022f-16ae-4884-85b8-b994db15599f" />
+        <img width="756" height="595" alt="Inicialización del disco en Windows eligiendo GPT" src="https://github.com/user-attachments/assets/98109882-e659-4e4e-bfa2-b50c53961428" />
     </div>
 
     <p>
-        Durante la instalación se seleccionó la edición <strong>Windows 11 Pro N</strong>. A continuación se completó el asistente de instalación y se configuraron los parámetros iniciales del sistema, como idioma, región, distribución de teclado, tipo de uso y cuenta de usuario local. Una vez terminado el proceso, se comprobó que el sistema iniciaba correctamente y que el escritorio era accesible con normalidad.
+        Sobre ese nuevo disco se creó una primera partición principal de aproximadamente <strong>15 GB</strong> en <strong>NTFS</strong>, denominada <strong>Dades</strong>, y una segunda partición de aproximadamente <strong>5 GB</strong> en <strong>FAT32</strong>, denominada <strong>Portable</strong>. Esta distribución responde al uso previsto de cada volumen. La partición Dades, al estar en NTFS, se reserva para las tareas que requieren soporte de cuotas y control avanzado del sistema de archivos. La partición Portable, en cambio, se mantiene en FAT32 para disponer de un volumen alternativo con un sistema de archivos distinto, lo que permite comparar características y limitaciones entre ambos formatos, tal como también se indica en el enunciado general del sprint. :contentReference[oaicite:1]{index=1} :contentReference[oaicite:2]{index=2}
     </p>
     <div class="capture-placeholder">
-        <img width="753" height="534" alt="Selección de Windows 11 Pro N durante la instalación" src="https://github.com/user-attachments/assets/8be2cae2-d728-435f-801f-270cf27333cf" />
-        <img width="747" height="556" alt="Inicio del asistente de instalación de Windows 11 en la máquina virtual" src="https://github.com/user-attachments/assets/8cf26ab2-a500-43d8-bfc2-0808f1837973" />
-        <img width="800" height="580" alt="Progreso de la instalación de Windows 11" src="https://github.com/user-attachments/assets/2f4af1f5-c35a-478c-aaf3-ff5be11be98f" />
-        <img width="1056" height="802" alt="Configuración de país e idioma durante la instalación de Windows 11" src="https://github.com/user-attachments/assets/1969b279-d096-4278-8fbc-96c9ec7a4ae2" />
-        <img width="1103" height="802" alt="Configuración de distribución de teclado durante la instalación" src="https://github.com/user-attachments/assets/6efa31f9-c312-475c-909b-fc6d96d070bc" />
-        <img width="1096" height="816" alt="Selección del tipo de uso del sistema durante la configuración inicial" src="https://github.com/user-attachments/assets/425ac880-8bdd-437f-9495-1e49f8d6d9ae" />
-        <img width="1041" height="788" alt="Pantalla de creación de cuenta de usuario local en Windows 11" src="https://github.com/user-attachments/assets/279d0a6b-fbac-4727-a49c-05588dcd8f6f" />
-        <img width="896" height="481" alt="Introducción del nombre de usuario durante la configuración inicial" src="https://github.com/user-attachments/assets/9cce9aae-a085-4fe6-9194-69eb964c0fc1" />
-        <img width="1096" height="775" alt="Pantalla de contraseña en blanco para el entorno de prácticas" src="https://github.com/user-attachments/assets/ef799a2d-6cb1-4f17-8e47-8938bedca4bd" />
-        <img width="1589" height="913" alt="Primer inicio correcto de Windows 11 en la máquina virtual, escritorio visible" src="https://github.com/user-attachments/assets/71daabba-a7ef-43a9-8622-1bd3e70ed3c0" />
+        <img width="769" height="310" alt="Creación de un nuevo volumen simple" src="https://github.com/user-attachments/assets/8cc5d29a-33f5-48c1-94a8-37418d3b9712" />
+        <img width="482" height="382" alt="Definición del tamaño de la partición Dades en NTFS" src="https://github.com/user-attachments/assets/e74947a6-5b8a-4241-9191-443b8fc49b55" />
+        <img width="505" height="393" alt="Asignación de letra de unidad a la partición Dades" src="https://github.com/user-attachments/assets/e7259106-cbec-47b9-b5e7-bb339cc9693a" />
+        <img width="499" height="389" alt="Formateo de la partición Dades en NTFS" src="https://github.com/user-attachments/assets/31ef7011-45b2-45f6-b588-e698c5ed643c" />
+        <img width="750" height="158" alt="Resultado de la partición Dades creada" src="https://github.com/user-attachments/assets/7945e69a-f986-4f97-aeab-e4b6cc99d1cc" />
+        <img width="508" height="425" alt="Definición de la partición Portable en FAT32" src="https://github.com/user-attachments/assets/2e862e4c-db38-45bd-a465-33bb1fc6faaf" />
+        <img width="499" height="392" alt="Configuración del volumen Portable" src="https://github.com/user-attachments/assets/9ec20b88-9262-42af-aaa4-8c968dcd0b71" />
+        <img width="759" height="166" alt="Resultado final de la partición Portable creada" src="https://github.com/user-attachments/assets/635fe4f3-6e32-4c7d-91d9-b95ae2a7f90f" />
     </div>
 
     <p>
-        Una vez finalizada la instalación base, se instalaron las <strong>VMware Tools</strong>. Esta operación mejoró la integración del sistema invitado con VMware, optimizando la resolución, los controladores y la interacción general con el entorno virtualizado. Tras ello se verificó nuevamente el estado del escritorio y el correcto funcionamiento del sistema.
+        Una vez creados los volúmenes, se verificó la configuración desde línea de comandos utilizando <code>diskpart</code>. Con <code>list disk</code> se confirmó la presencia de dos discos, uno principal de 64 GB y el nuevo disco secundario de 20 GB. Después, con <code>list volume</code>, se comprobaron las particiones visibles en el sistema, incluyendo los nuevos volúmenes Dades y Portable con sus respectivas letras y tamaños. Esta validación permitió confirmar que la estructura de almacenamiento había quedado correctamente reconocida por Windows antes de avanzar hacia la configuración de cuotas. La comprobación mediante <code>diskpart</code> aparece expresamente en la propuesta del sprint como parte del cierre de esta primera fase. :contentReference[oaicite:3]{index=3}
     </p>
     <div class="capture-placeholder">
-        <img width="1076" height="777" alt="Inicio de la instalación de VMware Tools desde el menú de VMware" src="https://github.com/user-attachments/assets/bfc7128c-b392-43c9-84a8-7184fe05a4a3" />
-        <img width="607" height="471" alt="Asistente de instalación de VMware Tools en ejecución" src="https://github.com/user-attachments/assets/77cfef29-de20-43ab-8a16-ccd0ed863a95" />
-        <img width="641" height="311" alt="Confirmación de instalación correcta de VMware Tools" src="https://github.com/user-attachments/assets/759d47ff-0a9a-4272-9b03-344478925bb4" />
-        <img width="1564" height="904" alt="Estado final del sistema: escritorio de Windows 11 con VMware Tools instaladas" src="https://github.com/user-attachments/assets/c03c0c68-ca71-4d4c-8412-a949ddd39cb1" />
-        <img width="1600" height="904" alt="Verificación adicional del sistema operativo instalado y en funcionamiento" src="https://github.com/user-attachments/assets/cd9552d8-cc18-4f7c-8e23-888a727e5974" />
+        <img width="523" height="134" alt="Comprobación de discos con diskpart" src="https://github.com/user-attachments/assets/2bd6726f-944c-4cc8-9c00-0f35ccd580b9" />
+        <img width="718" height="192" alt="Comprobación de volúmenes con diskpart" src="https://github.com/user-attachments/assets/41beffb8-f7ad-41ef-8ca3-d695388fbf08" />
     </div>
 
-    <h3>Fase 2. Puntos de restauración</h3>
+    <h3>Fase 2. Cuotas de disco, usuarios y grupos</h3>
     <p>
-        Después de la instalación se accedió a la herramienta de protección del sistema para habilitar los puntos de restauración. Primero se localizó la utilidad desde el buscador, después se activó la protección sobre la unidad principal y, a continuación, se creó manualmente un punto de restauración. Esta operación permitió fijar un estado del sistema al que volver posteriormente.
+        Una vez preparada la partición <strong>Dades</strong>, se accedió a sus propiedades para revisar la pestaña de cuotas. En un primer momento, la gestión de cuotas se encontraba sin configurar. Posteriormente se habilitó la administración de cuotas y se definió un límite de <strong>300 MB por usuario</strong>, junto con un nivel de advertencia previo. Esta configuración convierte a la partición NTFS en un volumen controlado, capaz de restringir el espacio disponible por identidad. Desde el punto de vista técnico, este comportamiento diferencia claramente a NTFS de FAT32, ya que solo el primero permite aplicar este tipo de control de almacenamiento por usuario. La propuesta del sprint establece precisamente la activación de cuotas sobre la partición de datos y la fijación de un límite con advertencia como parte central de esta fase. :contentReference[oaicite:4]{index=4}
     </p>
     <div class="capture-placeholder">
-        <img width="928" height="907" alt="Búsqueda de la herramienta crear punto de restauración en Windows 11" src="https://github.com/user-attachments/assets/ff147259-e7eb-4a63-80e0-ed664a0bd112" />
-        <img width="984" height="616" alt="Activación de la protección del sistema en el disco C" src="https://github.com/user-attachments/assets/6af9c6dd-5e91-44b4-9ac0-54955606588b" />
-        <img width="960" height="562" alt="Creación manual de un punto de restauración" src="https://github.com/user-attachments/assets/efcffa38-a397-40ec-ac2b-35a5d4343c45" />
-        <img width="479" height="508" alt="Proceso de creación del punto de restauración" src="https://github.com/user-attachments/assets/dfedf0fa-2573-4ac0-8a3f-918a9e087bd3" />
+        <img width="620" height="551" alt="Propiedades de la unidad Dades antes de configurar cuotas" src="https://github.com/user-attachments/assets/d8eab161-deb0-432e-a4a1-66ad01d70186" />
+        <img width="357" height="522" alt="Pestaña de cuotas sin configurar" src="https://github.com/user-attachments/assets/ff29146e-ea1e-4c82-9be5-7424e51e340e" />
+        <img width="356" height="449" alt="Ventana interna de configuración de cuotas antes de activarlas" src="https://github.com/user-attachments/assets/6c1b8f9a-ac75-4dc9-9d40-b2208bd4e845" />
+        <img width="349" height="435" alt="Cuotas habilitadas y configuradas con advertencia" src="https://github.com/user-attachments/assets/385e1764-50bd-46fb-9a48-1c18b8db671a" />
     </div>
 
     <p>
-        Para comprobar el funcionamiento de la restauración del sistema, se introdujo un cambio significativo mediante la instalación masiva de software con Ninite. Se instalaron navegadores, herramientas de comunicación, bibliotecas de ejecución, utilidades de compresión, almacenamiento en la nube y otros programas de uso común. Una vez generado este nuevo estado, se inició el proceso de restauración para volver al punto anterior y se comprobó que el sistema revertía correctamente los cambios realizados.
+        A continuación se crearon dos usuarios locales, <strong>alumne1</strong> y <strong>alumne2</strong>, que serán utilizados en el resto del sprint para probar comportamientos diferenciados sobre almacenamiento y permisos. Después se creó el grupo <strong>Limitats</strong> y se añadieron ambos usuarios a dicho grupo. Esta organización permite administrar el acceso de forma más ordenada, dejando preparada la base para futuras configuraciones de permisos sobre carpetas y recursos compartidos. El enunciado general insiste precisamente en la creación de cuentas locales y grupos como parte de la administración del sistema, y la propuesta del sprint concreta estos nombres y esta agrupación. :contentReference[oaicite:5]{index=5} :contentReference[oaicite:6]{index=6}
     </p>
     <div class="capture-placeholder">
-        <img width="664" height="470" alt="Instalación masiva de aplicaciones con Ninite para preparar la prueba de restauración" src="https://github.com/user-attachments/assets/76b2d9f0-7e38-4234-92b2-f4d13bd27951" />
-        <img width="676" height="912" alt="Listado de programas instalados tras la ejecución de Ninite" src="https://github.com/user-attachments/assets/419ded94-0ec8-4944-8b01-eb319f99d334" />
-        <img width="559" height="460" alt="Inicio del asistente de restauración del sistema" src="https://github.com/user-attachments/assets/963ae332-0dcb-4e34-aefc-95067e906bd5" />
-        <img width="547" height="243" alt="Selección del punto de restauración para iniciar el rollback" src="https://github.com/user-attachments/assets/ffe089e1-81a3-47ba-80b6-eee72f15bc3f" />
-        <img width="1544" height="774" alt="Proceso de restauración del sistema en ejecución" src="https://github.com/user-attachments/assets/b0aa08b8-6cf2-4668-8b20-5a2dfeeec899" />
-        <img width="1138" height="733" alt="Comprobación final de la restauración del sistema" src="https://github.com/user-attachments/assets/1fba42e4-f648-42c1-b2f5-7e2afe88ddf4" />
-    </div>
-
-    <h3>Fase 3. Licencias de Windows</h3>
-    <p>
-        En la fase de licenciamiento se revisó el estado de activación del sistema desde la configuración de Windows. La comprobación mostró que el sistema no estaba activado. Después se realizó una verificación adicional mediante línea de comandos con <code>slmgr /xpr</code>, lo que permitió comprobar desde una vía técnica el estado real de la licencia.
-    </p>
-    <div class="capture-placeholder">
-        <img width="1007" height="804" alt="Pantalla de activación de Windows 11 donde se observa que el sistema no está activado" src="https://github.com/user-attachments/assets/06e203d9-b09e-488e-be3e-c47bf6c60873" />
-        <img width="951" height="499" alt="Comprobación del estado de activación mediante slmgr /xpr" src="https://github.com/user-attachments/assets/86fdff02-d187-4fca-a12d-4185dcf4d8c8" />
+        <img width="470" height="168" alt="Creación de los usuarios locales alumne1 y alumne2" src="https://github.com/user-attachments/assets/20294171-0b42-4fec-b002-7363c4bb0d58" />
+        <img width="606" height="232" alt="Creación del grupo Limitats y adición de usuarios" src="https://github.com/user-attachments/assets/48eea201-3e5a-4743-acc0-fce5605b2b49" />
+        <img width="630" height="218" alt="Comprobación de que los usuarios se han añadido correctamente al grupo" src="https://github.com/user-attachments/assets/ba111b7b-0e78-4c56-bf2a-29091ea1fcb0" />
     </div>
 
     <p>
-        A partir de esta comprobación se analizó el modelo de licenciamiento de Windows. Se distinguieron las licencias OEM, Retail, por volumen y educativas. En el contexto de una máquina virtual, la opción más coherente es una licencia por volumen o una licencia educativa, ya que la OEM queda vinculada al hardware físico y la Retail, aunque es funcional, resulta menos eficiente si el entorno se reutiliza o replica. También se realizó una valoración económica aproximada del sistema operativo, situando Windows 11 Home en un rango aproximado de 120 a 150 euros y Windows 11 Pro entre 200 y 260 euros en formato Retail.
-    </p>
-
-    <h3>Fase 4. Gestor de arranque</h3>
-    <p>
-        En este bloque se abrió el símbolo del sistema con privilegios de administrador y se ejecutó el comando <code>bcdedit</code> para analizar la configuración del arranque de Windows. La salida permitió identificar claramente los bloques correspondientes al <strong>Administrador de arranque de Windows</strong> y al <strong>Cargador de arranque de Windows</strong>. A partir de estos datos se interpretaron parámetros como el sistema por defecto, el tiempo de espera antes del arranque automático, la partición del sistema operativo y el archivo responsable de su carga.
+        Para comprobar el funcionamiento real de las cuotas, se inició sesión con el usuario <strong>alumne1</strong> y se realizaron pruebas directas sobre la unidad <strong>Dades</strong>. Tras el primer inicio de sesión, se generaron archivos mediante línea de comandos con el objetivo de consumir espacio en la partición limitada. El resultado observado fue que la primera creación se completaba correctamente, mientras que la segunda ya fallaba al superarse el umbral configurado. Esto confirma que la cuota aplicada estaba actuando de forma efectiva y que el sistema restringía la escritura una vez alcanzado el límite definido para ese usuario. La propuesta del sprint señala precisamente esta prueba de copia de ficheros como la forma de verificar el comportamiento de las cuotas al superar el límite establecido. :contentReference[oaicite:7]{index=7}
     </p>
     <div class="capture-placeholder">
-        <img width="804" height="497" alt="Apertura del símbolo del sistema como administrador" src="https://github.com/user-attachments/assets/71956bc2-81dc-432a-b6ce-4a9da79fd13e" />
-        <img width="982" height="163" alt="Confirmación del inicio de CMD con permisos administrativos" src="https://github.com/user-attachments/assets/8a9d46be-d164-4986-afef-331b765190d5" />
-        <img width="781" height="623" alt="Salida del comando bcdedit en CMD" src="https://github.com/user-attachments/assets/aa4f3b1f-0d42-405e-9ae7-eab0457200be" />
+        <img width="1626" height="794" alt="Primer inicio de sesión con alumne1" src="https://github.com/user-attachments/assets/9e60857e-e601-4d68-8908-cf318523fd5b" />
+        <img width="584" height="148" alt="Creación de archivos en la unidad Dades y bloqueo al superar la cuota" src="https://github.com/user-attachments/assets/af211656-897c-46b9-b4a5-c8434f6a66b0" />
     </div>
 
     <p>
-        Del análisis se concluyó que el sistema arrancaba con la entrada actual, que el tiempo de espera estaba fijado en 30 segundos, que Windows se encontraba instalado en la partición C: y que el archivo encargado de iniciar la carga era <code>\Windows\system32\winload.efi</code>. Con ello se documentó la secuencia básica de arranque de Windows y la función diferenciada del Boot Manager y del Boot Loader.
+        Con estas acciones queda documentada la parte realizada hasta ahora del Sprint 2. El entorno dispone ya de almacenamiento adicional correctamente estructurado, con dos sistemas de archivos diferenciados, una partición NTFS preparada para administración avanzada, cuotas activas y usuarios reales sobre los que validar su funcionamiento. A partir de este punto, el sistema queda listo para continuar con las siguientes fases previstas, como la automatización de copias, la gestión de procesos y la aplicación de permisos avanzados mediante ACL.
     </p>
-
-    <h3>Fase 5. Red básica</h3>
-    <p>
-        La fase de red se centró en la revisión y modificación de la configuración IP del sistema. Se accedió a la configuración del adaptador desde el Panel de control, se comprobó el direccionamiento actual mediante <code>ipconfig</code> y se probaron tanto la configuración automática mediante DHCP como la configuración manual de IP y DNS. Para validar la conectividad se ejecutó un <code>ping</code> a un dominio externo.
-    </p>
-    <div class="capture-placeholder">
-        <img width="1021" height="637" alt="Configuración de red desde el panel de control" src="https://github.com/user-attachments/assets/83f22aaa-91db-4061-a178-185212940cff" />
-        <img width="604" height="274" alt="Ejecución de ipconfig para consultar la configuración IP" src="https://github.com/user-attachments/assets/92ce8e30-a736-48d2-84f1-28eaacd553b8" />
-        <img width="643" height="454" alt="Configuración automática de IP y DNS mediante DHCP" src="https://github.com/user-attachments/assets/0da22fe3-58cd-4e75-8dba-a0f9c3e073a7" />
-        <img width="1012" height="768" alt="Configuración manual de IP y DNS en Windows 11" src="https://github.com/user-attachments/assets/28bd9d6f-0959-42a6-8359-7f6a52cdfebc" />
-        <img width="593" height="117" alt="Comprobación de conectividad mediante ping" src="https://github.com/user-attachments/assets/6e01e783-dbdb-489e-8d56-1ba5d1464be0" />
-    </div>
-
-    <h3>Fase 6. Comandos generales</h3>
-    <p>
-        En esta fase se utilizaron PowerShell y la línea de comandos para ejecutar tareas básicas y administrativas. Se abrieron consolas, se listó contenido con <code>dir</code>, se creó una carpeta con <code>mkdir</code>, se generó un archivo de texto mediante <code>echo</code> y posteriormente se eliminó con <code>del</code>. También se probaron comandos del sistema como <code>taskkill</code>, <code>systeminfo</code>, <code>hostname</code> y <code>whoami</code>, así como comandos de red como <code>ipconfig</code>, <code>ping</code> y <code>netstat -an</code>. Por último, se ejecutaron utilidades complementarias como <code>tree</code>, <code>cls</code>, <code>help</code> y <code>shutdown /s /t 0</code>.
-    </p>
-    <div class="capture-placeholder">
-        <img width="1142" height="638" alt="Apertura de PowerShell en Windows 11" src="https://github.com/user-attachments/assets/8ddf333b-22ad-473a-b61f-e6fa226cf040" />
-        <img width="706" height="444" alt="Ejecución de dir en PowerShell" src="https://github.com/user-attachments/assets/0a53b17f-4eb5-4290-b994-de87ad58cbda" />
-        <img width="949" height="207" alt="Creación de la carpeta hola con mkdir" src="https://github.com/user-attachments/assets/b05ab8da-3575-4778-b8d7-89848ebc9575" />
-        <img width="864" height="495" alt="Comprobación mediante dir de que la carpeta se ha creado" src="https://github.com/user-attachments/assets/7fd0bde1-5c9e-4d55-9579-5db7d1327c9e" />
-        <img width="691" height="487" alt="Creación del archivo fitxer.txt y visualización" src="https://github.com/user-attachments/assets/f90e196f-d411-4532-9159-8b777eacdebf" />
-        <img width="394" height="92" alt="Visualización del contenido del archivo fitxer.txt" src="https://github.com/user-attachments/assets/f4c36a46-d3a5-48c8-b7be-febbc51f3042" />
-        <img width="783" height="453" alt="Eliminación del archivo fitxer.txt y comprobación posterior" src="https://github.com/user-attachments/assets/2d7f1d0e-3101-4ca4-8189-10853ec15fff" />
-        <img width="652" height="74" alt="Finalización del proceso notepad.exe con taskkill" src="https://github.com/user-attachments/assets/a352f267-a2ad-4bae-937b-6dfa2afd0adc" />
-        <img width="1355" height="769" alt="Información completa del sistema mediante systeminfo" src="https://github.com/user-attachments/assets/9895c594-7d76-4ba5-9bd1-3116480d8f88" />
-        <img width="355" height="105" alt="Visualización del nombre del equipo con hostname" src="https://github.com/user-attachments/assets/f99eef1d-e1e9-481f-ab06-1a32cd24e054" />
-        <img width="304" height="85" alt="Visualización del usuario actual con whoami" src="https://github.com/user-attachments/assets/bb1624d3-7459-4dd8-bc18-87a1d7fe04db" />
-        <img width="677" height="226" alt="Configuración IP mostrada con ipconfig" src="https://github.com/user-attachments/assets/2a1b2067-5aae-4364-9aab-a3f591fbd166" />
-        <img width="699" height="216" alt="Comprobación de conectividad con ping google.es" src="https://github.com/user-attachments/assets/a9afe735-1b63-459a-aa19-304eb8268c87" />
-        <img width="1467" height="771" alt="Conexiones abiertas del sistema mostradas con netstat -an" src="https://github.com/user-attachments/assets/2940b578-adab-4344-9e0e-aeef1db42580" />
-        <img width="591" height="352" alt="Visualización de la estructura de carpetas con tree" src="https://github.com/user-attachments/assets/9e9aa226-a071-42ab-a77e-eeeed1d603b4" />
-        <img width="1603" height="338" alt="Limpieza de pantalla con cls" src="https://github.com/user-attachments/assets/fb9a346b-4d44-4753-ac8b-9bbd29f3fad4" />
-        <img width="1575" height="752" alt="Ayuda general de comandos con help" src="https://github.com/user-attachments/assets/1c73977e-9ccd-43dd-a4a8-637c07365461" />
-        <img width="750" height="205" alt="Orden de apagado inmediato con shutdown /s /t 0" src="https://github.com/user-attachments/assets/e6d64e86-b07d-4838-9c91-c46cf41c960a" />
-        <img width="1543" height="902" alt="Resultado del apagado del sistema" src="https://github.com/user-attachments/assets/c341d57a-5d2b-4e27-9dff-88ed9a4e15ce" />
-    </div>
-
-    <h3>Fase 7. Instalación de aplicaciones</h3>
-    <p>
-        El sprint se cerró con la instalación y comprobación de software. Se descargó e instaló Google Chrome desde su fuente oficial, se verificó su funcionamiento y, posteriormente, se instaló una aplicación desde Microsoft Store. Después de comprobar que la aplicación de la Store se ejecutaba correctamente, se procedió a su desinstalación y se verificó que desaparecía del sistema.
-    </p>
-    <div class="capture-placeholder">
-        <img width="1615" height="843" alt="Descarga de Google Chrome desde el navegador" src="https://github.com/user-attachments/assets/eb77f4eb-6b06-4115-a917-a9684af38835" />
-        <img width="924" height="385" alt="Instalación de Google Chrome" src="https://github.com/user-attachments/assets/94063166-cc9a-4676-9678-233fbcb028a6" />
-        <img width="846" height="539" alt="Apertura de Google Chrome y comprobación básica de funcionamiento" src="https://github.com/user-attachments/assets/7b64aa7d-6794-4b6b-bf73-5f06e90be446" />
-        <img width="1017" height="790" alt="Verificación adicional del funcionamiento de Chrome" src="https://github.com/user-attachments/assets/7453c2e3-f722-4ae8-941d-d03fcf6bfa3c" />
-        <img width="943" height="767" alt="Instalación de una aplicación desde Microsoft Store" src="https://github.com/user-attachments/assets/f7e667ea-513a-43ce-aeaf-073dad63c3f2" />
-        <img width="454" height="576" alt="Comprobación del funcionamiento de la aplicación instalada desde Microsoft Store" src="https://github.com/user-attachments/assets/56127d87-cc85-4035-91be-0003bd333694" />
-        <img width="474" height="211" alt="Inicio del proceso de desinstalación de la aplicación" src="https://github.com/user-attachments/assets/b1bf53a7-2916-47d7-a453-7569693ba2b8" />
-        <img width="709" height="362" alt="Confirmación del proceso de desinstalación" src="https://github.com/user-attachments/assets/e4750237-8c1c-4f5d-8f53-3cc26fd08e50" />
-        <img width="847" height="354" alt="Comprobación de que la aplicación ya no aparece tras la desinstalación" src="https://github.com/user-attachments/assets/14b0082b-21ff-4676-b905-8134d4353a5b" />
-        <img width="817" height="559" alt="Verificación adicional de la desinstalación completada" src="https://github.com/user-attachments/assets/7efb0935-6a44-4394-b96d-062af05571e7" />
-    </div>
 </div>
