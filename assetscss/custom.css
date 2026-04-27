@@ -57,7 +57,7 @@ body > * { position: relative; z-index: 1; }
 
 /* ---------- Contenedor principal ---------- */
 .contenedor-principal {
-  width: min(92%, 980px);
+  width: min(94%, 1350px);
   margin: 2.5rem auto 3rem;
   padding: 0 0 clamp(1.5rem, 3vw, 2.5rem);
   background: var(--overlay);
