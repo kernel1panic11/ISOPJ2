@@ -1,8 +1,8 @@
 /* =============================================
-   ISOPJ2 — Custom CSS · Rediseño 2025
+   ISOPJ2 â€” Custom CSS Â· RediseÃ±o 2025
    ============================================= */
 
-/* ---------- Tokens de diseño ---------- */
+/* ---------- Tokens de diseÃ±o ---------- */
 :root {
   --bg-image: url('back.gif');
   --overlay: rgba(10, 20, 30, 0.75);
@@ -83,7 +83,7 @@ main {
   padding-top: clamp(1.5rem, 3vw, 2.5rem);
 }
 
-/* ---------- Banner de vídeo (full-width, arriba del todo) ---------- */
+/* ---------- Banner de vÃ­deo (full-width, arriba del todo) ---------- */
 .hero-video-banner {
   width: 100%;
   line-height: 0;
@@ -223,7 +223,7 @@ h1.titulo {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ---------- Encabezados de sección ---------- */
+/* ---------- Encabezados de secciÃ³n ---------- */
 h2.sub, h3.sub {
   display: flex;
   align-items: center;
@@ -246,7 +246,7 @@ h2.sub::before {
   flex-shrink: 0;
 }
 
-/* Párrafos */
+/* PÃ¡rrafos */
 p {
   color: var(--text-soft);
   margin-bottom: .7rem;
@@ -388,7 +388,7 @@ a:hover { color: var(--accent-2); }
   outline-offset: 3px;
 }
 
-/* Badge de número */
+/* Badge de nÃºmero */
 .unit-badge {
   flex-shrink: 0;
   font-family: var(--font-mono);
@@ -439,7 +439,7 @@ a:hover { color: var(--accent-2); }
 }
 
 /* =============================================
-   VÍDEO
+   VÃDEO
    ============================================= */
 .video-wrapper {
   position: relative;
@@ -464,7 +464,7 @@ a:hover { color: var(--accent-2); }
 }
 
 /* =============================================
-   CONTENEDOR DE CAPTURAS Y ESTILO DE IMÁGENES
+   CONTENEDOR DE CAPTURAS Y ESTILO DE IMÃGENES
    ============================================= */
 .capture-placeholder {
   display: flex;
@@ -513,7 +513,7 @@ a:hover { color: var(--accent-2); }
 .footer-text img { border: 0; margin-top: .5rem; opacity: .8; border-radius: 4px; }
 
 /* =============================================
-   BOTONES DE NAVEGACIÓN
+   BOTONES DE NAVEGACIÃ“N
    ============================================= */
 .navigation-links {
   display: flex;
