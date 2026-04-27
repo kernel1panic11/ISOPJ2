@@ -1,4 +1,4 @@
----
+﻿---
 layout: default
 title: Sprint 2
 ---
@@ -9,25 +9,19 @@ title: Sprint 2
     <a href="../index.html"><i class="fa-solid fa-house"></i> Volver al Inicio</a>
     <a href="../SP3/SP3.html">Siguiente Práctica <i class="fa-solid fa-arrow-right"></i></a>
 </div>
-<div class="navigation-links">
-    <a href="../SP1/SP1.html"><i class="fa-solid fa-arrow-left"></i> Práctica Anterior</a>
-    <a href="../index.html"><i class="fa-solid fa-house"></i> Volver al Inicio</a>
-    <a href="../SP3/SP3.html">Siguiente Práctica <i class="fa-solid fa-arrow-right"></i></a>
-</div>
-</main>
 
 <div class="navigation-links">
-    <a href="../SP1/SP1.html"><i class="fa-solid fa-arrow-left"></i> PrÃ¡ctica Anterior</a>
+    <a href="../SP1/SP1.html"><i class="fa-solid fa-arrow-left"></i> PrÃƒÂ¡ctica Anterior</a>
     <a href="../index.html"><i class="fa-solid fa-house"></i> Volver al Inicio</a>
-    <a href="../SP3/SP3.html">Siguiente PrÃ¡ctica <i class="fa-solid fa-arrow-right"></i></a>
+    <a href="../SP3/SP3.html">Siguiente PrÃƒÂ¡ctica <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 
 <div class="content-section">
-    <h2 class="sub">Fase 1. Preparación del almacenamiento</h2>
+    <h2 class="sub">Fase 1. PreparaciÃ³n del almacenamiento</h2>
 
-    <h3>Paso 1. Añadir disco virtual</h3>
+    <h3>Paso 1. AÃ±adir disco virtual</h3>
     <p>
-        Se añade un disco virtual de 20 GB tipo NVMe en VMware para trabajar almacenamiento de forma aislada respecto al sistema principal.
+        Se aÃ±ade un disco virtual de 20 GB tipo NVMe en VMware para trabajar almacenamiento de forma aislada respecto al sistema principal.
     </p>
     <div class="capture-placeholder">
         <img class="course-image" src="https://github.com/user-attachments/assets/e5364ba0-a1b5-48e7-80a4-41af81a8e87f" />
@@ -38,7 +32,7 @@ title: Sprint 2
         <img class="course-image" src="https://github.com/user-attachments/assets/1dfe022f-16ae-4884-85b8-b994db15599f" />
     </div>
 
-    <h3>Paso 2. Inicialización del disco</h3>
+    <h3>Paso 2. InicializaciÃ³n del disco</h3>
     <p>
         Se inicializa el disco en formato GPT, adecuado para sistemas actuales y compatible con Windows 11.
     </p>
@@ -46,7 +40,7 @@ title: Sprint 2
         <img class="course-image" src="https://github.com/user-attachments/assets/98109882-e659-4e4e-bfa2-b50c53961428" />
     </div>
 
-    <h3>Paso 3. Creación de particiones</h3>
+    <h3>Paso 3. CreaciÃ³n de particiones</h3>
     <p>
         Se crean dos particiones: Dades (NTFS, 15 GB) para almacenamiento controlado y Portable (FAT32, 5 GB) para compatibilidad externa.
     </p>
@@ -61,9 +55,9 @@ title: Sprint 2
         <img class="course-image" src="https://github.com/user-attachments/assets/635fe4f3-6e32-4c7d-91d9-b95ae2a7f90f" />
     </div>
 
-    <h3>Paso 4. Verificación con diskpart</h3>
+    <h3>Paso 4. VerificaciÃ³n con diskpart</h3>
     <p>
-        Se verifica la configuración mediante diskpart, comprobando discos y volúmenes.
+        Se verifica la configuraciÃ³n mediante diskpart, comprobando discos y volÃºmenes.
     </p>
     <div class="capture-placeholder">
         <img class="course-image" src="https://github.com/user-attachments/assets/2bd6726f-944c-4cc8-9c00-0f35ccd580b9" />
@@ -72,17 +66,17 @@ title: Sprint 2
 </div>
 
 <div class="navigation-links">
-    <a href="../SP1/SP1.html"><i class="fa-solid fa-arrow-left"></i> Práctica Anterior</a>
+    <a href="../SP1/SP1.html"><i class="fa-solid fa-arrow-left"></i> PrÃ¡ctica Anterior</a>
     <a href="../index.html"><i class="fa-solid fa-house"></i> Volver al Inicio</a>
-    <a href="../SP3/SP3.html">Siguiente Práctica <i class="fa-solid fa-arrow-right"></i></a>
+    <a href="../SP3/SP3.html">Siguiente PrÃ¡ctica <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 
 <div class="content-section">
     <h2 class="sub">Fase 2. Usuarios, grupos y cuotas</h2>
 
-    <h3>Paso 5. Configuración de cuotas</h3>
+    <h3>Paso 5. ConfiguraciÃ³n de cuotas</h3>
     <p>
-        Se habilitan cuotas en la unidad Dades (NTFS), estableciendo límite de 300 MB por usuario con advertencia.
+        Se habilitan cuotas en la unidad Dades (NTFS), estableciendo lÃ­mite de 300 MB por usuario con advertencia.
     </p>
     <div class="capture-placeholder">
         <img class="course-image" src="https://github.com/user-attachments/assets/d8eab161-deb0-432e-a4a1-66ad01d70186" />
@@ -91,7 +85,7 @@ title: Sprint 2
         <img class="course-image" src="https://github.com/user-attachments/assets/385e1764-50bd-46fb-9a48-1c18b8db671a" />
     </div>
 
-    <h3>Paso 6. Creación de usuarios y grupo</h3>
+    <h3>Paso 6. CreaciÃ³n de usuarios y grupo</h3>
     <p>
         Se crean los usuarios alumne1 y alumne2 y se agrupan en Limitados para control conjunto de permisos.
     </p>
@@ -103,7 +97,7 @@ title: Sprint 2
 
     <h3>Paso 7. Prueba de cuotas</h3>
     <p>
-        Se prueba con alumne1, superando el límite y comprobando el bloqueo de escritura.
+        Se prueba con alumne1, superando el lÃ­mite y comprobando el bloqueo de escritura.
     </p>
     <div class="capture-placeholder">
         <img class="course-image" src="https://github.com/user-attachments/assets/9e60857e-e601-4d68-8908-cf318523fd5b" />
@@ -115,7 +109,7 @@ title: Sprint 2
     <h2 class="sub">Fase 3. Copias de seguridad</h2>
 
     <p>
-        Se añade un tercer disco, se formatea en NTFS como unidad de backup y se crea la carpeta CopiasUsuaris para almacenar perfiles.
+        Se aÃ±ade un tercer disco, se formatea en NTFS como unidad de backup y se crea la carpeta CopiasUsuaris para almacenar perfiles.
     </p>
     <div class="capture-placeholder">
         <img class="course-image" src="https://github.com/user-attachments/assets/067e00f9-1f5d-404c-8915-7fc4ee026a6f" />
@@ -124,9 +118,9 @@ title: Sprint 2
         <img class="course-image" src="https://github.com/user-attachments/assets/4b137df3-2df8-4546-84ed-8f9d00105316" />
     </div>
 
-    <h3>Script y automatización</h3>
+    <h3>Script y automatizaciÃ³n</h3>
     <p>
-        Se crea un script .bat que copia C:\Users\%USERNAME% a E:\CopiasUsuaris y se configura mediante gpedit para ejecutarse al inicio de sesión.
+        Se crea un script .bat que copia C:\Users\%USERNAME% a E:\CopiasUsuaris y se configura mediante gpedit para ejecutarse al inicio de sesiÃ³n.
     </p>
     <div class="capture-placeholder">
         <img class="course-image" src="https://github.com/user-attachments/assets/cf16bda6-e283-4181-bc25-bdfb48d40b43" />
@@ -137,10 +131,10 @@ title: Sprint 2
 </div>
 
 <div class="content-section">
-    <h2 class="sub">Fase 4. Verificación de copias</h2>
+    <h2 class="sub">Fase 4. VerificaciÃ³n de copias</h2>
 
     <p>
-        Se inicia sesión con alumne1 y se comprueba que la copia del perfil se genera correctamente en CopiasUsuaris.
+        Se inicia sesiÃ³n con alumne1 y se comprueba que la copia del perfil se genera correctamente en CopiasUsuaris.
     </p>
     <div class="capture-placeholder">
         <img class="course-image" src="https://github.com/user-attachments/assets/f32b8a56-d056-4385-9627-91348b073f49" />
@@ -149,7 +143,7 @@ title: Sprint 2
 </div>
 
 <div class="content-section">
-    <h2 class="sub">Fase 5. Gestión de procesos</h2>
+    <h2 class="sub">Fase 5. GestiÃ³n de procesos</h2>
 
     <p>
         Se listan procesos con tasklist, se guarda la salida y se identifican procesos prescindibles para optimizar el sistema.
@@ -191,6 +185,12 @@ title: Sprint 2
     </div>
 
     <p>
-        Se demuestra el uso de ACLs para aplicar control granular, donde las reglas específicas de usuario prevalecen sobre las de grupo.
+        Se demuestra el uso de ACLs para aplicar control granular, donde las reglas especÃ­ficas de usuario prevalecen sobre las de grupo.
     </p>
 </div>
+<div class="navigation-links">
+    <a href="../SP1/SP1.html"><i class="fa-solid fa-arrow-left"></i> Práctica Anterior</a>
+    <a href="../index.html"><i class="fa-solid fa-house"></i> Volver al Inicio</a>
+    <a href="../SP3/SP3.html">Siguiente Práctica <i class="fa-solid fa-arrow-right"></i></a>
+</div>
+</main>
