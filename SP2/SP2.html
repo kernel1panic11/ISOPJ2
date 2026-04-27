@@ -1,265 +1,166 @@
----
-layout: default
-title: "Sprint 2. Usuarios, almacenamiento, procesos y recuperación en Windows"
----
+<div class="content-section">
+    <h2 class="sub">Fase 1. Preparación del almacenamiento</h2>
 
-<main class="contenedor-principal">
-    <h1 class="titulo">Sprint 2. Usuarios, almacenamiento, procesos y recuperación en Windows</h1>
-    <div class="loading-bar"><div class="loading-progress"></div></div>
-
-    <div class="navigation-links">
-        <a href="{{ '/' | relative_url }}"><i class="fa-solid fa-house"></i> Volver al inicio</a>
-        <a href="{{ '/SP3/SP3.html' | relative_url }}">Siguiente práctica <i class="fa-solid fa-arrow-right"></i></a>
+    <h3>Paso 1. Añadir disco virtual</h3>
+    <p>
+        Se añade un disco virtual de 20 GB tipo NVMe en VMware para trabajar almacenamiento de forma aislada respecto al sistema principal.
+    </p>
+    <div class="capture-placeholder">
+        <img src="https://github.com/user-attachments/assets/e5364ba0-a1b5-48e7-80a4-41af81a8e87f" />
+        <img src="https://github.com/user-attachments/assets/273a64d7-f983-4ba2-b550-63cd0a911649" />
+        <img src="https://github.com/user-attachments/assets/5613317d-fed3-4a39-9fcf-77a2b18e0a1b" />
+        <img src="https://github.com/user-attachments/assets/97bb6d4a-fb89-43e6-b328-ac1dd7124667" />
+        <img src="https://github.com/user-attachments/assets/5961ae48-5ee6-4cf5-974e-214dd6961491" />
+        <img src="https://github.com/user-attachments/assets/1dfe022f-16ae-4884-85b8-b994db15599f" />
     </div>
 
-    <div class="content-section">
-        <h2 class="sub">Enfoque del sprint</h2>
-        <p>
-            Este sprint se centra en la administración de Windows ya instalado en máquina virtual. El objetivo es dejar el sistema preparado para trabajar con usuarios y grupos, políticas locales, almacenamiento adicional, cuotas, procesos, copias de seguridad y mecanismos básicos de recuperación.
-        </p>
-        <p>
-            A partir del enunciado y de la propuesta práctica, el sprint queda orientado a una implementación realista en la que se añaden discos virtuales, se organizan particiones, se limitan recursos por usuario y se automatizan tareas de copia y optimización del entorno.
-        </p>
+    <h3>Paso 2. Inicialización del disco</h3>
+    <p>
+        Se inicializa el disco en formato GPT, adecuado para sistemas actuales y compatible con Windows 11.
+    </p>
+    <div class="capture-placeholder">
+        <img src="https://github.com/user-attachments/assets/98109882-e659-4e4e-bfa2-b50c53961428" />
     </div>
 
-    <div class="content-section">
-        <h2 class="sub">Objetivos del Sprint 2</h2>
-        <ul>
-            <li>Crear y configurar cuentas de usuario locales, grupos y políticas de contraseñas.</li>
-            <li>Gestionar procesos y servicios de Windows según las necesidades del sistema.</li>
-            <li>Administrar discos, particiones, volúmenes y sistemas de archivos.</li>
-            <li>Aplicar cuotas de disco para controlar el espacio asignado a los usuarios.</li>
-            <li>Implementar copias de seguridad y automatización básica mediante scripts.</li>
-            <li>Configurar permisos avanzados con ACLs y comprobar excepciones de acceso.</li>
-            <li>Documentar la estructura del sistema, las pruebas realizadas y la recuperación ante incidencias.</li>
-        </ul>
+    <h3>Paso 3. Creación de particiones</h3>
+    <p>
+        Se crean dos particiones: Dades (NTFS, 15 GB) para almacenamiento controlado y Portable (FAT32, 5 GB) para compatibilidad externa.
+    </p>
+    <div class="capture-placeholder">
+        <img src="https://github.com/user-attachments/assets/8cc5d29a-33f5-48c1-94a8-37418d3b9712" />
+        <img src="https://github.com/user-attachments/assets/e74947a6-5b8a-4241-9191-443b8fc49b55" />
+        <img src="https://github.com/user-attachments/assets/e7259106-cbec-47b9-b5e7-bb339cc9693a" />
+        <img src="https://github.com/user-attachments/assets/31ef7011-45b2-45f6-b588-e698c5ed643c" />
+        <img src="https://github.com/user-attachments/assets/7945e69a-f986-4f97-aeab-e4b6cc99d1cc" />
+        <img src="https://github.com/user-attachments/assets/2e862e4c-db38-45bd-a465-33bb1fc6faaf" />
+        <img src="https://github.com/user-attachments/assets/9ec20b88-9262-42af-aaa4-8c968dcd0b71" />
+        <img src="https://github.com/user-attachments/assets/635fe4f3-6e32-4c7d-91d9-b95ae2a7f90f" />
     </div>
 
-    <div class="content-section">
-        <h2 class="sub">Fase 1. Preparación del almacenamiento</h2>
-        <ol>
-            <li>Añadir un nuevo disco virtual a la máquina virtual Windows.</li>
-            <li>Abrir <code>Administración de discos</code> e inicializar el nuevo disco.</li>
-            <li>Crear dos particiones o volúmenes: <code>Dades</code> en NTFS y <code>Portable</code> en FAT32.</li>
-            <li>Asignar letras de unidad y verificar la configuración con <code>diskpart</code> si se desea comprobar por consola.</li>
-            <li>Explicar por qué se usan sistemas de archivos distintos y qué ventajas tiene cada uno.</li>
-        </ol>
-        <p><strong>Qué debe quedar claro:</strong> diferencia entre NTFS, FAT32 y exFAT, uso previsto de cada volumen y evidencia de que el almacenamiento quedó correctamente configurado.</p>
+    <h3>Paso 4. Verificación con diskpart</h3>
+    <p>
+        Se verifica la configuración mediante diskpart, comprobando discos y volúmenes.
+    </p>
+    <div class="capture-placeholder">
+        <img src="https://github.com/user-attachments/assets/2bd6726f-944c-4cc8-9c00-0f35ccd580b9" />
+        <img src="https://github.com/user-attachments/assets/41beffb8-f7ad-41ef-8ca3-d695388fbf08" />
+    </div>
+</div>
+
+<div class="content-section">
+    <h2 class="sub">Fase 2. Usuarios, grupos y cuotas</h2>
+
+    <h3>Paso 5. Configuración de cuotas</h3>
+    <p>
+        Se habilitan cuotas en la unidad Dades (NTFS), estableciendo límite de 300 MB por usuario con advertencia.
+    </p>
+    <div class="capture-placeholder">
+        <img src="https://github.com/user-attachments/assets/d8eab161-deb0-432e-a4a1-66ad01d70186" />
+        <img src="https://github.com/user-attachments/assets/ff29146e-ea1e-4c82-9be5-7424e51e340e" />
+        <img src="https://github.com/user-attachments/assets/6c1b8f9a-ac75-4dc9-9d40-b2208bd4e845" />
+        <img src="https://github.com/user-attachments/assets/385e1764-50bd-46fb-9a48-1c18b8db671a" />
     </div>
 
-    <div class="content-section">
-        <h2 class="sub">Fase 2. Usuarios, grupos y políticas locales</h2>
-        <ol start="6">
-            <li>Crear dos usuarios locales, por ejemplo <code>alumne1</code> y <code>alumne2</code>.</li>
-            <li>Crear un grupo nuevo, por ejemplo <code>Limitats</code>, y añadir a ambos usuarios.</li>
-            <li>Revisar o configurar políticas locales de contraseñas y directivas básicas de seguridad.</li>
-            <li>Comprobar que la pertenencia al grupo afecta correctamente a los permisos asignados.</li>
-            <li>Documentar el proceso con capturas de usuarios, grupos y directivas locales utilizadas.</li>
-        </ol>
-        <p><strong>Aquí se trabaja:</strong> creación de cuentas, pertenencia a grupos, control de acceso y endurecimiento básico del sistema mediante directivas locales.</p>
+    <h3>Paso 6. Creación de usuarios y grupo</h3>
+    <p>
+        Se crean los usuarios alumne1 y alumne2 y se agrupan en Limitados para control conjunto de permisos.
+    </p>
+    <div class="capture-placeholder">
+        <img src="https://github.com/user-attachments/assets/20294171-0b42-4fec-b002-7363c4bb0d58" />
+        <img src="https://github.com/user-attachments/assets/48eea201-3e5a-4743-acc0-fce5605b2b49" />
+        <img src="https://github.com/user-attachments/assets/ba111b7b-0e78-4c56-bf2a-29091ea1fcb0" />
     </div>
 
-    <div class="content-section">
-        <h2 class="sub">Fase 3. Cuotas de disco</h2>
-        <ol start="11">
-            <li>Activar cuotas de disco en la partición <code>Dades</code>, que debe estar en NTFS.</li>
-            <li>Establecer un límite por usuario, por ejemplo 300 MB, con nivel de advertencia.</li>
-            <li>Iniciar sesión con los usuarios creados y copiar archivos en la unidad para probar la cuota.</li>
-            <li>Comprobar qué ocurre al superar el límite configurado.</li>
-            <li>Guardar evidencias del límite aplicado y del bloqueo o advertencia producidos.</li>
-        </ol>
-        <p><strong>Objetivo técnico:</strong> demostrar que el sistema controla el espacio disponible por usuario y que la partición adecuada para ello es NTFS.</p>
+    <h3>Paso 7. Prueba de cuotas</h3>
+    <p>
+        Se prueba con alumne1, superando el límite y comprobando el bloqueo de escritura.
+    </p>
+    <div class="capture-placeholder">
+        <img src="https://github.com/user-attachments/assets/9e60857e-e601-4d68-8908-cf318523fd5b" />
+        <img src="https://github.com/user-attachments/assets/af211656-897c-46b9-b4a5-c8434f6a66b0" />
+    </div>
+</div>
+
+<div class="content-section">
+    <h2 class="sub">Fase 3. Copias de seguridad</h2>
+
+    <p>
+        Se añade un tercer disco, se formatea en NTFS como unidad de backup y se crea la carpeta CopiasUsuaris para almacenar perfiles.
+    </p>
+    <div class="capture-placeholder">
+        <img src="https://github.com/user-attachments/assets/067e00f9-1f5d-404c-8915-7fc4ee026a6f" />
+        <img src="https://github.com/user-attachments/assets/422c3d4a-d06b-43b0-9c14-382fd376b93f" />
+        <img src="https://github.com/user-attachments/assets/3a2a0cd9-0180-4c17-a194-645138b9db40" />
+        <img src="https://github.com/user-attachments/assets/4b137df3-2df8-4546-84ed-8f9d00105316" />
     </div>
 
-    <div class="content-section">
-        <h2 class="sub">Fase 4. Copias de seguridad y automatización</h2>
-        <ol start="16">
-            <li>Añadir un tercer disco virtual y formatearlo en NTFS como unidad de copias, por ejemplo <code>Backups</code>.</li>
-            <li>Crear una carpeta como <code>E:\CopiasUsuarios</code>.</li>
-            <li>Preparar un script <code>.bat</code> que copie <code>C:\Users\%USERNAME%</code> a la unidad de copias.</li>
-            <li>Asignar el script al inicio de sesión desde <code>gpedit.msc</code> o la configuración equivalente.</li>
-            <li>Comprobar con <code>alumne1</code> y <code>alumne2</code> que la copia se ejecuta correctamente al iniciar sesión.</li>
-        </ol>
-        <p><strong>Ejemplo de objetivo:</strong> automatizar una copia sencilla del perfil del usuario y justificar su utilidad en entornos educativos o de laboratorio.</p>
+    <h3>Script y automatización</h3>
+    <p>
+        Se crea un script .bat que copia C:\Users\%USERNAME% a E:\CopiasUsuaris y se configura mediante gpedit para ejecutarse al inicio de sesión.
+    </p>
+    <div class="capture-placeholder">
+        <img src="https://github.com/user-attachments/assets/cf16bda6-e283-4181-bc25-bdfb48d40b43" />
+        <img src="https://github.com/user-attachments/assets/ca9e2b85-78a1-4721-abfe-b147550a68a4" />
+        <img src="https://github.com/user-attachments/assets/7ff2c20b-02a6-4591-90e2-6254579a72b5" />
+        <img src="https://github.com/user-attachments/assets/106b705e-2a62-4b23-9c5e-51f91558df11" />
+    </div>
+</div>
+
+<div class="content-section">
+    <h2 class="sub">Fase 4. Verificación de copias</h2>
+
+    <p>
+        Se inicia sesión con alumne1 y se comprueba que la copia del perfil se genera correctamente en CopiasUsuaris.
+    </p>
+    <div class="capture-placeholder">
+        <img src="https://github.com/user-attachments/assets/f32b8a56-d056-4385-9627-91348b073f49" />
+        <img src="https://github.com/user-attachments/assets/fe681ef2-d701-41b9-83d0-80e034c2d428" />
+    </div>
+</div>
+
+<div class="content-section">
+    <h2 class="sub">Fase 5. Gestión de procesos</h2>
+
+    <p>
+        Se listan procesos con tasklist, se guarda la salida y se identifican procesos prescindibles para optimizar el sistema.
+    </p>
+    <div class="capture-placeholder">
+        <img src="https://github.com/user-attachments/assets/0eced897-a4aa-4066-a81d-786f5629188c" />
+        <img src="https://github.com/user-attachments/assets/56c67097-9d32-4590-8f52-b68be2122a5b" />
+        <img src="https://github.com/user-attachments/assets/b70dee83-99dc-4e68-aa07-deccef6e5eea" />
     </div>
 
-    <div class="content-section">
-        <h2 class="sub">Fase 5. Gestión de procesos y servicios</h2>
-        <ol start="21">
-            <li>Listar los procesos activos con herramientas como <code>tasklist</code> o el Administrador de tareas.</li>
-            <li>Guardar la salida en un archivo para usarla como evidencia documental.</li>
-            <li>Identificar procesos prescindibles para un entorno virtual o con pocos recursos, como aplicaciones de sincronización o mensajería no necesarias.</li>
-            <li>Finalizar de forma controlada algunos procesos no esenciales con <code>taskkill</code>.</li>
-            <li>Añadir esas órdenes al script de inicio de sesión si se quiere automatizar la optimización del sistema.</li>
-        </ol>
-        <p><strong>Conviene explicar:</strong> diferencia entre proceso crítico y proceso prescindible, y qué mejora se busca en una máquina virtual al reducir carga innecesaria.</p>
+    <p>
+        Se eliminan procesos como OneDrive o Teams mediante taskkill y se verifica que no se ejecutan en nuevas sesiones.
+    </p>
+    <div class="capture-placeholder">
+        <img src="https://github.com/user-attachments/assets/cea0577b-eadf-4b3f-a8da-8baa509325e2" />
+        <img src="https://github.com/user-attachments/assets/ba01c5d7-f976-474f-b76e-f460a68da850" />
+        <img src="https://github.com/user-attachments/assets/2392018d-01cb-412e-9154-5ff071d0e1dc" />
+        <img src="https://github.com/user-attachments/assets/57a29a74-961f-4755-85e6-ef147c86db17" />
+        <img src="https://github.com/user-attachments/assets/a7cdfcde-8583-481a-8993-f24697742474" />
+    </div>
+</div>
+
+<div class="content-section">
+    <h2 class="sub">Fase 6. Permisos avanzados y ACLs</h2>
+
+    <p>
+        Se crea la carpeta E:\Projectes, se eliminan permisos heredados, se asigna control total al grupo Limitados y se limita alumne2 a solo lectura. Se verifica comportamiento con ambos usuarios.
+    </p>
+    <div class="capture-placeholder">
+        <img src="https://github.com/user-attachments/assets/64872fcb-9a44-4c4c-833b-3a2cce60374e" />
+        <img src="https://github.com/user-attachments/assets/a848c6ee-abf6-4e0e-8d22-1d0e2a273e1b" />
+        <img src="https://github.com/user-attachments/assets/88e9bba8-a8c9-40f9-80e6-6466fbd7caeb" />
+        <img src="https://github.com/user-attachments/assets/f7e680ac-7f57-46d2-986f-c7ec21d93d35" />
+        <img src="https://github.com/user-attachments/assets/d2bf4bea-9ed7-40c6-8b12-a3ecad781251" />
+        <img src="https://github.com/user-attachments/assets/d95af0c4-f04b-4fcc-bacb-e28144cb0da2" />
+        <img src="https://github.com/user-attachments/assets/2ee60270-1083-473f-b073-9cd376fad276" />
+        <img src="https://github.com/user-attachments/assets/032eef44-58ed-4492-90cb-989b4062fe9c" />
+        <img src="https://github.com/user-attachments/assets/86f54cce-772a-4e1c-89ec-b96e409ed523" />
     </div>
 
-    <div class="content-section">
-        <h2 class="sub">Fase 6. Permisos avanzados y ACLs</h2>
-        <ol start="26">
-            <li>Crear una carpeta de trabajo, por ejemplo <code>D:\Projectes</code>.</li>
-            <li>Romper la herencia si hace falta y dejar únicamente los permisos deseados.</li>
-            <li>Dar control total al grupo <code>Limitats</code> sobre la carpeta.</li>
-            <li>Comprobar con <code>alumne1</code> que puede crear, modificar y borrar archivos.</li>
-            <li>Aplicar una excepción para <code>alumne2</code> con solo lectura, por ejemplo usando <code>icacls</code>.</li>
-            <li>Verificar que <code>alumne2</code> puede leer, pero no modificar ni crear archivos.</li>
-            <li>Consultar los permisos finales para dejar constancia de la ACL aplicada.</li>
-        </ol>
-        <p><strong>Lo importante aquí:</strong> mostrar que las ACLs permiten un control más fino que un permiso general de grupo y que una excepción concreta puede limitar a un usuario determinado.</p>
-    </div>
-
-    <div class="content-section">
-        <h2 class="sub">Fase 7. Estructura del sistema y sistemas de archivos</h2>
-        <ol start="33">
-            <li>Comparar los sistemas de archivos NTFS, FAT32 y exFAT.</li>
-            <li>Describir la estructura básica de directorios de Windows.</li>
-            <li>Identificar ubicaciones importantes como <code>C:\Windows</code>, <code>C:\Windows\System32</code>, <code>C:\Program Files</code> y <code>C:\Users</code>.</li>
-            <li>Relacionar cada ubicación con su función dentro del sistema operativo.</li>
-            <li>Documentar también los archivos o herramientas de configuración que resulten relevantes en la práctica.</li>
-        </ol>
-        <p><strong>Finalidad:</strong> no quedarse solo en la parte práctica de administración, sino comprender dónde residen los componentes principales del sistema y qué papel cumple cada directorio.</p>
-    </div>
-
-    <div class="content-section">
-        <h2 class="sub">Fase 8. Copia de seguridad y recuperación ante desastres</h2>
-        <ol start="38">
-            <li>Configurar un mecanismo de copia o restauración del sistema según la práctica realizada.</li>
-            <li>Usar puntos de restauración, historial de archivos o una herramienta de copia de Windows, según lo que se haya implementado.</li>
-            <li>Simular una incidencia sencilla o una pérdida de datos controlada.</li>
-            <li>Comprobar que la restauración o recuperación funciona correctamente.</li>
-            <li>Explicar de forma ordenada el procedimiento seguido y el resultado final.</li>
-        </ol>
-        <p><strong>Esta parte debe cerrar el sprint:</strong> no solo administráis recursos, también dejáis preparado un método básico de recuperación.</p>
-    </div>
-
-    <div class="content-section">
-        <h2 class="sub">Verificación final</h2>
-        <ul>
-            <li>Los usuarios y grupos se crean correctamente y heredan los permisos esperados.</li>
-            <li>Las cuotas bloquean o advierten cuando se supera el espacio permitido.</li>
-            <li>Las particiones y letras de unidad aparecen correctamente en Windows.</li>
-            <li>El script de copia se ejecuta al iniciar sesión.</li>
-            <li>Los procesos prescindibles pueden cerrarse manual o automáticamente.</li>
-            <li>Las ACLs distinguen entre permisos de grupo y excepciones individuales.</li>
-            <li>Existe evidencia de una copia o restauración válida ante una incidencia.</li>
-        </ul>
-    </div>
-
-    <div class="content-section">
-        <h2 class="sub">Criterios de evaluación trabajados</h2>
-        <ul>
-            <li><strong>2.1</strong> Planificación, creación y configuración de usuarios, grupos, perfiles y políticas locales.</li>
-            <li><strong>2.2</strong> Aseguramiento del acceso al sistema mediante directivas de cuenta y contraseñas.</li>
-            <li><strong>2.3</strong> Actuación sobre servicios y procesos según las necesidades del sistema.</li>
-            <li><strong>2.5</strong> Análisis y configuración de métodos de resolución de nombres, cuando se apliquen en la práctica.</li>
-            <li><strong>2.6</strong> Optimización del sistema operativo para entornos portátiles o virtualizados.</li>
-            <li><strong>2.8</strong> Documentación de tareas de configuración del software de base.</li>
-            <li><strong>3.1</strong> Comparación de sistemas de archivos y sus ventajas.</li>
-            <li><strong>3.2</strong> Descripción de la estructura de directorios del sistema operativo.</li>
-            <li><strong>3.3</strong> Identificación de directorios que contienen binarios, órdenes y librerías del sistema.</li>
-            <li><strong>3.4</strong> Uso de herramientas de administración de discos para particiones y volúmenes.</li>
-            <li><strong>3.8</strong> Documentación de operaciones realizadas y métodos de recuperación ante desastres.</li>
-        </ul>
-    </div>
-
-    <div class="content-section">
-        <h2 class="sub">Guía rápida de evidencias</h2>
-        <ul>
-            <li>Discos añadidos, inicialización y particiones creadas.</li>
-            <li>Usuarios, grupo <code>Limitats</code> y políticas locales.</li>
-            <li>Configuración y prueba de cuotas en <code>Dades</code>.</li>
-            <li>Script de copia y ejecución automática al iniciar sesión.</li>
-            <li>Listado y cierre de procesos no esenciales.</li>
-            <li>Permisos ACL sobre <code>D:\Projectes</code> con excepción para <code>alumne2</code>.</li>
-            <li>Comparativa de sistemas de archivos y estructura de directorios.</li>
-            <li>Prueba final de restauración o recuperación.</li>
-        </ul>
-    </div>
-</main>
-
-<button id="scrollToTopBtn" class="scroll-btn" title="Ir arriba"><i class="fa-solid fa-arrow-up"></i></button>
-<button id="scrollToBottomBtn" class="scroll-btn" title="Ir abajo"><i class="fa-solid fa-arrow-down"></i></button>
-
-<script>
-document.getElementById('scrollToTopBtn').addEventListener('click', function() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
-
-document.getElementById('scrollToBottomBtn').addEventListener('click', function() {
-    window.scrollTo({
-        top: document.body.scrollHeight,
-        behavior: 'smooth'
-    });
-});
-
-window.addEventListener('scroll', function() {
-    const scrollTopBtn = document.getElementById('scrollToTopBtn');
-    const scrollBottomBtn = document.getElementById('scrollToBottomBtn');
-
-    if (window.pageYOffset > 300) {
-        scrollTopBtn.style.opacity = '1';
-        scrollTopBtn.style.pointerEvents = 'auto';
-    } else {
-        scrollTopBtn.style.opacity = '0.3';
-    }
-
-    if ((window.innerHeight + window.pageYOffset) < document.body.scrollHeight - 100) {
-        scrollBottomBtn.style.opacity = '1';
-        scrollBottomBtn.style.pointerEvents = 'auto';
-    } else {
-        scrollBottomBtn.style.opacity = '0.3';
-    }
-});
-</script>
-
-<style>
-:root {
-    --bg-image: url('{{ "/assetscss/pract2.gif" | relative_url }}');
-}
-
-body {
-    background-image: var(--bg-image);
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-code {
-    background-color: #282c34;
-    color: #abb2bf;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 0.9em;
-}
-
-.navigation-links {
-    position: sticky;
-    top: 1rem;
-    z-index: 100;
-    background: var(--overlay);
-    backdrop-filter: blur(8px);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-neon);
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-    padding: 1rem 1.2rem;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 1rem;
-}
-
-.navigation-links a {
-    text-decoration: none;
-    color: var(--accent);
-    transition: all 0.3s ease;
-}
-</style>
+    <p>
+        Se demuestra el uso de ACLs para aplicar control granular, donde las reglas específicas de usuario prevalecen sobre las de grupo.
+    </p>
+</div>
