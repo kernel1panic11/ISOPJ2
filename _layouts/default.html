@@ -22,6 +22,11 @@
     {% endif %}
 </head>
 <body>
+    {% if page.page_bg %}
+    <style>
+        :root { --bg-image: url('{{ "/assetscss/" | append: page.page_bg | relative_url }}'); }
+    </style>
+    {% endif %}
 
     {{ content }}
 
