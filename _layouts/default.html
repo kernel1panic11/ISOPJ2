@@ -15,7 +15,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <!-- Custom CSS -->
+    {% if page.index_style %}
+    <link rel="stylesheet" href="{{ '/assetscss/index.css' | relative_url }}">
+    {% else %}
     <link rel="stylesheet" href="{{ '/assetscss/custom.css' | relative_url }}">
+    {% endif %}
 </head>
 <body>
 
