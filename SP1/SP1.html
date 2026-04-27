@@ -1,173 +1,195 @@
 ---
 layout: default
-title: Sprint 1
+title: Sprint 1. Instalación y configuración inicial de Windows
 page_bg: pract22.gif
 ---
 
 <main class="contenedor-principal">
 <div class="navigation-links nav-sticky">
-    <a href="../index.html"><i class="fa-solid fa-house"></i> Volver al Inicio</a>
+    <a href="../index.html"><i class="fa-solid fa-house"></i> Volver al inicio</a>
     <a href="../SP2/SP2.html">Siguiente práctica <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 
+<h1 class="titulo">Sprint 1. Instalación y configuración inicial de Windows</h1>
+<div class="loading-bar" aria-hidden="true"><div class="loading-progress"></div></div>
+
 <div class="content-section">
-    <h2 class="sub">Sprint 2. Administración de almacenamiento, cuotas y gestión básica de usuarios en Windows 11</h2>
+    <h2 class="sub">Descripción general</h2>
     <p>
-        En este segundo sprint se ha comenzado a trabajar sobre un sistema Windows 11 ya instalado y operativo,
-        orientando la práctica a la administración del almacenamiento, la gestión de usuarios y grupos y el control del
-        uso de espacio mediante cuotas de disco. Hasta este punto se ha completado la preparación del disco adicional,
-        la creación de particiones con distintos sistemas de archivos, la verificación de la estructura de volúmenes, la
-        activación de cuotas sobre NTFS y la comprobación práctica de su funcionamiento con un usuario real. Esta
-        secuencia encaja con la propuesta del sprint, que plantea primero la preparación del sistema, después la
-        creación de cuotas y usuarios, y más adelante la automatización, verificación y permisos avanzados.
+        Esta práctica documenta la puesta en marcha inicial de un entorno Windows en máquina virtual, desde la creación
+        de la VM hasta la comprobación de herramientas básicas del sistema. El contenido se ha reorganizado a partir de
+        la guía paso a paso del Sprint 1 para que el flujo de trabajo quede claro y siga el orden real de la práctica.
     </p>
-
-    <h3>Fase 1. Preparación del almacenamiento</h3>
     <p>
-        El primer paso consistió en añadir a la máquina virtual un nuevo disco de <strong>20 GB</strong> en formato
-        <strong>NVMe</strong>. Este disco se incorporó como almacenamiento independiente del disco principal del
-        sistema, de modo que todas las pruebas de particionado y gestión de volúmenes se realizaran sobre un entorno
-        separado del disco del sistema operativo. Una vez detectado por Windows, se abrió el administrador de discos y
-        se inicializó el nuevo dispositivo utilizando el esquema de partición <strong>GPT</strong>. Esta elección es
-        coherente con un sistema actual como Windows 11, ya que GPT es el esquema moderno recomendado para entornos UEFI
-        y ofrece una estructura de particionado más robusta que MBR.
+        El recorrido se divide en siete bloques: instalación del sistema, puntos de restauración, licenciamiento,
+        gestor de arranque, red básica, comandos generales e instalación de aplicaciones. Cada fase deja preparado el
+        sistema para la siguiente y permite validar que Windows queda operativo y correctamente configurado.
     </p>
-    <div class="capture-placeholder">
-        <img class="course-image" width="1197" height="778" alt="Adición del nuevo disco NVMe de 20 GB en VMware"
-            src="{{ '/SP1/img/1.png' | relative_url }}" />
-        <img class="course-image" width="653" height="387"
-            alt="Asistente de configuración del nuevo disco virtual en VMware"
-            src="{{ '/SP1/img/2.png' | relative_url }}" />
-        <img class="course-image" width="644" height="604" alt="Selección del tipo de almacenamiento del nuevo disco"
-            src="{{ '/SP1/img/3.png' | relative_url }}" />
-        <img class="course-image" width="653" height="550" alt="Configuración del tamaño del disco adicional"
-            src="{{ '/SP1/img/4.png' | relative_url }}" />
-        <img class="course-image" width="649" height="336" alt="Resumen de la configuración del nuevo disco virtual"
-            src="{{ '/SP1/img/5.png' | relative_url }}" />
-        <img class="course-image" width="935" height="786"
-            alt="Verificación del nuevo disco añadido a la máquina virtual"
-            src="{{ '/SP1/img/6.png' | relative_url }}" />
-        <img class="course-image" width="756" height="595" alt="Inicialización del disco en Windows eligiendo GPT"
-            src="{{ '/SP1/img/7.png' | relative_url }}" />
-    </div>
+</div>
 
+<div class="content-section">
+    <h2 class="sub">Fase 1. Creación de la máquina virtual e instalación de Windows</h2>
     <p>
-        Sobre ese nuevo disco se creó una primera partición principal de aproximadamente <strong>15 GB</strong> en
-        <strong>NTFS</strong>, denominada <strong>Dades</strong>, y una segunda partición de aproximadamente <strong>5
-            GB</strong> en <strong>FAT32</strong>, denominada <strong>Portable</strong>. Esta distribución responde al
-        uso previsto de cada volumen. La partición Dades, al estar en NTFS, se reserva para las tareas que requieren
-        soporte de cuotas y control avanzado del sistema de archivos. La partición Portable, en cambio, se mantiene en
-        FAT32 para disponer de un volumen alternativo con un sistema de archivos distinto, lo que permite comparar
-        características y limitaciones entre ambos formatos, tal como también se indica en el enunciado general del
-        sprint.
+        El primer bloque consiste en crear la máquina virtual en VirtualBox y asignarle una base de recursos suficiente
+        para trabajar con Windows sin cuellos de botella. La guía marca como referencia un mínimo de 4 GB de RAM y un
+        disco virtual de al menos 40 GB, lo que permite instalar el sistema y seguir practicando con margen para nuevas
+        configuraciones.
     </p>
-    <div class="capture-placeholder">
-        <img class="course-image" width="769" height="310" alt="Creación de un nuevo volumen simple"
-            src="https://github.com/user-attachments/assets/8cc5d29a-33f5-48c1-94a8-37418d3b9712" />
-        <img class="course-image" width="482" height="382" alt="Definición del tamaño de la partición Dades en NTFS"
-            src="{{ '/SP1/img/8.png' | relative_url }}" />
-        <img class="course-image" width="505" height="393" alt="Asignación de letra de unidad a la partición Dades"
-            src="{{ '/SP1/img/9.png' | relative_url }}" />
-        <img class="course-image" width="499" height="389" alt="Formateo de la partición Dades en NTFS"
-            src="{{ '/SP1/img/10.png' | relative_url }}" />
-        <img class="course-image" width="750" height="158" alt="Resultado de la partición Dades creada"
-            src="{{ '/SP1/img/11.png' | relative_url }}" />
-        <img class="course-image" width="508" height="425" alt="Definición de la partición Portable en FAT32"
-            src="{{ '/SP1/img/12.png' | relative_url }}" />
-        <img class="course-image" width="499" height="392" alt="Configuración del volumen Portable"
-            src="{{ '/SP1/img/13.png' | relative_url }}" />
-        <img class="course-image" width="759" height="166" alt="Resultado final de la partición Portable creada"
-            src="{{ '/SP1/img/14.png' | relative_url }}" />
-    </div>
+    <ol>
+        <li>Crear la máquina virtual y asignar memoria RAM, CPU y almacenamiento inicial.</li>
+        <li>Cargar la ISO de Windows 10 o Windows 11 como medio de instalación.</li>
+        <li>Completar el asistente de instalación indicando idioma, usuario y contraseña.</li>
+        <li>Finalizar el despliegue y comprobar que el sistema arranca correctamente después del primer reinicio.</li>
+    </ol>
+    <p>
+        Esta fase no se limita a instalar Windows: también deja documentado que la máquina virtual queda funcional,
+        accesible y lista para recibir ajustes posteriores de seguridad, mantenimiento y administración.
+    </p>
 </div>
 
-<p>
-    Una vez creados los volúmenes, se verificó la configuración desde línea de comandos utilizando
-    <code>diskpart</code>. Con <code>list disk</code> se confirmó la presencia de dos discos, uno principal de 64 GB
-    y el nuevo disco secundario de 20 GB. Después, con <code>list volume</code>, se comprobaron las particiones
-    visibles en el sistema, incluyendo los nuevos volúmenes Dades y Portable con sus respectivas letras y tamaños.
-    Esta validación permitió confirmar que la estructura de almacenamiento había quedado correctamente reconocida
-    por Windows antes de avanzar hacia la configuración de cuotas. La comprobación mediante <code>diskpart</code>
-    aparece expresamente en la propuesta del sprint como parte del cierre de esta primera fase.
-</p>
-<div class="capture-placeholder">
-    <img class="course-image" width="523" height="134" alt="Comprobación de discos con diskpart"
-        src="{{ '/SP1/img/15.png' | relative_url }}" />
-    <img class="course-image" width="718" height="192" alt="Comprobación de volúmenes con diskpart"
-        src="{{ '/SP1/img/16.png' | relative_url }}" />
+<div class="content-section">
+    <h2 class="sub">Fase 2. Puntos de restauración</h2>
+    <p>
+        Una vez instalado el sistema, la siguiente tarea es activar la protección del sistema y trabajar con puntos de
+        restauración. El objetivo es disponer de un mecanismo de recuperación rápida antes de hacer cambios de
+        configuración o instalar software adicional.
+    </p>
+    <ol>
+        <li>Buscar la opción <strong>Crear un punto de restauración</strong> en Windows.</li>
+        <li>Activar la protección del sistema sobre la unidad <strong>C:</strong>.</li>
+        <li>Crear un punto de restauración manual.</li>
+        <li>Realizar un cambio en el sistema, como instalar una aplicación o modificar una configuración.</li>
+        <li>Restaurar el sistema al punto anterior y comprobar que el cambio queda revertido.</li>
+    </ol>
+    <p>
+        Este bloque deja justificado el uso del servicio de restauración como medida básica de seguridad operativa: se
+        prueba tanto la creación como la recuperación real del estado del equipo.
+    </p>
 </div>
 
-<h3>Fase 2. Cuotas de disco, usuarios y grupos</h3>
-<p>
-    Una vez preparada la partición <strong>Dades</strong>, se accedió a sus propiedades para revisar la pestaña de
-    cuotas. En un primer momento, la gestión de cuotas se encontraba sin configurar. Posteriormente se habilitó la
-    administración de cuotas y se definió un límite de <strong>300 MB por usuario</strong>, junto con un nivel de
-    advertencia previo. Esta configuración convierte a la partición NTFS en un volumen controlado, capaz de
-    restringir el espacio disponible por identidad. Desde el punto de vista técnico, este comportamiento diferencia
-    claramente a NTFS de FAT32, ya que solo el primero permite aplicar este tipo de control de almacenamiento por
-    usuario. La propuesta del sprint establece precisamente la activación de cuotas sobre la partición de datos y la
-    fijación de un límite con advertencia como parte central de esta fase.
-</p>
-<div class="capture-placeholder">
-    <img class="course-image" width="620" height="551" alt="Propiedades de la unidad Dades antes de configurar cuotas"
-        src="{{ '/SP1/img/17.png' | relative_url }}" />
-    <img class="course-image" width="357" height="522" alt="Pestaña de cuotas sin configurar"
-        src="{{ '/SP1/img/18.png' | relative_url }}" />
-    <img class="course-image" width="356" height="449"
-        alt="Ventana interna de configuración de cuotas antes de activarlas"
-        src="{{ '/SP1/img/19.png' | relative_url }}" />
-    <img class="course-image" width="349" height="435" alt="Cuotas habilitadas y configuradas con advertencia"
-        src="{{ '/SP1/img/20.png' | relative_url }}" />
+<div class="content-section">
+    <h2 class="sub">Fase 3. Licenciamiento y activación de Windows</h2>
+    <p>
+        La práctica continúa revisando el estado de activación del sistema. No basta con instalar Windows; también hay
+        que identificar si el sistema está activado, qué tipo de licencia utiliza y cómo se puede verificar desde la
+        propia interfaz y desde línea de comandos.
+    </p>
+    <ol>
+        <li>Abrir <strong>Configuración &gt; Sistema &gt; Activación</strong> y revisar el estado de Windows.</li>
+        <li>Ejecutar en consola el comando <code>slmgr /xpr</code> para comprobar la vigencia de la licencia.</li>
+        <li>Identificar el tipo de licenciamiento del sistema y explicarlo brevemente.</li>
+        <li>Consultar el precio aproximado de una licencia de Windows en una fuente oficial o comercial reconocida.</li>
+    </ol>
+    <p>
+        Esta fase combina observación técnica y explicación conceptual, ya que obliga a interpretar qué significa que
+        un sistema esté activado y cómo se valida ese estado en un entorno real.
+    </p>
 </div>
 
-<p>
-    A continuación se crearon dos usuarios locales, <strong>alumne1</strong> y <strong>alumne2</strong>, que serán
-    utilizados en el resto del sprint para probar comportamientos diferenciados sobre almacenamiento y permisos.
-    Después se creó el grupo <strong>Limitats</strong> y se añadieron ambos usuarios a dicho grupo. Esta
-    organización permite administrar el acceso de forma más ordenada, dejando preparada la base para futuras
-    configuraciones de permisos sobre carpetas y recursos compartidos. El enunciado general insiste precisamente en
-    la creación de cuentas locales y grupos como parte de la administración del sistema, y la propuesta del sprint
-    concreta estos nombres y esta agrupación.
-</p>
-<div class="capture-placeholder">
-    <img class="course-image" width="470" height="168" alt="Creación de los usuarios locales alumne1 y alumne2"
-        src="{{ '/SP1/img/21.png' | relative_url }}" />
-    <img class="course-image" width="606" height="232" alt="Creación del grupo Limitats y adición de usuarios"
-        src="{{ '/SP1/img/22.png' | relative_url }}" />
-    <img class="course-image" width="630" height="218"
-        alt="Comprobación de que los usuarios se han añadido correctamente al grupo"
-        src="{{ '/SP1/img/23.png' | relative_url }}" />
+<div class="content-section">
+    <h2 class="sub">Fase 4. Gestor de arranque</h2>
+    <p>
+        En el cuarto bloque se analiza el arranque del sistema mediante <code>bcdedit</code>. La finalidad es entender
+        cómo Windows organiza la información del Boot Manager y del Boot Loader, y qué datos son relevantes para
+        interpretar el proceso de inicio.
+    </p>
+    <ol>
+        <li>Abrir <strong>Command Prompt</strong> como administrador.</li>
+        <li>Ejecutar <code>bcdedit</code>.</li>
+        <li>Identificar el bloque <strong>Windows Boot Manager</strong>.</li>
+        <li>Identificar el bloque <strong>Windows Boot Loader</strong>.</li>
+        <li>Interpretar valores como <code>default</code>, <code>timeout</code>, <code>device</code>, <code>path</code> y <code>description</code>.</li>
+    </ol>
+    <p>
+        Las preguntas clave de esta fase son: qué sistema arranca por defecto, en qué partición está instalado, cuánto
+        espera el gestor antes de iniciar y qué fichero participa en la carga del sistema. La conclusión esperada es
+        diferenciar claramente quién decide el arranque y quién carga Windows.
+    </p>
+    <pre><code>bcdedit
+slmgr /xpr</code></pre>
 </div>
 
-<p>
-    Para comprobar el funcionamiento real de las cuotas, se inició sesión con el usuario <strong>alumne1</strong> y
-    se realizaron pruebas directas sobre la unidad <strong>Dades</strong>. Tras el primer inicio de sesión, se
-    generaron archivos mediante línea de comandos con el objetivo de consumir espacio en la partición limitada. El
-    resultado observado fue que la primera creación se completaba correctamente, mientras que la segunda ya fallaba
-    al superarse el umbral configurado. Esto confirma que la cuota aplicada estaba actuando de forma efectiva y que
-    el sistema restringía la escritura una vez alcanzado el límite definido para ese usuario. La propuesta del
-    sprint señala precisamente esta prueba de copia de ficheros como la forma de verificar el comportamiento de las
-    cuotas al superar el límite establecido.
-</p>
-<div class="capture-placeholder">
-    <img class="course-image" width="1626" height="794" alt="Primer inicio de sesión con alumne1"
-        src="{{ '/SP1/img/24.png' | relative_url }}" />
-    <img class="course-image" width="584" height="148"
-        alt="Creación de archivos en la unidad Dades y bloqueo al superar la cuota"
-        src="{{ '/SP1/img/25.png' | relative_url }}" />
+<div class="content-section">
+    <h2 class="sub">Fase 5. Red básica</h2>
+    <p>
+        Después del arranque se revisa la conectividad de red. La práctica exige comprobar tanto la configuración
+        automática por DHCP como una configuración manual con IP fija, máscara, puerta de enlace y DNS.
+    </p>
+    <ol>
+        <li>Abrir la configuración de red del sistema.</li>
+        <li>Consultar la IP actual con <code>ipconfig</code>.</li>
+        <li>Configurar la interfaz en modo dinámico mediante DHCP.</li>
+        <li>Configurar la interfaz en modo estático con IP, máscara, gateway y DNS.</li>
+        <li>Verificar conectividad con <code>ping google.com</code>.</li>
+    </ol>
+    <p>
+        El valor de esta fase está en comparar ambos escenarios de configuración y comprobar que el sistema mantiene
+        conectividad después de cada cambio.
+    </p>
 </div>
 
-<p>
-    Con estas acciones queda documentada la parte realizada hasta ahora del Sprint 2. El entorno dispone ya de
-    almacenamiento adicional correctamente estructurado, con dos sistemas de archivos diferenciados, una partición
-    NTFS preparada para administración avanzada, cuotas activas y usuarios reales sobre los que validar su
-    funcionamiento. A partir de este punto, el sistema queda listo para continuar con las siguientes fases
-    previstas, como la automatización de copias, la gestión de procesos y la aplicación de permisos avanzados
-    mediante ACL.
-</p>
+<div class="content-section">
+    <h2 class="sub">Fase 6. Comandos generales del sistema</h2>
+    <p>
+        El sexto bloque introduce el uso básico de <strong>cmd</strong> y <strong>PowerShell</strong>. La guía separa
+        ambos entornos para remarcar que el símbolo del sistema está orientado a comandos clásicos, mientras que
+        PowerShell permite automatización más potente y trabajo con objetos.
+    </p>
+    <p>Comandos básicos que se deben probar en la práctica:</p>
+    <pre><code>dir
+cd
+mkdir prueba
+echo hola &gt; fitxer.txt
+del fitxer.txt</code></pre>
+    <p>Comandos útiles de sistema y red revisados en esta fase:</p>
+    <pre><code>tasklist
+taskkill /IM notepad.exe /F
+systeminfo
+hostname
+whoami
+ipconfig
+ping google.com
+netstat -an
+tree
+cls
+help
+shutdown /s /t 0</code></pre>
+    <p>
+        Además de ejecutarlos, la guía pide interpretar su salida: qué muestra <code>tasklist</code>, qué información
+        aporta <code>ipconfig</code> y qué datos generales del equipo ofrece <code>systeminfo</code>. Ese análisis es
+        parte de la documentación, no un añadido opcional.
+    </p>
 </div>
+
+<div class="content-section">
+    <h2 class="sub">Fase 7. Instalación y desinstalación de aplicaciones</h2>
+    <p>
+        La fase final se centra en la instalación de software desde distintas vías y en la verificación posterior de su
+        funcionamiento. La práctica no termina al abrir el asistente: también exige confirmar que la aplicación queda
+        disponible en el sistema y que su desinstalación elimina su presencia funcional.
+    </p>
+    <ol>
+        <li>Descargar una aplicación desde el navegador, por ejemplo Chrome o VS Code.</li>
+        <li>Instalarla con el asistente y comprobar que abre correctamente.</li>
+        <li>Instalar otra aplicación desde Microsoft Store y verificar su funcionamiento.</li>
+        <li>Desinstalar una aplicación desde <strong>Configuración &gt; Aplicaciones</strong>.</li>
+        <li>Comprobar que el programa ya no aparece ni queda operativo en el sistema.</li>
+    </ol>
+</div>
+
+<div class="content-section">
+    <h2 class="sub">Conclusión</h2>
+    <p>
+        El Sprint 1 deja un entorno Windows completamente preparado para prácticas posteriores. El sistema queda
+        instalado, verificado, con mecanismos básicos de recuperación, revisión de licencia, interpretación del
+        arranque, conectividad funcional, manejo de consola y control sobre la instalación de aplicaciones. Ese punto de
+        partida encaja con lo que necesita el resto del proyecto: una base estable sobre la que construir prácticas de
+        administración más avanzadas.
+    </p>
+</div>
+
 <div class="navigation-links">
-    <a href="../index.html"><i class="fa-solid fa-house"></i> Volver al Inicio</a>
+    <a href="../index.html"><i class="fa-solid fa-house"></i> Volver al inicio</a>
     <a href="../SP2/SP2.html">Siguiente práctica <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 </main>
