@@ -59,14 +59,12 @@ body > * { position: relative; z-index: 1; }
 .contenedor-principal {
   width: min(94%, 1350px);
   margin: 2.5rem auto 3rem;
-  padding: 0 0 clamp(1.5rem, 3vw, 2.5rem);
+  padding: clamp(1rem, 2.5vw + 1rem, 2rem);
   background: var(--overlay);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  box-shadow: var(--shadow-cyan), 0 8px 40px rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  overflow: hidden;
+  box-shadow: var(--shadow-neon);
+  backdrop-filter: blur(8px);
 }
 
 /* Padding para todo lo que va dentro excepto el banner */
@@ -513,10 +511,9 @@ a:hover { color: var(--accent-2); }
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 2.5rem;
-  padding-top: 1.2rem;
+  margin-top: 2rem;
+  padding-top: 1rem;
   border-top: 1px solid var(--border);
-  gap: 1rem;
 }
 
 .navigation-links a {
@@ -524,20 +521,73 @@ a:hover { color: var(--accent-2); }
   color: var(--text);
   display: inline-flex;
   align-items: center;
-  gap: .65rem;
-  padding: .65rem 1.1rem;
-  background: var(--overlay-card);
-  border-radius: var(--radius-sm);
+  gap: .8rem;
+  padding: .7rem 1.2rem;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
   border: 1px solid var(--border);
-  font-size: .88rem;
-  font-weight: 500;
-  transition: transform var(--transition), box-shadow var(--transition),
-              border-color var(--transition), background var(--transition);
+  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
 }
+
 .navigation-links a:hover {
-  background: var(--accent-dim);
-  box-shadow: 0 0 16px rgba(0, 229, 255, 0.3);
-  border-color: var(--border-hover);
+  background: rgba(0, 255, 255, 0.08);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.38);
   transform: translateY(-2px);
 }
-.navigation-links a i { font-size: 1rem; color: var(--accent); }
+
+.navigation-links a i {
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+
+.nav-sticky {
+  position: sticky;
+  top: 1rem;
+  z-index: 100;
+  background: var(--overlay);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-neon);
+  margin-top: 0;
+  margin-bottom: 2rem;
+  padding: 1rem 1.2rem;
+  border-top: 1px solid var(--border);
+}
+
+/* =============================================
+   BOTONES DE SCROLL
+   ============================================= */
+.scroll-btn {
+    position: fixed;
+    bottom: 20px;
+    width: 50px;
+    height: 50px;
+    background: var(--overlay);
+    color: var(--accent);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    box-shadow: var(--shadow-neon);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scroll-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.75);
+    background: rgba(0, 255, 255, 0.1);
+}
+
+#scrollToTopBtn {
+    right: 20px;
+}
+
+#scrollToBottomBtn {
+    left: 20px;
+}
