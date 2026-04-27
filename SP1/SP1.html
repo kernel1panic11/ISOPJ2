@@ -7,165 +7,167 @@ page_bg: pract22.gif
 <main class="contenedor-principal">
 <div class="navigation-links nav-sticky">
     <a href="../index.html"><i class="fa-solid fa-house"></i> Volver al Inicio</a>
-    <a href="../SP2/SP2.html">Siguiente PrÃ¡ctica <i class="fa-solid fa-arrow-right"></i></a>
+    <a href="../SP2/SP2.html">Siguiente PrÃƒÂ¡ctica <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 
 <div class="content-section">
-    <h2 class="sub">Sprint 2. AdministraciÃ³n de almacenamiento, cuotas y gestiÃ³n bÃ¡sica de usuarios en Windows 11</h2>
+    <h2 class="sub">Sprint 2. AdministraciÃƒÂ³n de almacenamiento, cuotas y gestiÃƒÂ³n bÃƒÂ¡sica de usuarios en Windows 11</h2>
     <p>
         En este segundo sprint se ha comenzado a trabajar sobre un sistema Windows 11 ya instalado y operativo,
-        orientando la prÃ¡ctica a la administraciÃ³n del almacenamiento, la gestiÃ³n de usuarios y grupos y el control del
-        uso de espacio mediante cuotas de disco. Hasta este punto se ha completado la preparaciÃ³n del disco adicional,
-        la creaciÃ³n de particiones con distintos sistemas de archivos, la verificaciÃ³n de la estructura de volÃºmenes, la
-        activaciÃ³n de cuotas sobre NTFS y la comprobaciÃ³n prÃ¡ctica de su funcionamiento con un usuario real. Esta
-        secuencia encaja con la propuesta del sprint, que plantea primero la preparaciÃ³n del sistema, despuÃ©s la
-        creaciÃ³n de cuotas y usuarios, y mÃ¡s adelante la automatizaciÃ³n, verificaciÃ³n y permisos avanzados.
+        orientando la prÃƒÂ¡ctica a la administraciÃƒÂ³n del almacenamiento, la gestiÃƒÂ³n de usuarios y grupos y el control del
+        uso de espacio mediante cuotas de disco. Hasta este punto se ha completado la preparaciÃƒÂ³n del disco adicional,
+        la creaciÃƒÂ³n de particiones con distintos sistemas de archivos, la verificaciÃƒÂ³n de la estructura de volÃƒÂºmenes, la
+        activaciÃƒÂ³n de cuotas sobre NTFS y la comprobaciÃƒÂ³n prÃƒÂ¡ctica de su funcionamiento con un usuario real. Esta
+        secuencia encaja con la propuesta del sprint, que plantea primero la preparaciÃƒÂ³n del sistema, despuÃƒÂ©s la
+        creaciÃƒÂ³n de cuotas y usuarios, y mÃƒÂ¡s adelante la automatizaciÃƒÂ³n, verificaciÃƒÂ³n y permisos avanzados.
     </p>
 
-    <h3>Fase 1. PreparaciÃ³n del almacenamiento</h3>
+    <h3>Fase 1. PreparaciÃƒÂ³n del almacenamiento</h3>
     <p>
-        El primer paso consistiÃ³ en aÃ±adir a la mÃ¡quina virtual un nuevo disco de <strong>20 GB</strong> en formato
-        <strong>NVMe</strong>. Este disco se incorporÃ³ como almacenamiento independiente del disco principal del
-        sistema, de modo que todas las pruebas de particionado y gestiÃ³n de volÃºmenes se realizaran sobre un entorno
-        separado del disco del sistema operativo. Una vez detectado por Windows, se abriÃ³ el administrador de discos y
-        se inicializÃ³ el nuevo dispositivo utilizando el esquema de particiÃ³n <strong>GPT</strong>. Esta elecciÃ³n es
+        El primer paso consistiÃƒÂ³ en aÃƒÂ±adir a la mÃƒÂ¡quina virtual un nuevo disco de <strong>20 GB</strong> en formato
+        <strong>NVMe</strong>. Este disco se incorporÃƒÂ³ como almacenamiento independiente del disco principal del
+        sistema, de modo que todas las pruebas de particionado y gestiÃƒÂ³n de volÃƒÂºmenes se realizaran sobre un entorno
+        separado del disco del sistema operativo. Una vez detectado por Windows, se abriÃƒÂ³ el administrador de discos y
+        se inicializÃƒÂ³ el nuevo dispositivo utilizando el esquema de particiÃƒÂ³n <strong>GPT</strong>. Esta elecciÃƒÂ³n es
         coherente con un sistema actual como Windows 11, ya que GPT es el esquema moderno recomendado para entornos UEFI
-        y ofrece una estructura de particionado mÃ¡s robusta que MBR.
+        y ofrece una estructura de particionado mÃƒÂ¡s robusta que MBR.
     </p>
     <div class="capture-placeholder">
-        <img class="course-image" width="1197" height="778" alt="AdiciÃ³n del nuevo disco NVMe de 20 GB en VMware"
+        <img class="course-image" width="1197" height="778" alt="AdiciÃƒÂ³n del nuevo disco NVMe de 20 GB en VMware"
             src="{{ '/SP1/img/1.png' | relative_url }}" />
         <img class="course-image" width="653" height="387"
-            alt="Asistente de configuraciÃ³n del nuevo disco virtual en VMware"
+            alt="Asistente de configuraciÃƒÂ³n del nuevo disco virtual en VMware"
             src="{{ '/SP1/img/2.png' | relative_url }}" />
-        <img class="course-image" width="644" height="604" alt="SelecciÃ³n del tipo de almacenamiento del nuevo disco"
+        <img class="course-image" width="644" height="604" alt="SelecciÃƒÂ³n del tipo de almacenamiento del nuevo disco"
             src="{{ '/SP1/img/3.png' | relative_url }}" />
-        <img class="course-image" width="653" height="550" alt="ConfiguraciÃ³n del tamaÃ±o del disco adicional"
+        <img class="course-image" width="653" height="550" alt="ConfiguraciÃƒÂ³n del tamaÃƒÂ±o del disco adicional"
             src="{{ '/SP1/img/4.png' | relative_url }}" />
-        <img class="course-image" width="649" height="336" alt="Resumen de la configuraciÃ³n del nuevo disco virtual"
+        <img class="course-image" width="649" height="336" alt="Resumen de la configuraciÃƒÂ³n del nuevo disco virtual"
             src="{{ '/SP1/img/5.png' | relative_url }}" />
         <img class="course-image" width="935" height="786"
-            alt="VerificaciÃ³n del nuevo disco aÃ±adido a la mÃ¡quina virtual"
+            alt="VerificaciÃƒÂ³n del nuevo disco aÃƒÂ±adido a la mÃƒÂ¡quina virtual"
             src="{{ '/SP1/img/6.png' | relative_url }}" />
-        <img class="course-image" width="756" height="595" alt="InicializaciÃ³n del disco en Windows eligiendo GPT"
+        <img class="course-image" width="756" height="595" alt="InicializaciÃƒÂ³n del disco en Windows eligiendo GPT"
             src="{{ '/SP1/img/7.png' | relative_url }}" />
     </div>
 
     <p>
-        Sobre ese nuevo disco se creÃ³ una primera particiÃ³n principal de aproximadamente <strong>15 GB</strong> en
-        <strong>NTFS</strong>, denominada <strong>Dades</strong>, y una segunda particiÃ³n de aproximadamente <strong>5
-            GB</strong> en <strong>FAT32</strong>, denominada <strong>Portable</strong>. Esta distribuciÃ³n responde al
-        uso previsto de cada volumen. La particiÃ³n Dades, al estar en NTFS, se reserva para las tareas que requieren
-        soporte de cuotas y control avanzado del sistema de archivos. La particiÃ³n Portable, en cambio, se mantiene en
+        Sobre ese nuevo disco se creÃƒÂ³ una primera particiÃƒÂ³n principal de aproximadamente <strong>15 GB</strong> en
+        <strong>NTFS</strong>, denominada <strong>Dades</strong>, y una segunda particiÃƒÂ³n de aproximadamente <strong>5
+            GB</strong> en <strong>FAT32</strong>, denominada <strong>Portable</strong>. Esta distribuciÃƒÂ³n responde al
+        uso previsto de cada volumen. La particiÃƒÂ³n Dades, al estar en NTFS, se reserva para las tareas que requieren
+        soporte de cuotas y control avanzado del sistema de archivos. La particiÃƒÂ³n Portable, en cambio, se mantiene en
         FAT32 para disponer de un volumen alternativo con un sistema de archivos distinto, lo que permite comparar
-        caracterÃ­sticas y limitaciones entre ambos formatos, tal como tambiÃ©n se indica en el enunciado general del
+        caracterÃƒÂ­sticas y limitaciones entre ambos formatos, tal como tambiÃƒÂ©n se indica en el enunciado general del
         sprint.
     </p>
     <div class="capture-placeholder">
-        <img class="course-image" width="769" height="310" alt="CreaciÃ³n de un nuevo volumen simple"
+        <img class="course-image" width="769" height="310" alt="CreaciÃƒÂ³n de un nuevo volumen simple"
             src="https://ithub.com/user-attachments/assets/8cc5d29a-33f5-48c1-94a8-37418d3b9712" />
-        <img class="course-image" width="482" height="382" alt="DefiniciÃ³n del tamaÃ±o de la particiÃ³n Dades en NTFS"
+        <img class="course-image" width="482" height="382" alt="DefiniciÃƒÂ³n del tamaÃƒÂ±o de la particiÃƒÂ³n Dades en NTFS"
             src="{{ '/SP1/img/8.png' | relative_url }}" />
-        <img class="course-image" width="505" height="393" alt="AsignaciÃ³n de letra de unidad a la particiÃ³n Dades"
+        <img class="course-image" width="505" height="393" alt="AsignaciÃƒÂ³n de letra de unidad a la particiÃƒÂ³n Dades"
             src="{{ '/SP1/img/9.png' | relative_url }}" />
-        <img class="course-image" width="499" height="389" alt="Formateo de la particiÃ³n Dades en NTFS"
+        <img class="course-image" width="499" height="389" alt="Formateo de la particiÃƒÂ³n Dades en NTFS"
             src="{{ '/SP1/img/10.png' | relative_url }}" />
-        <img class="course-image" width="750" height="158" alt="Resultado de la particiÃ³n Dades creada"
+        <img class="course-image" width="750" height="158" alt="Resultado de la particiÃƒÂ³n Dades creada"
             src="{{ '/SP1/img/11.png' | relative_url }}" />
-        <img class="course-image" width="508" height="425" alt="DefiniciÃ³n de la particiÃ³n Portable en FAT32"
+        <img class="course-image" width="508" height="425" alt="DefiniciÃƒÂ³n de la particiÃƒÂ³n Portable en FAT32"
             src="{{ '/SP1/img/12.png' | relative_url }}" />
-        <img class="course-image" width="499" height="392" alt="ConfiguraciÃ³n del volumen Portable"
+        <img class="course-image" width="499" height="392" alt="ConfiguraciÃƒÂ³n del volumen Portable"
             src="{{ '/SP1/img/13.png' | relative_url }}" />
-        <img class="course-image" width="759" height="166" alt="Resultado final de la particiÃ³n Portable creada"
+        <img class="course-image" width="759" height="166" alt="Resultado final de la particiÃƒÂ³n Portable creada"
             src="{{ '/SP1/img/14.png' | relative_url }}" />
     </div>
-</div>`r`n`r`n<p>
-    Una vez creados los volÃºmenes, se verificÃ³ la configuraciÃ³n desde lÃ­nea de comandos utilizando
-    <code>diskpart</code>. Con <code>list disk</code> se confirmÃ³ la presencia de dos discos, uno principal de 64 GB
-    y el nuevo disco secundario de 20 GB. DespuÃ©s, con <code>list volume</code>, se comprobaron las particiones
-    visibles en el sistema, incluyendo los nuevos volÃºmenes Dades y Portable con sus respectivas letras y tamaÃ±os.
-    Esta validaciÃ³n permitiÃ³ confirmar que la estructura de almacenamiento habÃ­a quedado correctamente reconocida
-    por Windows antes de avanzar hacia la configuraciÃ³n de cuotas. La comprobaciÃ³n mediante <code>diskpart</code>
+</div>
+
+<p>
+    Una vez creados los volÃƒÂºmenes, se verificÃƒÂ³ la configuraciÃƒÂ³n desde lÃƒÂ­nea de comandos utilizando
+    <code>diskpart</code>. Con <code>list disk</code> se confirmÃƒÂ³ la presencia de dos discos, uno principal de 64 GB
+    y el nuevo disco secundario de 20 GB. DespuÃƒÂ©s, con <code>list volume</code>, se comprobaron las particiones
+    visibles en el sistema, incluyendo los nuevos volÃƒÂºmenes Dades y Portable con sus respectivas letras y tamaÃƒÂ±os.
+    Esta validaciÃƒÂ³n permitiÃƒÂ³ confirmar que la estructura de almacenamiento habÃƒÂ­a quedado correctamente reconocida
+    por Windows antes de avanzar hacia la configuraciÃƒÂ³n de cuotas. La comprobaciÃƒÂ³n mediante <code>diskpart</code>
     aparece expresamente en la propuesta del sprint como parte del cierre de esta primera fase.
 </p>
 <div class="capture-placeholder">
-    <img class="course-image" width="523" height="134" alt="ComprobaciÃ³n de discos con diskpart"
+    <img class="course-image" width="523" height="134" alt="ComprobaciÃƒÂ³n de discos con diskpart"
         src="{{ '/SP1/img/15.png' | relative_url }}" />
-    <img class="course-image" width="718" height="192" alt="ComprobaciÃ³n de volÃºmenes con diskpart"
+    <img class="course-image" width="718" height="192" alt="ComprobaciÃƒÂ³n de volÃƒÂºmenes con diskpart"
         src="{{ '/SP1/img/16.png' | relative_url }}" />
 </div>
 
 <h3>Fase 2. Cuotas de disco, usuarios y grupos</h3>
 <p>
-    Una vez preparada la particiÃ³n <strong>Dades</strong>, se accediÃ³ a sus propiedades para revisar la pestaÃ±a de
-    cuotas. En un primer momento, la gestiÃ³n de cuotas se encontraba sin configurar. Posteriormente se habilitÃ³ la
-    administraciÃ³n de cuotas y se definiÃ³ un lÃ­mite de <strong>300 MB por usuario</strong>, junto con un nivel de
-    advertencia previo. Esta configuraciÃ³n convierte a la particiÃ³n NTFS en un volumen controlado, capaz de
-    restringir el espacio disponible por identidad. Desde el punto de vista tÃ©cnico, este comportamiento diferencia
+    Una vez preparada la particiÃƒÂ³n <strong>Dades</strong>, se accediÃƒÂ³ a sus propiedades para revisar la pestaÃƒÂ±a de
+    cuotas. En un primer momento, la gestiÃƒÂ³n de cuotas se encontraba sin configurar. Posteriormente se habilitÃƒÂ³ la
+    administraciÃƒÂ³n de cuotas y se definiÃƒÂ³ un lÃƒÂ­mite de <strong>300 MB por usuario</strong>, junto con un nivel de
+    advertencia previo. Esta configuraciÃƒÂ³n convierte a la particiÃƒÂ³n NTFS en un volumen controlado, capaz de
+    restringir el espacio disponible por identidad. Desde el punto de vista tÃƒÂ©cnico, este comportamiento diferencia
     claramente a NTFS de FAT32, ya que solo el primero permite aplicar este tipo de control de almacenamiento por
-    usuario. La propuesta del sprint establece precisamente la activaciÃ³n de cuotas sobre la particiÃ³n de datos y la
-    fijaciÃ³n de un lÃ­mite con advertencia como parte central de esta fase.
+    usuario. La propuesta del sprint establece precisamente la activaciÃƒÂ³n de cuotas sobre la particiÃƒÂ³n de datos y la
+    fijaciÃƒÂ³n de un lÃƒÂ­mite con advertencia como parte central de esta fase.
 </p>
 <div class="capture-placeholder">
     <img class="course-image" width="620" height="551" alt="Propiedades de la unidad Dades antes de configurar cuotas"
         src="{{ '/SP1/img/17.png' | relative_url }}" />
-    <img class="course-image" width="357" height="522" alt="PestaÃ±a de cuotas sin configurar"
+    <img class="course-image" width="357" height="522" alt="PestaÃƒÂ±a de cuotas sin configurar"
         src="{{ '/SP1/img/18.png' | relative_url }}" />
     <img class="course-image" width="356" height="449"
-        alt="Ventana interna de configuraciÃ³n de cuotas antes de activarlas"
+        alt="Ventana interna de configuraciÃƒÂ³n de cuotas antes de activarlas"
         src="{{ '/SP1/img/19.png' | relative_url }}" />
     <img class="course-image" width="349" height="435" alt="Cuotas habilitadas y configuradas con advertencia"
         src="{{ '/SP1/img/20.png' | relative_url }}" />
 </div>
 
 <p>
-    A continuaciÃ³n se crearon dos usuarios locales, <strong>alumne1</strong> y <strong>alumne2</strong>, que serÃ¡n
+    A continuaciÃƒÂ³n se crearon dos usuarios locales, <strong>alumne1</strong> y <strong>alumne2</strong>, que serÃƒÂ¡n
     utilizados en el resto del sprint para probar comportamientos diferenciados sobre almacenamiento y permisos.
-    DespuÃ©s se creÃ³ el grupo <strong>Limitats</strong> y se aÃ±adieron ambos usuarios a dicho grupo. Esta
-    organizaciÃ³n permite administrar el acceso de forma mÃ¡s ordenada, dejando preparada la base para futuras
+    DespuÃƒÂ©s se creÃƒÂ³ el grupo <strong>Limitats</strong> y se aÃƒÂ±adieron ambos usuarios a dicho grupo. Esta
+    organizaciÃƒÂ³n permite administrar el acceso de forma mÃƒÂ¡s ordenada, dejando preparada la base para futuras
     configuraciones de permisos sobre carpetas y recursos compartidos. El enunciado general insiste precisamente en
-    la creaciÃ³n de cuentas locales y grupos como parte de la administraciÃ³n del sistema, y la propuesta del sprint
-    concreta estos nombres y esta agrupaciÃ³n.
+    la creaciÃƒÂ³n de cuentas locales y grupos como parte de la administraciÃƒÂ³n del sistema, y la propuesta del sprint
+    concreta estos nombres y esta agrupaciÃƒÂ³n.
 </p>
 <div class="capture-placeholder">
-    <img class="course-image" width="470" height="168" alt="CreaciÃ³n de los usuarios locales alumne1 y alumne2"
+    <img class="course-image" width="470" height="168" alt="CreaciÃƒÂ³n de los usuarios locales alumne1 y alumne2"
         src="{{ '/SP1/img/21.png' | relative_url }}" />
-    <img class="course-image" width="606" height="232" alt="CreaciÃ³n del grupo Limitats y adiciÃ³n de usuarios"
+    <img class="course-image" width="606" height="232" alt="CreaciÃƒÂ³n del grupo Limitats y adiciÃƒÂ³n de usuarios"
         src="{{ '/SP1/img/22.png' | relative_url }}" />
     <img class="course-image" width="630" height="218"
-        alt="ComprobaciÃ³n de que los usuarios se han aÃ±adido correctamente al grupo"
+        alt="ComprobaciÃƒÂ³n de que los usuarios se han aÃƒÂ±adido correctamente al grupo"
         src="{{ '/SP1/img/23.png' | relative_url }}" />
 </div>
 
 <p>
-    Para comprobar el funcionamiento real de las cuotas, se iniciÃ³ sesiÃ³n con el usuario <strong>alumne1</strong> y
-    se realizaron pruebas directas sobre la unidad <strong>Dades</strong>. Tras el primer inicio de sesiÃ³n, se
-    generaron archivos mediante lÃ­nea de comandos con el objetivo de consumir espacio en la particiÃ³n limitada. El
-    resultado observado fue que la primera creaciÃ³n se completaba correctamente, mientras que la segunda ya fallaba
+    Para comprobar el funcionamiento real de las cuotas, se iniciÃƒÂ³ sesiÃƒÂ³n con el usuario <strong>alumne1</strong> y
+    se realizaron pruebas directas sobre la unidad <strong>Dades</strong>. Tras el primer inicio de sesiÃƒÂ³n, se
+    generaron archivos mediante lÃƒÂ­nea de comandos con el objetivo de consumir espacio en la particiÃƒÂ³n limitada. El
+    resultado observado fue que la primera creaciÃƒÂ³n se completaba correctamente, mientras que la segunda ya fallaba
     al superarse el umbral configurado. Esto confirma que la cuota aplicada estaba actuando de forma efectiva y que
-    el sistema restringÃ­a la escritura una vez alcanzado el lÃ­mite definido para ese usuario. La propuesta del
-    sprint seÃ±ala precisamente esta prueba de copia de ficheros como la forma de verificar el comportamiento de las
-    cuotas al superar el lÃ­mite establecido.
+    el sistema restringÃƒÂ­a la escritura una vez alcanzado el lÃƒÂ­mite definido para ese usuario. La propuesta del
+    sprint seÃƒÂ±ala precisamente esta prueba de copia de ficheros como la forma de verificar el comportamiento de las
+    cuotas al superar el lÃƒÂ­mite establecido.
 </p>
 <div class="capture-placeholder">
-    <img class="course-image" width="1626" height="794" alt="Primer inicio de sesiÃ³n con alumne1"
+    <img class="course-image" width="1626" height="794" alt="Primer inicio de sesiÃƒÂ³n con alumne1"
         src="{{ '/SP1/img/24.png' | relative_url }}" />
     <img class="course-image" width="584" height="148"
-        alt="CreaciÃ³n de archivos en la unidad Dades y bloqueo al superar la cuota"
+        alt="CreaciÃƒÂ³n de archivos en la unidad Dades y bloqueo al superar la cuota"
         src="{{ '/SP1/img/25.png' | relative_url }}" />
 </div>
 
 <p>
     Con estas acciones queda documentada la parte realizada hasta ahora del Sprint 2. El entorno dispone ya de
-    almacenamiento adicional correctamente estructurado, con dos sistemas de archivos diferenciados, una particiÃ³n
-    NTFS preparada para administraciÃ³n avanzada, cuotas activas y usuarios reales sobre los que validar su
+    almacenamiento adicional correctamente estructurado, con dos sistemas de archivos diferenciados, una particiÃƒÂ³n
+    NTFS preparada para administraciÃƒÂ³n avanzada, cuotas activas y usuarios reales sobre los que validar su
     funcionamiento. A partir de este punto, el sistema queda listo para continuar con las siguientes fases
-    previstas, como la automatizaciÃ³n de copias, la gestiÃ³n de procesos y la aplicaciÃ³n de permisos avanzados
+    previstas, como la automatizaciÃƒÂ³n de copias, la gestiÃƒÂ³n de procesos y la aplicaciÃƒÂ³n de permisos avanzados
     mediante ACL.
 </p>
 </div>
 <div class="navigation-links">
     <a href="../index.html"><i class="fa-solid fa-house"></i> Volver al Inicio</a>
-    <a href="../SP2/SP2.html">Siguiente PrÃ¡ctica <i class="fa-solid fa-arrow-right"></i></a>
+    <a href="../SP2/SP2.html">Siguiente PrÃƒÂ¡ctica <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 </main>

@@ -1,29 +1,30 @@
 ---
 layout: default
-title: "Sprint 3. AdministraciÃ³n de dominios y seguridad"
+title: "Sprint 3. AdministraciÃƒÂ³n de dominios y seguridad"
 ---
 
 <div class="navigation-links nav-sticky">
-    <a href="{{ '/SP2/SP2.html' | relative_url }}"><i class="fa-solid fa-arrow-left"></i> PrÃ¡ctica anterior</a>
+    <a href="{{ '/SP2/SP2.html' | relative_url }}"><i class="fa-solid fa-arrow-left"></i> PrÃƒÂ¡ctica anterior</a>
     <a href="{{ '/' | relative_url }}"><i class="fa-solid fa-house"></i> Volver al inicio</a>
-    <a href="{{ '/SP4/SP4.html' | relative_url }}">Siguiente prÃ¡ctica <i class="fa-solid fa-arrow-right"></i></a>
+    <a href="{{ '/SP4/SP4.html' | relative_url }}">Siguiente prÃƒÂ¡ctica <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 
 <main class="contenedor-principal">
-    <h1 class="titulo">Sprint 3. AdministraciÃ³n de dominios y seguridad</h1>
-    <div class="loading-bar"><div class="loading-progress"></div></div>`r`n
+    <h1 class="titulo">Sprint 3. AdministraciÃƒÂ³n de dominios y seguridad</h1>
+    <div class="loading-bar"><div class="loading-progress"></div></div>
+
     <div class="content-section">
         <h2 class="sub">Sistema de ficheros y particiones</h2>
         <ul>
-            <li>TamaÃ±o del sector</li>
-            <li>TamaÃ±o del bloque</li>
-            <li>FragmentaciÃ³n interna</li>
-            <li>FragmentaciÃ³n externa</li>
+            <li>TamaÃƒÂ±o del sector</li>
+            <li>TamaÃƒÂ±o del bloque</li>
+            <li>FragmentaciÃƒÂ³n interna</li>
+            <li>FragmentaciÃƒÂ³n externa</li>
             <li>Tipos de formateo:
                 <ul>
-                    <li><strong>Bajo nivel:</strong> Borra la totalidad del disco, sobrescribiendo todo con ceros e intenta reparar los sectores defectuosos. Requiere software especÃ­fico del fabricante y no se realiza habitualmente desde el sistema operativo.</li>
-                    <li><strong>Medio nivel:</strong> Es un punto intermedio; no borra los archivos de datos, pero marca los sectores defectuosos encontrados (sin intentar repararlos). Permite la recuperaciÃ³n de archivos.</li>
-                    <li><strong>Alto nivel:</strong> No borra los archivos fÃ­sicamente, sino que restablece el sistema de archivos (la tabla de asignaciÃ³n) e ignora los sectores defectuosos que pueda encontrar.</li>
+                    <li><strong>Bajo nivel:</strong> Borra la totalidad del disco, sobrescribiendo todo con ceros e intenta reparar los sectores defectuosos. Requiere software especÃƒÂ­fico del fabricante y no se realiza habitualmente desde el sistema operativo.</li>
+                    <li><strong>Medio nivel:</strong> Es un punto intermedio; no borra los archivos de datos, pero marca los sectores defectuosos encontrados (sin intentar repararlos). Permite la recuperaciÃƒÂ³n de archivos.</li>
+                    <li><strong>Alto nivel:</strong> No borra los archivos fÃƒÂ­sicamente, sino que restablece el sistema de archivos (la tabla de asignaciÃƒÂ³n) e ignora los sectores defectuosos que pueda encontrar.</li>
                 </ul>
             </li>
         </ul>
@@ -31,17 +32,17 @@ title: "Sprint 3. AdministraciÃ³n de dominios y seguridad"
     </div>
 
     <h2 class="sub">LDAP</h2>
-    <p>Comenzamos configurando el <strong>hostname</strong>. Este serÃ¡ el nombre con el que la mÃ¡quina serÃ¡ reconocida en la red.</p>
-    <img width="1898" height="161" alt="ConfiguraciÃ³n hostname" src="https://github.com/user-attachments/assets/e4916ad7-1898-4624-a235-fd7b80b40e9d" class="course-image"/>
+    <p>Comenzamos configurando el <strong>hostname</strong>. Este serÃƒÂ¡ el nombre con el que la mÃƒÂ¡quina serÃƒÂ¡ reconocida en la red.</p>
+    <img width="1898" height="161" alt="ConfiguraciÃƒÂ³n hostname" src="https://github.com/user-attachments/assets/e4916ad7-1898-4624-a235-fd7b80b40e9d" class="course-image"/>
     
-    <p>A continuaciÃ³n, editamos el archivo <code>/etc/hosts</code>:</p>
-    <img width="1395" height="333" alt="EdiciÃ³n hosts" src="https://github.com/user-attachments/assets/d4d3b772-7efb-4a4e-acf4-e6736d01be92" class="course-image"/>
+    <p>A continuaciÃƒÂ³n, editamos el archivo <code>/etc/hosts</code>:</p>
+    <img width="1395" height="333" alt="EdiciÃƒÂ³n hosts" src="https://github.com/user-attachments/assets/d4d3b772-7efb-4a4e-acf4-e6736d01be92" class="course-image"/>
     
     <p>Posteriormente, procedemos a instalar el servicio LDAP en el servidor Ubuntu:</p>
-    <img width="881" height="385" alt="InstalaciÃ³n LDAP" src="https://github.com/user-attachments/assets/6a68e5fc-bd14-4449-8091-d095cb3796f0" class="course-image"/>
-    <img width="1919" height="1029" alt="ConfiguraciÃ³n LDAP" src="https://github.com/user-attachments/assets/33ad9380-1df9-4ec8-8043-41dceb1f5e45" class="course-image"/>
+    <img width="881" height="385" alt="InstalaciÃƒÂ³n LDAP" src="https://github.com/user-attachments/assets/6a68e5fc-bd14-4449-8091-d095cb3796f0" class="course-image"/>
+    <img width="1919" height="1029" alt="ConfiguraciÃƒÂ³n LDAP" src="https://github.com/user-attachments/assets/33ad9380-1df9-4ec8-8043-41dceb1f5e45" class="course-image"/>
     
-    <p>Tras realizar la configuraciÃ³n inicial, descargamos y descomprimimos la carpeta con los archivos necesarios.</p>
+    <p>Tras realizar la configuraciÃƒÂ³n inicial, descargamos y descomprimimos la carpeta con los archivos necesarios.</p>
     <p>El directorio contiene los siguientes archivos:</p>
     <img width="749" height="32" alt="Archivos LDIF" src="https://github.com/user-attachments/assets/76fbac39-eeb4-43d6-a30f-2b11b645a936" class="course-image"/>
     
@@ -53,7 +54,7 @@ title: "Sprint 3. AdministraciÃ³n de dominios y seguridad"
     <img width="1010" height="323" alt="Reconfigure Slapd 3" src="https://github.com/user-attachments/assets/69d8e7ca-02e2-4659-966e-09119907bc70" class="course-image"/>
 
     <p>Podemos verificar que los cambios se han aplicado correctamente:</p>
-    <img width="1104" height="137" alt="VerificaciÃ³n cambios" src="https://github.com/user-attachments/assets/acb10a28-bfc4-488d-b4a6-e464d641815c" class="course-image"/>
+    <img width="1104" height="137" alt="VerificaciÃƒÂ³n cambios" src="https://github.com/user-attachments/assets/acb10a28-bfc4-488d-b4a6-e464d641815c" class="course-image"/>
     <img width="1073" height="364" alt="Slapcat output" src="https://github.com/user-attachments/assets/86230fbb-0f8b-45a5-abd1-ec3ef9b76b40" class="course-image"/>
 
     <p>Ahora modificamos el archivo <code>uo.ldif</code> (Unidades Organizativas):</p>
@@ -65,61 +66,61 @@ title: "Sprint 3. AdministraciÃ³n de dominios y seguridad"
     <p>Y finalmente, modificamos el archivo <code>usu.ldif</code>:</p>
     <img width="655" height="573" alt="Archivo usu.ldif" src="https://github.com/user-attachments/assets/cec6fb19-0e5c-4f28-8cb6-33a62c563bce" class="course-image"/>
     
-    <p>Una vez configurados los archivos, ejecutamos los comandos para aÃ±adir las entradas al directorio LDAP:</p>
-    <pre><code>ldapadd -c -x -D â€œcn=admin,dc=proves,dc=catâ€ -W -f uo.ldif
-ldapadd -c -x -D â€œcn=admin,dc=proves,dc=catâ€ -W -f usu.ldif
-ldapadd -c -x -D â€œcn=admin,dc=proves,dc=catâ€ -W -f grup.ldif</code></pre>
+    <p>Una vez configurados los archivos, ejecutamos los comandos para aÃƒÂ±adir las entradas al directorio LDAP:</p>
+    <pre><code>ldapadd -c -x -D Ã¢â‚¬Å“cn=admin,dc=proves,dc=catÃ¢â‚¬Â -W -f uo.ldif
+ldapadd -c -x -D Ã¢â‚¬Å“cn=admin,dc=proves,dc=catÃ¢â‚¬Â -W -f usu.ldif
+ldapadd -c -x -D Ã¢â‚¬Å“cn=admin,dc=proves,dc=catÃ¢â‚¬Â -W -f grup.ldif</code></pre>
     
-    <p>Tras ejecutar los tres comandos, deberÃ­a aparecer el mensaje "adding new entry" confirmando el Ã©xito de la operaciÃ³n:</p>
+    <p>Tras ejecutar los tres comandos, deberÃƒÂ­a aparecer el mensaje "adding new entry" confirmando el ÃƒÂ©xito de la operaciÃƒÂ³n:</p>
     <img width="684" height="577" alt="Resultado ldapadd" src="https://github.com/user-attachments/assets/5bf0626e-f2cd-4656-9ac5-f5223f54bce8" class="course-image"/>
     
     <p>En el equipo <strong>cliente</strong>, instalamos los siguientes paquetes necesarios:</p>
-    <img width="539" height="37" alt="InstalaciÃ³n cliente" src="https://github.com/user-attachments/assets/d1247b3d-9099-4eae-89fd-23569e928d88" class="course-image"/>
+    <img width="539" height="37" alt="InstalaciÃƒÂ³n cliente" src="https://github.com/user-attachments/assets/d1247b3d-9099-4eae-89fd-23569e928d88" class="course-image"/>
 
-    <img width="1249" height="487" alt="ConfiguraciÃ³n cliente 1" src="https://github.com/user-attachments/assets/a608fe52-1171-4b41-84e0-c85d667c1239" class="course-image" />
-    <img width="954" height="307" alt="ConfiguraciÃ³n cliente 2" src="https://github.com/user-attachments/assets/f4e70792-2efe-4dc3-82cb-588d10d8f84c" class="course-image"/>
-    <img width="1241" height="364" alt="ConfiguraciÃ³n cliente 3" src="https://github.com/user-attachments/assets/22abce91-a59b-4576-8d79-f8bb2a0894e6" class="course-image"/>
-    <img width="1215" height="430" alt="ConfiguraciÃ³n cliente 4" src="https://github.com/user-attachments/assets/1b293e54-8430-4a0c-be7d-bd6c69899a6c" class="course-image"/>
-    <img width="1185" height="382" alt="ConfiguraciÃ³n cliente 5" src="https://github.com/user-attachments/assets/d9ae6b5d-4215-41d9-bea4-9041aeefd887" class="course-image"/>
-    <img width="1237" height="386" alt="ConfiguraciÃ³n cliente 6" src="https://github.com/user-attachments/assets/ce968192-daf4-428b-8d0c-0c12f2409445" class="course-image"/>
-    <img width="952" height="490" alt="ConfiguraciÃ³n cliente 7" src="https://github.com/user-attachments/assets/4a2c9038-3f45-42e0-8ec1-355dce2805f8" class="course-image"/>
+    <img width="1249" height="487" alt="ConfiguraciÃƒÂ³n cliente 1" src="https://github.com/user-attachments/assets/a608fe52-1171-4b41-84e0-c85d667c1239" class="course-image" />
+    <img width="954" height="307" alt="ConfiguraciÃƒÂ³n cliente 2" src="https://github.com/user-attachments/assets/f4e70792-2efe-4dc3-82cb-588d10d8f84c" class="course-image"/>
+    <img width="1241" height="364" alt="ConfiguraciÃƒÂ³n cliente 3" src="https://github.com/user-attachments/assets/22abce91-a59b-4576-8d79-f8bb2a0894e6" class="course-image"/>
+    <img width="1215" height="430" alt="ConfiguraciÃƒÂ³n cliente 4" src="https://github.com/user-attachments/assets/1b293e54-8430-4a0c-be7d-bd6c69899a6c" class="course-image"/>
+    <img width="1185" height="382" alt="ConfiguraciÃƒÂ³n cliente 5" src="https://github.com/user-attachments/assets/d9ae6b5d-4215-41d9-bea4-9041aeefd887" class="course-image"/>
+    <img width="1237" height="386" alt="ConfiguraciÃƒÂ³n cliente 6" src="https://github.com/user-attachments/assets/ce968192-daf4-428b-8d0c-0c12f2409445" class="course-image"/>
+    <img width="952" height="490" alt="ConfiguraciÃƒÂ³n cliente 7" src="https://github.com/user-attachments/assets/4a2c9038-3f45-42e0-8ec1-355dce2805f8" class="course-image"/>
 
     <p>Editamos el archivo <code>/etc/nsswitch.conf</code>:</p>
     <img width="1230" height="608" alt="nsswitch.conf" src="https://github.com/user-attachments/assets/47b3a840-3479-46c8-8cb9-799ff882e319" class="course-image"/>
     
-    <p>Al final del archivo <code>/etc/pam.d/common-session</code> (o el correspondiente segÃºn la configuraciÃ³n), aÃ±adimos la siguiente lÃ­nea para la creaciÃ³n automÃ¡tica del directorio home:</p>
+    <p>Al final del archivo <code>/etc/pam.d/common-session</code> (o el correspondiente segÃƒÂºn la configuraciÃƒÂ³n), aÃƒÂ±adimos la siguiente lÃƒÂ­nea para la creaciÃƒÂ³n automÃƒÂ¡tica del directorio home:</p>
     <pre><code>session optional pam_mkhomedir.so skel=/etc/skel umask=022</code></pre>
 
-    <h2 class="sub">Instalar interfaz grÃ¡fica</h2>
+    <h2 class="sub">Instalar interfaz grÃƒÂ¡fica</h2>
     <p>Instalamos la herramienta <strong>LDAP Account Manager (LAM)</strong>.</p>
-    <p>Accedemos al administrador a travÃ©s del navegador web en la direcciÃ³n: <code>http://localhost/lam</code></p>
+    <p>Accedemos al administrador a travÃƒÂ©s del navegador web en la direcciÃƒÂ³n: <code>http://localhost/lam</code></p>
     <img width="589" height="414" alt="Login LAM" src="https://github.com/user-attachments/assets/e1151ee9-68b8-4f61-b3d5-c0ff03cb1112" class="course-image"/>
 
     <p>Nos dirigimos a <strong>LAM Configuration > Edit server profiles</strong>:</p>
-    <img width="576" height="416" alt="ConfiguraciÃ³n LAM" src="https://github.com/user-attachments/assets/caefcec7-dfbc-4543-87e6-baa8c5484dcd" class="course-image"/>
+    <img width="576" height="416" alt="ConfiguraciÃƒÂ³n LAM" src="https://github.com/user-attachments/assets/caefcec7-dfbc-4543-87e6-baa8c5484dcd" class="course-image"/>
 
     <h2 class="sub">Instalar SAMBA y LDAP</h2>
     <p>Para instalar Samba, ejecutamos el siguiente comando:</p>
     <pre><code>sudo apt install samba</code></pre>
 
-    <p>AÃ±adimos usuarios (ejemplo: azul) con el siguiente comando:</p>
+    <p>AÃƒÂ±adimos usuarios (ejemplo: azul) con el siguiente comando:</p>
     <pre><code>useradd -M -s /sbin/nologin azul</code></pre>
     <img width="560" height="109" alt="Useradd" src="https://github.com/user-attachments/assets/6017ae29-56bd-4dda-8445-d58a6bd87e23" class="course-image"/>
     
-    <p>A continuaciÃ³n, aÃ±adimos los usuarios a Samba:</p>
+    <p>A continuaciÃƒÂ³n, aÃƒÂ±adimos los usuarios a Samba:</p>
     <img width="254" height="268" alt="Smbpasswd" src="https://github.com/user-attachments/assets/1f482bda-c2b9-47c9-8f29-e015b2c045e5" class="course-image"/>
     
-    <p>Editamos el archivo de configuraciÃ³n con <code>nano /etc/samba/smb.conf</code> y reiniciamos el servicio:</p>
-    <img width="987" height="583" alt="ConfiguraciÃ³n Samba" src="https://github.com/user-attachments/assets/6bd98594-e56a-4096-a5b5-4392becafd34" class="course-image"/>
+    <p>Editamos el archivo de configuraciÃƒÂ³n con <code>nano /etc/samba/smb.conf</code> y reiniciamos el servicio:</p>
+    <img width="987" height="583" alt="ConfiguraciÃƒÂ³n Samba" src="https://github.com/user-attachments/assets/6bd98594-e56a-4096-a5b5-4392becafd34" class="course-image"/>
     
-    <p>Para comprobar la conexiÃ³n, podemos utilizar <code>smbclient</code>.</p>
+    <p>Para comprobar la conexiÃƒÂ³n, podemos utilizar <code>smbclient</code>.</p>
 
-    <h2 class="sub">LDAP y SMB (IntegraciÃ³n)</h2>
-    <p>Para realizar la integraciÃ³n, instalamos los paquetes necesarios:</p>
+    <h2 class="sub">LDAP y SMB (IntegraciÃƒÂ³n)</h2>
+    <p>Para realizar la integraciÃƒÂ³n, instalamos los paquetes necesarios:</p>
     <pre><code>sudo apt install libnss-ldap libpam-ldap smbldap-tools -y</code></pre>
 
     <p>Editamos <code>nano /etc/samba/smb.conf</code> e incluimos lo siguiente dentro del bloque <code>[global]</code>:</p>
-    <pre><code># ConfiguraciÃ³ Backend LDAP
+    <pre><code># ConfiguraciÃƒÂ³ Backend LDAP
 passdb backend = ldapsam:ldap://localhost
 ldap suffix = dc=proves,dc=cat
 ldap user suffix = ou=usuaris
@@ -128,7 +129,7 @@ ldap group suffix = ou=grups
 ldap admin dn = cn=admin,dc=proves,dc=cat
 ldap ssl = no</code></pre>
 
-    <p>Creamos el recurso compartido editando nuevamente el archivo <code>/etc/samba/smb.conf</code> y aÃ±adiendo:</p>
+    <p>Creamos el recurso compartido editando nuevamente el archivo <code>/etc/samba/smb.conf</code> y aÃƒÂ±adiendo:</p>
     <pre><code>[recurs_alu1]
 comment = Carpeta privada alu1 
 path = /srv/samba/alu1
@@ -150,14 +151,14 @@ systemctl restart smbd nmbd</code></pre>
     <p>Para verificar el funcionamiento:</p>
     <ol>
         <li>Desde el equipo cliente (asegurando conectividad previa), abrimos el navegador de archivos.</li>
-        <li>Vamos a â€œOtras ubicacionesâ€ e introducimos: <code>smb://10.0.2.15/recurs_alu1</code>.</li>
-        <li>Se solicitarÃ¡ autenticaciÃ³n. Introducimos:
+        <li>Vamos a Ã¢â‚¬Å“Otras ubicacionesÃ¢â‚¬Â e introducimos: <code>smb://10.0.2.15/recurs_alu1</code>.</li>
+        <li>Se solicitarÃƒÂ¡ autenticaciÃƒÂ³n. Introducimos:
             <ul>
                 <li><strong>Usuario:</strong> alu1</li>
-                <li><strong>ContraseÃ±a:</strong> (la definida en el archivo <code>usu.ldif</code>).</li>
+                <li><strong>ContraseÃƒÂ±a:</strong> (la definida en el archivo <code>usu.ldif</code>).</li>
             </ul>
         </li>
-        <li>Si la configuraciÃ³n es correcta, tendremos acceso para crear y editar carpetas.</li>
+        <li>Si la configuraciÃƒÂ³n es correcta, tendremos acceso para crear y editar carpetas.</li>
     </ol>
 
 </main>
@@ -166,7 +167,7 @@ systemctl restart smbd nmbd</code></pre>
 <button id="scrollToBottomBtn" class="scroll-btn" title="Ir abajo"><i class="fa-solid fa-arrow-down"></i></button>
 
 <script>
-// BotÃ³n para subir
+// BotÃƒÂ³n para subir
 document.getElementById('scrollToTopBtn').addEventListener('click', function() {
     window.scrollTo({
         top: 0,
@@ -174,7 +175,7 @@ document.getElementById('scrollToTopBtn').addEventListener('click', function() {
     });
 });
 
-// BotÃ³n para bajar
+// BotÃƒÂ³n para bajar
 document.getElementById('scrollToBottomBtn').addEventListener('click', function() {
     window.scrollTo({
         top: document.body.scrollHeight,
@@ -182,12 +183,12 @@ document.getElementById('scrollToBottomBtn').addEventListener('click', function(
     });
 });
 
-// Mostrar/ocultar botones segÃºn la posiciÃ³n del scroll
+// Mostrar/ocultar botones segÃƒÂºn la posiciÃƒÂ³n del scroll
 window.addEventListener('scroll', function() {
     const scrollTopBtn = document.getElementById('scrollToTopBtn');
     const scrollBottomBtn = document.getElementById('scrollToBottomBtn');
     
-    // Mostrar botÃ³n de subir solo si no estamos arriba del todo
+    // Mostrar botÃƒÂ³n de subir solo si no estamos arriba del todo
     if (window.pageYOffset > 300) {
         scrollTopBtn.style.opacity = '1';
         scrollTopBtn.style.pointerEvents = 'auto';
@@ -195,7 +196,7 @@ window.addEventListener('scroll', function() {
         scrollTopBtn.style.opacity = '0.3';
     }
     
-    // Mostrar botÃ³n de bajar solo si no estamos abajo del todo
+    // Mostrar botÃƒÂ³n de bajar solo si no estamos abajo del todo
     if ((window.innerHeight + window.pageYOffset) < document.body.scrollHeight - 100) {
         scrollBottomBtn.style.opacity = '1';
         scrollBottomBtn.style.pointerEvents = 'auto';
@@ -229,7 +230,7 @@ code {
     font-size: 0.9em;
 }
 
-/* Estilo adicional para bloques de cÃ³digo */
+/* Estilo adicional para bloques de cÃƒÂ³digo */
 pre {
     background-color: #282c34;
     padding: 1rem;
