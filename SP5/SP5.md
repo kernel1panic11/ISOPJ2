@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<div class="navigation-links nav-sticky">
+    <a href="{{ '/SP4/SP4.md' | relative_url }}"><i class="fa-solid fa-arrow-left"></i> Práctica anterior</a>
+    <a href="{{ '/' | relative_url }}"><i class="fa-solid fa-house"></i> Volver al inicio</a>
+</div>
 <html lang="es">
 <head>
     <meta charset="UTF-8">

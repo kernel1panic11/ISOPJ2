@@ -1,3 +1,9 @@
+<div class="navigation-links nav-sticky">
+    <a href="{{ '/SP3/SP3.md' | relative_url }}"><i class="fa-solid fa-arrow-left"></i> Práctica anterior</a>
+    <a href="{{ '/' | relative_url }}"><i class="fa-solid fa-house"></i> Volver al inicio</a>
+    <a href="{{ '/SP5/SP5.md' | relative_url }}">Siguiente práctica <i class="fa-solid fa-arrow-right"></i></a>
+</div>
+
 <h1>Sprin 4, RAIDS</h1>
 <img width="796" height="295" alt="image" src="https://github.com/user-attachments/assets/6da14769-c11f-417a-ac9c-f21fdace066d" />
 
