@@ -19,12 +19,12 @@ title: Sprint 2
         Se añade un disco virtual de 20 GB tipo NVMe en VMware para trabajar almacenamiento de forma aislada respecto al sistema principal.
     </p>
     <div class="capture-placeholder">
-        <img class="course-image" src="https://github.com/user-attachments/assets/e5364ba0-a1b5-48e7-80a4-41af81a8e87f" />
-        <img class="course-image" src="https://github.com/user-attachments/assets/273a64d7-f983-4ba2-b550-63cd0a911649" />
-        <img class="course-image" src="https://github.com/user-attachments/assets/5613317d-fed3-4a39-9fcf-77a2b18e0a1b" />
-        <img class="course-image" src="https://github.com/user-attachments/assets/97bb6d4a-fb89-43e6-b328-ac1dd7124667" />
-        <img class="course-image" src="https://github.com/user-attachments/assets/5961ae48-5ee6-4cf5-974e-214dd6961491" />
-        <img class="course-image" src="https://github.com/user-attachments/assets/1dfe022f-16ae-4884-85b8-b994db15599f" />
+        <img class="course-image" src="img/1.png" />
+        <img class="course-image" src="img/2.png" />
+        <img class="course-image" src="img/3.png" />
+        <img class="course-image" src="img/4.png" />
+        <img class="course-image" src="img/5.png" />
+        <img class="course-image" src="img/6.png" />
     </div>
 
     <h3>Paso 2. Inicialización del disco</h3>
@@ -32,7 +32,7 @@ title: Sprint 2
         Se inicializa el disco en formato GPT, adecuado para sistemas actuales y compatible con Windows 11.
     </p>
     <div class="capture-placeholder">
-        <img class="course-image" src="https://github.com/user-attachments/assets/98109882-e659-4e4e-bfa2-b50c53961428" />
+        <img class="course-image" src="img/7.png" />
     </div>
 
     <h3>Paso 3. Creación de particiones</h3>
@@ -40,14 +40,14 @@ title: Sprint 2
         Se crean dos particiones: Dades (NTFS, 15 GB) para almacenamiento controlado y Portable (FAT32, 5 GB) para compatibilidad externa.
     </p>
     <div class="capture-placeholder">
-        <img class="course-image" src="https://github.com/user-attachments/assets/8cc5d29a-33f5-48c1-94a8-37418d3b9712" />
-        <img class="course-image" src="https://github.com/user-attachments/assets/e74947a6-5b8a-4241-9191-443b8fc49b55" />
-        <img class="course-image" src="https://github.com/user-attachments/assets/e7259106-cbec-47b9-b5e7-bb339cc9693a" />
-        <img class="course-image" src="https://github.com/user-attachments/assets/31ef7011-45b2-45f6-b588-e698c5ed643c" />
-        <img class="course-image" src="https://github.com/user-attachments/assets/7945e69a-f986-4f97-aeab-e4b6cc99d1cc" />
-        <img class="course-image" src="https://github.com/user-attachments/assets/2e862e4c-db38-45bd-a465-33bb1fc6faaf" />
-        <img class="course-image" src="https://github.com/user-attachments/assets/9ec20b88-9262-42af-aaa4-8c968dcd0b71" />
-        <img class="course-image" src="https://github.com/user-attachments/assets/635fe4f3-6e32-4c7d-91d9-b95ae2a7f90f" />
+        <img class="course-image" src="img/8.png" />
+        <img class="course-image" src="img/9.png" />
+        <img class="course-image" src="img/10.png" />
+        <img class="course-image" src="img/11.png" />
+        <img class="course-image" src="img/12.png" />
+        <img class="course-image" src="img/13.png" />
+        <img class="course-image" src="img/14.png" />
+        <img class="course-image" src="img/15.png" />
     </div>
 
     <h3>Paso 4. Verificación con diskpart</h3>
@@ -55,8 +55,8 @@ title: Sprint 2
         Se verifica la configuración mediante diskpart, comprobando discos y volúmenes.
     </p>
     <div class="capture-placeholder">
-        <img class="course-image" src="https://github.com/user-attachments/assets/2bd6726f-944c-4cc8-9c00-0f35ccd580b9" />
-        <img class="course-image" src="https://github.com/user-attachments/assets/41beffb8-f7ad-41ef-8ca3-d695388fbf08" />
+        <img class="course-image" src="img/16.png" />
+        <img class="course-image" src="img/17.png" />
     </div>
 </div>
 
@@ -69,10 +69,10 @@ title: Sprint 2
         Se habilitan cuotas en la unidad Dades (NTFS), estableciendo límite de 300 MB por usuario con advertencia.
     </p>
     <div class="capture-placeholder">
-        <img class="course-image" src="https://github.com/user-attachments/assets/d8eab161-deb0-432e-a4a1-66ad01d70186" />
-        <img class="course-image" src="https://github.com/user-attachments/assets/ff29146e-ea1e-4c82-9be5-7424e51e340e" />
-        <img class="course-image" src="https://github.com/user-attachments/assets/6c1b8f9a-ac75-4dc9-9d40-b2208bd4e845" />
-        <img class="course-image" src="https://github.com/user-attachments/assets/385e1764-50bd-46fb-9a48-1c18b8db671a" />
+        <img class="course-image" src="img/18.png" />
+        <img class="course-image" src="img/19.png" />
+        <img class="course-image" src="img/20.png" />
+        <img class="course-image" src="img/21.png" />
     </div>
 
     <h3>Paso 6. Creación de usuarios y grupo</h3>
@@ -80,9 +80,9 @@ title: Sprint 2
         Se crean los usuarios alumne1 y alumne2 y se agrupan en Limitados para control conjunto de permisos.
     </p>
     <div class="capture-placeholder">
-        <img class="course-image" src="https://github.com/user-attachments/assets/20294171-0b42-4fec-b002-7363c4bb0d58" />
-        <img class="course-image" src="https://github.com/user-attachments/assets/48eea201-3e5a-4743-acc0-fce5605b2b49" />
-        <img class="course-image" src="https://github.com/user-attachments/assets/ba111b7b-0e78-4c56-bf2a-29091ea1fcb0" />
+        <img class="course-image" src="img/22.png" />
+        <img class="course-image" src="img/23.png" />
+        <img class="course-image" src="img/24.png" />
     </div>
 
     <h3>Paso 7. Prueba de cuotas</h3>
@@ -90,7 +90,7 @@ title: Sprint 2
         Se prueba con alumne1, superando el límite y comprobando el bloqueo de escritura.
     </p>
     <div class="capture-placeholder">
-        <img class="course-image" src="https://github.com/user-attachments/assets/9e60857e-e601-4d68-8908-cf318523fd5b" />
+        <img class="course-image" src="img/25.png" />
         <img class="course-image" src="https://github.com/user-attachments/assets/af211656-897c-46b9-b4a5-c8434f6a66b0" />
     </div>
 </div>
