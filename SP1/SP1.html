@@ -73,92 +73,92 @@ title: Sprint 1
         <img class="course-image" width="759" height="166" alt="Resultado final de la partición Portable creada"
             src="https://github.com/user-attachments/assets/635fe4f3-6e32-4c7d-91d9-b95ae2a7f90f" />
     </div>
+</div>
 
-    <p>
-        Una vez creados los volúmenes, se verificó la configuración desde línea de comandos utilizando
-        <code>diskpart</code>. Con <code>list disk</code> se confirmó la presencia de dos discos, uno principal de 64 GB
-        y el nuevo disco secundario de 20 GB. Después, con <code>list volume</code>, se comprobaron las particiones
-        visibles en el sistema, incluyendo los nuevos volúmenes Dades y Portable con sus respectivas letras y tamaños.
-        Esta validación permitió confirmar que la estructura de almacenamiento había quedado correctamente reconocida
-        por Windows antes de avanzar hacia la configuración de cuotas. La comprobación mediante <code>diskpart</code>
-        aparece expresamente en la propuesta del sprint como parte del cierre de esta primera fase.
-        :contentReference[oaicite:3]{index=3}
-    </p>
-    <div class="capture-placeholder">
-        <img class="course-image" width="523" height="134" alt="Comprobación de discos con diskpart"
-            src="https://github.com/user-attachments/assets/2bd6726f-944c-4cc8-9c00-0f35ccd580b9" />
-        <img class="course-image" width="718" height="192" alt="Comprobación de volúmenes con diskpart"
-            src="https://github.com/user-attachments/assets/41beffb8-f7ad-41ef-8ca3-d695388fbf08" />
-    </div>
+<p>
+    Una vez creados los volúmenes, se verificó la configuración desde línea de comandos utilizando
+    <code>diskpart</code>. Con <code>list disk</code> se confirmó la presencia de dos discos, uno principal de 64 GB
+    y el nuevo disco secundario de 20 GB. Después, con <code>list volume</code>, se comprobaron las particiones
+    visibles en el sistema, incluyendo los nuevos volúmenes Dades y Portable con sus respectivas letras y tamaños.
+    Esta validación permitió confirmar que la estructura de almacenamiento había quedado correctamente reconocida
+    por Windows antes de avanzar hacia la configuración de cuotas. La comprobación mediante <code>diskpart</code>
+    aparece expresamente en la propuesta del sprint como parte del cierre de esta primera fase.
+    :contentReference[oaicite:3]{index=3}
+</p>
+<div class="capture-placeholder">
+    <img class="course-image" width="523" height="134" alt="Comprobación de discos con diskpart"
+        src="https://github.com/user-attachments/assets/2bd6726f-944c-4cc8-9c00-0f35ccd580b9" />
+    <img class="course-image" width="718" height="192" alt="Comprobación de volúmenes con diskpart"
+        src="https://github.com/user-attachments/assets/41beffb8-f7ad-41ef-8ca3-d695388fbf08" />
+</div>
 
-    <h3>Fase 2. Cuotas de disco, usuarios y grupos</h3>
-    <p>
-        Una vez preparada la partición <strong>Dades</strong>, se accedió a sus propiedades para revisar la pestaña de
-        cuotas. En un primer momento, la gestión de cuotas se encontraba sin configurar. Posteriormente se habilitó la
-        administración de cuotas y se definió un límite de <strong>300 MB por usuario</strong>, junto con un nivel de
-        advertencia previo. Esta configuración convierte a la partición NTFS en un volumen controlado, capaz de
-        restringir el espacio disponible por identidad. Desde el punto de vista técnico, este comportamiento diferencia
-        claramente a NTFS de FAT32, ya que solo el primero permite aplicar este tipo de control de almacenamiento por
-        usuario. La propuesta del sprint establece precisamente la activación de cuotas sobre la partición de datos y la
-        fijación de un límite con advertencia como parte central de esta fase. :contentReference[oaicite:4]{index=4}
-    </p>
-    <div class="capture-placeholder">
-        <img class="course-image" width="620" height="551"
-            alt="Propiedades de la unidad Dades antes de configurar cuotas"
-            src="https://github.com/user-attachments/assets/d8eab161-deb0-432e-a4a1-66ad01d70186" />
-        <img class="course-image" width="357" height="522" alt="Pestaña de cuotas sin configurar"
-            src="https://github.com/user-attachments/assets/ff29146e-ea1e-4c82-9be5-7424e51e340e" />
-        <img class="course-image" width="356" height="449"
-            alt="Ventana interna de configuración de cuotas antes de activarlas"
-            src="https://github.com/user-attachments/assets/6c1b8f9a-ac75-4dc9-9d40-b2208bd4e845" />
-        <img class="course-image" width="349" height="435" alt="Cuotas habilitadas y configuradas con advertencia"
-            src="https://github.com/user-attachments/assets/385e1764-50bd-46fb-9a48-1c18b8db671a" />
-    </div>
+<h3>Fase 2. Cuotas de disco, usuarios y grupos</h3>
+<p>
+    Una vez preparada la partición <strong>Dades</strong>, se accedió a sus propiedades para revisar la pestaña de
+    cuotas. En un primer momento, la gestión de cuotas se encontraba sin configurar. Posteriormente se habilitó la
+    administración de cuotas y se definió un límite de <strong>300 MB por usuario</strong>, junto con un nivel de
+    advertencia previo. Esta configuración convierte a la partición NTFS en un volumen controlado, capaz de
+    restringir el espacio disponible por identidad. Desde el punto de vista técnico, este comportamiento diferencia
+    claramente a NTFS de FAT32, ya que solo el primero permite aplicar este tipo de control de almacenamiento por
+    usuario. La propuesta del sprint establece precisamente la activación de cuotas sobre la partición de datos y la
+    fijación de un límite con advertencia como parte central de esta fase. :contentReference[oaicite:4]{index=4}
+</p>
+<div class="capture-placeholder">
+    <img class="course-image" width="620" height="551" alt="Propiedades de la unidad Dades antes de configurar cuotas"
+        src="https://github.com/user-attachments/assets/d8eab161-deb0-432e-a4a1-66ad01d70186" />
+    <img class="course-image" width="357" height="522" alt="Pestaña de cuotas sin configurar"
+        src="https://github.com/user-attachments/assets/ff29146e-ea1e-4c82-9be5-7424e51e340e" />
+    <img class="course-image" width="356" height="449"
+        alt="Ventana interna de configuración de cuotas antes de activarlas"
+        src="https://github.com/user-attachments/assets/6c1b8f9a-ac75-4dc9-9d40-b2208bd4e845" />
+    <img class="course-image" width="349" height="435" alt="Cuotas habilitadas y configuradas con advertencia"
+        src="https://github.com/user-attachments/assets/385e1764-50bd-46fb-9a48-1c18b8db671a" />
+</div>
 
-    <p>
-        A continuación se crearon dos usuarios locales, <strong>alumne1</strong> y <strong>alumne2</strong>, que serán
-        utilizados en el resto del sprint para probar comportamientos diferenciados sobre almacenamiento y permisos.
-        Después se creó el grupo <strong>Limitats</strong> y se añadieron ambos usuarios a dicho grupo. Esta
-        organización permite administrar el acceso de forma más ordenada, dejando preparada la base para futuras
-        configuraciones de permisos sobre carpetas y recursos compartidos. El enunciado general insiste precisamente en
-        la creación de cuentas locales y grupos como parte de la administración del sistema, y la propuesta del sprint
-        concreta estos nombres y esta agrupación. :contentReference[oaicite:5]{index=5}
-        :contentReference[oaicite:6]{index=6}
-    </p>
-    <div class="capture-placeholder">
-        <img class="course-image" width="470" height="168" alt="Creación de los usuarios locales alumne1 y alumne2"
-            src="https://github.com/user-attachments/assets/20294171-0b42-4fec-b002-7363c4bb0d58" />
-        <img class="course-image" width="606" height="232" alt="Creación del grupo Limitats y adición de usuarios"
-            src="https://github.com/user-attachments/assets/48eea201-3e5a-4743-acc0-fce5605b2b49" />
-        <img class="course-image" width="630" height="218"
-            alt="Comprobación de que los usuarios se han añadido correctamente al grupo"
-            src="https://github.com/user-attachments/assets/ba111b7b-0e78-4c56-bf2a-29091ea1fcb0" />
-    </div>
+<p>
+    A continuación se crearon dos usuarios locales, <strong>alumne1</strong> y <strong>alumne2</strong>, que serán
+    utilizados en el resto del sprint para probar comportamientos diferenciados sobre almacenamiento y permisos.
+    Después se creó el grupo <strong>Limitats</strong> y se añadieron ambos usuarios a dicho grupo. Esta
+    organización permite administrar el acceso de forma más ordenada, dejando preparada la base para futuras
+    configuraciones de permisos sobre carpetas y recursos compartidos. El enunciado general insiste precisamente en
+    la creación de cuentas locales y grupos como parte de la administración del sistema, y la propuesta del sprint
+    concreta estos nombres y esta agrupación. :contentReference[oaicite:5]{index=5}
+    :contentReference[oaicite:6]{index=6}
+</p>
+<div class="capture-placeholder">
+    <img class="course-image" width="470" height="168" alt="Creación de los usuarios locales alumne1 y alumne2"
+        src="https://github.com/user-attachments/assets/20294171-0b42-4fec-b002-7363c4bb0d58" />
+    <img class="course-image" width="606" height="232" alt="Creación del grupo Limitats y adición de usuarios"
+        src="https://github.com/user-attachments/assets/48eea201-3e5a-4743-acc0-fce5605b2b49" />
+    <img class="course-image" width="630" height="218"
+        alt="Comprobación de que los usuarios se han añadido correctamente al grupo"
+        src="https://github.com/user-attachments/assets/ba111b7b-0e78-4c56-bf2a-29091ea1fcb0" />
+</div>
 
-    <p>
-        Para comprobar el funcionamiento real de las cuotas, se inició sesión con el usuario <strong>alumne1</strong> y
-        se realizaron pruebas directas sobre la unidad <strong>Dades</strong>. Tras el primer inicio de sesión, se
-        generaron archivos mediante línea de comandos con el objetivo de consumir espacio en la partición limitada. El
-        resultado observado fue que la primera creación se completaba correctamente, mientras que la segunda ya fallaba
-        al superarse el umbral configurado. Esto confirma que la cuota aplicada estaba actuando de forma efectiva y que
-        el sistema restringía la escritura una vez alcanzado el límite definido para ese usuario. La propuesta del
-        sprint señala precisamente esta prueba de copia de ficheros como la forma de verificar el comportamiento de las
-        cuotas al superar el límite establecido. :contentReference[oaicite:7]{index=7}
-    </p>
-    <div class="capture-placeholder">
-        <img class="course-image" width="1626" height="794" alt="Primer inicio de sesión con alumne1"
-            src="https://github.com/user-attachments/assets/9e60857e-e601-4d68-8908-cf318523fd5b" />
-        <img class="course-image" width="584" height="148"
-            alt="Creación de archivos en la unidad Dades y bloqueo al superar la cuota"
-            src="https://github.com/user-attachments/assets/af211656-897c-46b9-b4a5-c8434f6a66b0" />
-    </div>
+<p>
+    Para comprobar el funcionamiento real de las cuotas, se inició sesión con el usuario <strong>alumne1</strong> y
+    se realizaron pruebas directas sobre la unidad <strong>Dades</strong>. Tras el primer inicio de sesión, se
+    generaron archivos mediante línea de comandos con el objetivo de consumir espacio en la partición limitada. El
+    resultado observado fue que la primera creación se completaba correctamente, mientras que la segunda ya fallaba
+    al superarse el umbral configurado. Esto confirma que la cuota aplicada estaba actuando de forma efectiva y que
+    el sistema restringía la escritura una vez alcanzado el límite definido para ese usuario. La propuesta del
+    sprint señala precisamente esta prueba de copia de ficheros como la forma de verificar el comportamiento de las
+    cuotas al superar el límite establecido. :contentReference[oaicite:7]{index=7}
+</p>
+<div class="capture-placeholder">
+    <img class="course-image" width="1626" height="794" alt="Primer inicio de sesión con alumne1"
+        src="https://github.com/user-attachments/assets/9e60857e-e601-4d68-8908-cf318523fd5b" />
+    <img class="course-image" width="584" height="148"
+        alt="Creación de archivos en la unidad Dades y bloqueo al superar la cuota"
+        src="https://github.com/user-attachments/assets/af211656-897c-46b9-b4a5-c8434f6a66b0" />
+</div>
 
-    <p>
-        Con estas acciones queda documentada la parte realizada hasta ahora del Sprint 2. El entorno dispone ya de
-        almacenamiento adicional correctamente estructurado, con dos sistemas de archivos diferenciados, una partición
-        NTFS preparada para administración avanzada, cuotas activas y usuarios reales sobre los que validar su
-        funcionamiento. A partir de este punto, el sistema queda listo para continuar con las siguientes fases
-        previstas, como la automatización de copias, la gestión de procesos y la aplicación de permisos avanzados
-        mediante ACL.
-    </p>
+<p>
+    Con estas acciones queda documentada la parte realizada hasta ahora del Sprint 2. El entorno dispone ya de
+    almacenamiento adicional correctamente estructurado, con dos sistemas de archivos diferenciados, una partición
+    NTFS preparada para administración avanzada, cuotas activas y usuarios reales sobre los que validar su
+    funcionamiento. A partir de este punto, el sistema queda listo para continuar con las siguientes fases
+    previstas, como la automatización de copias, la gestión de procesos y la aplicación de permisos avanzados
+    mediante ACL.
+</p>
 </div>
