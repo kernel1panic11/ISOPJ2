@@ -3,6 +3,12 @@ layout: default
 title: "Sprint 3. Administración de dominios y seguridad"
 ---
 
+<div class="navigation-links nav-sticky">
+    <a href="{{ '/SP2/SP2.html' | relative_url }}"><i class="fa-solid fa-arrow-left"></i> Práctica anterior</a>
+    <a href="{{ '/' | relative_url }}"><i class="fa-solid fa-house"></i> Volver al inicio</a>
+    <a href="{{ '/SP4/SP4.md' | relative_url }}">Siguiente práctica <i class="fa-solid fa-arrow-right"></i></a>
+</div>
+
 <main class="contenedor-principal">
     <h1 class="titulo">Sprint 3. Administración de dominios y seguridad</h1>
     <div class="loading-bar"><div class="loading-progress"></div></div>
