@@ -21,5 +21,39 @@
 
     {{ content }}
 
+    <!-- Botones de Scroll Globales -->
+    <button id="scrollToTopBtn" class="scroll-btn" title="Ir arriba"><i class="fa-solid fa-arrow-up"></i></button>
+    <button id="scrollToBottomBtn" class="scroll-btn" title="Ir abajo"><i class="fa-solid fa-arrow-down"></i></button>
+
+    <script>
+    document.getElementById('scrollToTopBtn').addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    document.getElementById('scrollToBottomBtn').addEventListener('click', function() {
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    });
+
+    window.addEventListener('scroll', function() {
+        const scrollTopBtn = document.getElementById('scrollToTopBtn');
+        const scrollBottomBtn = document.getElementById('scrollToBottomBtn');
+        
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.style.opacity = '1';
+            scrollTopBtn.style.pointerEvents = 'auto';
+        } else {
+            scrollTopBtn.style.opacity = '0.3';
+            scrollTopBtn.style.pointerEvents = 'none';
+        }
+        
+        if ((window.innerHeight + window.pageYOffset) < document.body.scrollHeight - 100) {
+            scrollBottomBtn.style.opacity = '1';
+            scrollBottomBtn.style.pointerEvents = 'auto';
+        } else {
+            scrollBottomBtn.style.opacity = '0.3';
+            scrollBottomBtn.style.pointerEvents = 'none';
+        }
+    });
+    </script>
 </body>
 </html>
