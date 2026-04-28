@@ -161,6 +161,68 @@ systemctl restart smbd nmbd</code></pre>
         <li>Si la configuraciÃƒÂ³n es correcta, tendremos acceso para crear y editar carpetas.</li>
     </ol>
 
+
+
+    <h2 class="sub">Active Directory en Windows Server (SP3)</h2>
+    <p>En este bloque dejamos una guía rápida para montar un <strong>Controlador de Dominio (AD DS)</strong> y unir un cliente Windows al dominio usando una cuenta administradora del dominio.</p>
+
+    <h3>Paso 1. Preparación del servidor</h3>
+    <ul>
+        <li>Asignar <strong>IP fija</strong> al servidor (ejemplo: <code>192.168.10.10/24</code>).</li>
+        <li>Configurar como DNS preferido la propia IP del servidor.</li>
+        <li>Renombrar el equipo (ejemplo: <code>SRV-AD01</code>) y reiniciar.</li>
+    </ul>
+
+    <h3>Paso 2. Instalar el rol de AD DS</h3>
+    <ol>
+        <li>Abrir <strong>Server Manager</strong> → <strong>Add roles and features</strong>.</li>
+        <li>Seleccionar <strong>Active Directory Domain Services (AD DS)</strong> y completar el asistente.</li>
+        <li>Al terminar, pulsar <strong>Promote this server to a domain controller</strong>.</li>
+    </ol>
+
+    <h3>Paso 3. Promocionar a controlador de dominio</h3>
+    <ul>
+        <li>Elegir <strong>Add a new forest</strong>.</li>
+        <li>Definir dominio raíz (ejemplo: <code>empresa.local</code>).</li>
+        <li>Establecer contraseña de <strong>DSRM</strong>.</li>
+        <li>Finalizar el asistente y reiniciar automáticamente el servidor.</li>
+    </ul>
+
+    <h3>Paso 4. Crear usuario administrador de dominio para unión</h3>
+    <ol>
+        <li>Abrir <strong>Tools → Active Directory Users and Computers</strong>.</li>
+        <li>Crear un usuario (ejemplo: <code>admin.join</code>).</li>
+        <li>Añadirlo al grupo <strong>Domain Admins</strong> (solo para prácticas/lab).</li>
+    </ol>
+
+    <h3>Paso 5. Preparar cliente Windows</h3>
+    <ul>
+        <li>Configurar DNS del cliente apuntando al DC (ejemplo: <code>192.168.10.10</code>).</li>
+        <li>Comprobar conectividad con <code>ping SRV-AD01</code> y <code>ping empresa.local</code>.</li>
+    </ul>
+
+    <h3>Paso 6. Unir el cliente al dominio como administrador</h3>
+    <ol>
+        <li>En el cliente: <strong>Configuración avanzada del sistema → Nombre de equipo → Cambiar</strong>.</li>
+        <li>Marcar <strong>Dominio</strong> e introducir <code>empresa.local</code>.</li>
+        <li>Autenticar con una cuenta con permisos (ejemplo: <code>EMPRESA\Administrator</code> o <code>EMPRESA\admin.join</code>).</li>
+        <li>Aceptar el mensaje de bienvenida al dominio y reiniciar el cliente.</li>
+    </ol>
+
+    <h3>Verificación final</h3>
+    <ul>
+        <li>Iniciar sesión en el cliente con <code>EMPRESA\usuario</code>.</li>
+        <li>Comprobar en ADUC que el equipo aparece dentro de <strong>Computers</strong> o en la OU correspondiente.</li>
+        <li>Opcional: ejecutar <code>whoami</code> en el cliente para confirmar el contexto de dominio.</li>
+    </ul>
+
+    <pre><code># Comandos útiles en PowerShell (servidor)
+Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
+Install-ADDSForest -DomainName "empresa.local" -InstallDNS
+
+# Comandos útiles en PowerShell (cliente)
+Add-Computer -DomainName "empresa.local" -Credential "EMPRESA\Administrator" -Restart</code></pre>
+
 </main>
 
 <button id="scrollToTopBtn" class="scroll-btn" title="Ir arriba"><i class="fa-solid fa-arrow-up"></i></button>
