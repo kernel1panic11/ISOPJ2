@@ -36,13 +36,20 @@ Ahora le indicamos que contraseña queremos poner
 10
 Despues de eso, le dames a siguiente hasta llegar a resumen, le dejamos que se instale y se reiniciara el host
 Despues de eso crear usuario en el ad
+Vamos users y equipos de ad
 11
-Crear unidad formativa 
+
 12
-Para conectar el win cliente con el server, lo que hay que hacer es editar el dominio local del cliente al del server y así te conectas, reinicias
 13
-Y ahora entras con los credenciales que creaste en el server 
 14
+Crear unidad formativa 
+15
+16
+17
+Para conectar el win cliente con el server, lo que hay que hacer es editar el dominio local del cliente al del server y así te conectas, reinicias
+19
+Y ahora entras con los credenciales que creaste en el server 
+
 
 p.d, estoy usando windows server datacenter 2025 y windows 11 pro
 
