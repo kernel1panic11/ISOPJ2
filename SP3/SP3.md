@@ -52,5 +52,6 @@ Para conectar el win cliente con el server, lo que hay que hacer es editar el do
 Y ahora entras con los credenciales que creaste en el server 
 19
 20
+
 p.d, estoy usando windows server datacenter 2025 y windows 11 pro
 
