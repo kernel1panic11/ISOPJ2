@@ -47,9 +47,10 @@ Crear unidad formativa
 16
 17
 Para conectar el win cliente con el server, lo que hay que hacer es editar el dominio local del cliente al del server y así te conectas, reinicias
-19
-Y ahora entras con los credenciales que creaste en el server 
+18
 
+Y ahora entras con los credenciales que creaste en el server 
+19
 
 p.d, estoy usando windows server datacenter 2025 y windows 11 pro
 
